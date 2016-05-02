@@ -1,0 +1,20 @@
+<h1>
+  <%= @lesson.hash_tag %>
+  <small>
+    <%= link_to "Edit This Lesson", edit_lesson_path(@lesson.id) %>
+    <%= link_to "Delete This Lesson", lesson_path(@lesson.id), :method => :delete %>
+  </small>
+</h1>
+
+<div class="details">
+
+  <p><strong>Created At:</strong> <%= @lesson.created_at %></p>
+
+  <p><strong>Tweets: </strong></p>
+  <p><strong>Tweet 1:</strong> <%= @lesson.tweet1 %></p>
+  <p><strong>Tweet 2:</strong> <%= @lesson.tweet2 %></p>
+  <p><strong>Tweet 3:</strong> <%= @lesson.tweet3 %></p>
+  <p><strong>Tweet 4:</strong> <%= @lesson.tweet4 %></p>
+  <p><strong>Tweet 5:</strong> <%= @lesson.tweet5 %></p>
+
+</div>
