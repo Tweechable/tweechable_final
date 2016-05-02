@@ -1,0 +1,8 @@
+Lesson
+  hash_tag: string
+  created_at: datetime
+  tweet1: string
+  tweet2: string
+  tweet3: string
+  tweet4: string
+  tweet5: string
