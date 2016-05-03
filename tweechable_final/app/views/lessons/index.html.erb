@@ -1,5 +1,14 @@
-<% @lessons.each do |lesson| %>
-<div>
-  <h3><%= link_to lesson.hash_tag, lesson_path(lesson.id) %></h3>
+<div class="row">
+  <% @lessons.each do |lesson| %>
+      <div class="col-md-4">
+        <h3><%= link_to lesson.hash_tag, lesson_path(lesson.id) %></h3>
+        <p><%= lesson.tweet1 %></p>
+        <p><%= lesson.tweet2 %></p>
+        <p><%= lesson.tweet3 %></p>
+        <p><%= lesson.tweet4 %></p>
+        <p><%= lesson.tweet5 %></p>
+      </div>
+  <% end %>
 </div>
-<% end %>
+
+<%= render 'shared/twitterfeed' %>

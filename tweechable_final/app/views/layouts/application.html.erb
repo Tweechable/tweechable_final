@@ -8,17 +8,10 @@
 </head>
 <body>
 
-  <nav>
-    <ul>
-      <h3><%= link_to "Main", "/lessons" %></h3>
-      <li><%= link_to "Add A New Lesson", new_lesson_path %></li>
-    </ul>
-  </nav>
+  <%= render 'shared/navigation' %>
 
   <div class="container-fluid">
-
     <%= yield %>
-
   </div>
 
 </body>
