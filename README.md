@@ -8,3 +8,14 @@
 	- Github: https://github.com/Tweechable/tweechable
 
 #### Thanks Kevin for allowing me to develope this idea for my web development final course project. This is NOT the official tweechable repository. 
+
+#### To run locally 
+	- git clone the repository
+	- on terminal
+		- cd into the directory
+		- bundle install
+		- rake db:migrate
+		- rake db:seed
+		- rails server
+		
+
