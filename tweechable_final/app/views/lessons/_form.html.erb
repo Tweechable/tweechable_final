@@ -14,9 +14,9 @@
 
     <% (1..5).each do |i| %>
         <p>
-          <%= form.label ("tweet"+i.to_s).to_sym %>
+          <%= form.label ("t"+i.to_s).to_sym %>
           <br>
-          <%= form.text_area ("tweet"+i.to_s).to_sym, rows: 4, cols: 80 %>
+          <%= form.text_area ("t"+i.to_s).to_sym, rows: 4, cols: 80 %>
         </p>
     <% end %>
 

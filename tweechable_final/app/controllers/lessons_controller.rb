@@ -16,11 +16,11 @@ class LessonsController < ApplicationController
     lesson = Lesson.new
     lesson.hash_tag = params[:lesson][:hash_tag]
     lesson.created_at = params[:lesson][:date]
-    lesson.tweet1 = params[:lesson][:tweet1]
-    lesson.tweet2 = params[:lesson][:tweet2]
-    lesson.tweet3 = params[:lesson][:tweet3]
-    lesson.tweet4 = params[:lesson][:tweet4]
-    lesson.tweet5 = params[:lesson][:tweet5]
+    lesson.t1 = params[:lesson][:t1]
+    lesson.t2 = params[:lesson][:t2]
+    lesson.t3 = params[:lesson][:t3]
+    lesson.t4 = params[:lesson][:t4]
+    lesson.t5 = params[:lesson][:t5]
     lesson.save
     redirect_to lessons_url
   end
@@ -33,11 +33,11 @@ class LessonsController < ApplicationController
     lesson = Lesson.find_by(id: params[:id])
     lesson.hash_tag = params[:lesson][:hash_tag]
     lesson.created_at = params[:lesson][:date]
-    lesson.tweet1 = params[:lesson][:tweet1]
-    lesson.tweet2 = params[:lesson][:tweet2]
-    lesson.tweet3 = params[:lesson][:tweet3]
-    lesson.tweet4 = params[:lesson][:tweet4]
-    lesson.tweet5 = params[:lesson][:tweet5]
+    lesson.t1 = params[:lesson][:t1]
+    lesson.t2 = params[:lesson][:t2]
+    lesson.t3 = params[:lesson][:t3]
+    lesson.t4 = params[:lesson][:t4]
+    lesson.t5 = params[:lesson][:t5]
     lesson.save
     redirect_to lessons_url
   end

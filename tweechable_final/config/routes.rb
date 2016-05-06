@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'lessons#index'
+  root 'pages#show', page:'home'
 
   resources :lessons
+  get '/pages/:page' => 'pages#show'
   
 end

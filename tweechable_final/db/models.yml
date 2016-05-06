@@ -1,8 +1,13 @@
 Lesson
   hash_tag: string
   created_at: datetime
-  tweet1: string
-  tweet2: string
-  tweet3: string
-  tweet4: string
-  tweet5: string
+  t1: string
+  t2: string
+  t3: string
+  t4: string
+  t5: string
+  t6: string
+  t7: string
+  t8: string
+  t9: string
+  t10: string

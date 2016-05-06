@@ -16,11 +16,16 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "lessons", force: :cascade do |t|
     t.string   "hash_tag"
     t.datetime "created_at"
-    t.string   "tweet1"
-    t.string   "tweet2"
-    t.string   "tweet3"
-    t.string   "tweet4"
-    t.string   "tweet5"
+    t.string   "t1"
+    t.string   "t2"
+    t.string   "t3"
+    t.string   "t4"
+    t.string   "t5"
+    t.string   "t6"
+    t.string   "t7"
+    t.string   "t8"
+    t.string   "t9"
+    t.string   "t10"
   end
 
 end
