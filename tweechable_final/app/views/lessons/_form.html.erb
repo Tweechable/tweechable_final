@@ -12,11 +12,11 @@
       <%= form.text_field :created_at %>
     </p>
 
-    <% (1..5).each do |i| %>
+    <% (1..10).each do |i| %>
         <p>
           <%= form.label ("t"+i.to_s).to_sym %>
           <br>
-          <%= form.text_area ("t"+i.to_s).to_sym, rows: 4, cols: 80 %>
+          <%= form.text_area ("t"+i.to_s).to_sym, rows: 4, cols: 80, maxlength: 140 %>
         </p>
     <% end %>
 

@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  create_table "educatees", force: :cascade do |t|
+    t.integer "lesson_id"
+    t.boolean "educated",       default: false
+    t.string  "hash_tag"
+    t.string  "twitter_handle"
+  end
+
+  add_index "educatees", ["lesson_id"], name: "index_educatees_on_lesson_id"
+
   create_table "lessons", force: :cascade do |t|
     t.string   "hash_tag"
     t.datetime "created_at"
@@ -26,6 +35,19 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "t8"
     t.string   "t9"
     t.string   "t10"
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.integer "lesson_id"
+    t.string  "text"
+  end
+
+  add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id"
+
+  create_table "users", force: :cascade do |t|
+    t.text "name"
+    t.text "email"
+    t.text "password"
   end
 
 end

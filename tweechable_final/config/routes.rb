@@ -4,5 +4,9 @@ Rails.application.routes.draw do
 
   resources :lessons
   get '/pages/:page' => 'pages#show'
+
+  get '/twitters/new' => 'twitters#new'
+  get '/twitters' => 'twitters#index'
+  post '/twitters' => 'twitters#create'
   
 end
