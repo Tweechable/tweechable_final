@@ -33,10 +33,10 @@ Educatee
 
 # from the bot's metioned_by_timeline to store tasks
 Mention
-	in_reply_to_screen_name: string
-	favorite_count: integer
-	in_reply_to_user_id: integer
-	lang: string
-	retweet_count: integer
-	text: string
-	hash_tag: string #extract from the tweet
+  in_reply_to_screen_name: string
+  favorite_count: integer
+  in_reply_to_user_id: integer
+  lang: string
+  retweet_count: integer
+  text: string
+  hash_tag: string #extract from the tweet
