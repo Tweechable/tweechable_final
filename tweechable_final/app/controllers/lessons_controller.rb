@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
 
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.where(approved: true)
   end
 
   def show
@@ -16,13 +16,13 @@ class LessonsController < ApplicationController
     lesson = Lesson.new
     lesson.hash_tag = params[:lesson][:hash_tag]
     lesson.created_at = params[:lesson][:date]
-    lesson.t1 = params[:lesson][:t1]
-    lesson.t2 = params[:lesson][:t2]
-    lesson.t3 = params[:lesson][:t3]
-    lesson.t4 = params[:lesson][:t4]
-    lesson.t5 = params[:lesson][:t5]
+    lesson.category = params[:lesson][:category]
+    lesson.description = params[:lesson][:description]
+    lesson.approved = true
     lesson.save
-    redirect_to lessons_url
+    cookies["new_lesson_id"] = lesson.id
+    #redirect_to tweets_url
+    redirect_to tweets_url(id:lesson.id)
   end
 
   def edit
@@ -33,13 +33,10 @@ class LessonsController < ApplicationController
     lesson = Lesson.find_by(id: params[:id])
     lesson.hash_tag = params[:lesson][:hash_tag]
     lesson.created_at = params[:lesson][:date]
-    lesson.t1 = params[:lesson][:t1]
-    lesson.t2 = params[:lesson][:t2]
-    lesson.t3 = params[:lesson][:t3]
-    lesson.t4 = params[:lesson][:t4]
-    lesson.t5 = params[:lesson][:t5]
+    lesson.description = params[:lesson][:description]
+    lesson.approved = true
     lesson.save
-    redirect_to lessons_url
+    redirect_to lesson_url(lesson.id)
   end
 
   def destroy

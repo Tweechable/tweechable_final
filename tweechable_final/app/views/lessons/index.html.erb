@@ -2,11 +2,9 @@
   <% @lessons.each do |lesson| %>
       <div class="col-md-4">
         <h3><%= link_to lesson.hash_tag, lesson_path(lesson.id) %></h3>
-        <p><%= lesson.t1 %></p>
-        <p><%= lesson.t2 %></p>
-        <p><%= lesson.t3 %></p>
-        <p><%= lesson.t4 %></p>
-        <p><%= lesson.t5 %></p>
+        <% lesson.tweets.each do |tweet| %>
+        <p><%= tweet.text %></p>
+        <% end %>
       </div>
   <% end %>
 </div>

@@ -13,41 +13,50 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "educatees", force: :cascade do |t|
     t.integer "lesson_id"
-    t.boolean "educated",       default: false
     t.string  "hash_tag"
+    t.boolean "educated",       default: false
     t.string  "twitter_handle"
   end
 
-  add_index "educatees", ["lesson_id"], name: "index_educatees_on_lesson_id"
+  add_index "educatees", ["lesson_id"], name: "index_educatees_on_lesson_id", using: :btree
 
   create_table "lessons", force: :cascade do |t|
     t.string   "hash_tag"
     t.datetime "created_at"
-    t.string   "t1"
-    t.string   "t2"
-    t.string   "t3"
-    t.string   "t4"
-    t.string   "t5"
-    t.string   "t6"
-    t.string   "t7"
-    t.string   "t8"
-    t.string   "t9"
-    t.string   "t10"
+    t.string   "category"
+    t.text     "description"
+    t.boolean  "approved",    default: false
   end
+
+  create_table "mentions", force: :cascade do |t|
+    t.string  "in_reply_to_screen_name"
+    t.integer "favorite_count"
+    t.integer "in_reply_to_user_id"
+    t.string  "lang"
+    t.integer "retweet_count"
+    t.string  "text"
+    t.string  "hash_tag"
+  end
+
+  add_index "mentions", ["in_reply_to_user_id"], name: "index_mentions_on_in_reply_to_user_id", using: :btree
 
   create_table "tweets", force: :cascade do |t|
     t.integer "lesson_id"
     t.string  "text"
+    t.boolean "approved",  default: false
   end
 
-  add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id"
+  add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.text "name"
     t.text "email"
-    t.text "password"
+    t.text "password_digest"
   end
 
 end

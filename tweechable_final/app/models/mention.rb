@@ -1,5 +1,5 @@
 # should be activerecord
-class Mention
+class Mention < ActiveRecord::Base
 
   def self.retrieve_mentions
     twitter = Twitter_API.new
@@ -7,6 +7,9 @@ class Mention
     mentions = @client.mentions_timeline
     mentions.each do |tweet|
       puts tweet.in_reply_to_screen_name
+      ## m = Mention.new
+      #  m.content =
+      #  m.save
     end
 
   end

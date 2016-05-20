@@ -1,0 +1,8 @@
+<h1>My Account</h1>
+
+<% if @user.id == session[:user_id].to_i %>
+    <p>Name: <%= @user.name %></p>
+    <p>Email: <%= @user.email %></p>
+<% else %>
+
+<% end %>

@@ -1,28 +1,21 @@
 User
   name: text
   email: text
-  password: text
+  password_digest: text
 
 Lesson
   hash_tag: string
   created_at: datetime
-  t1: string
-  t2: string
-  t3: string
-  t4: string
-  t5: string
-  t6: string
-  t7: string
-  t8: string
-  t9: string
-  t10: string
-#  the Ts will be replaced by the tweet model. one to many relationship
+  category: string
+  description: text
+  approved: boolean
 
+
+#  the Ts will be replaced by the tweet model. one to many relationship
 Tweet
   lesson_id: integer
   text: string
-# remember to make sure the tweet is less than 140 chars in case someone's handle is super long
-# just a quick dirty un-userfriendly fix for now
+  approved: boolean
 
 # people who are about to get educated using this for now to educate from our site
 Educatee

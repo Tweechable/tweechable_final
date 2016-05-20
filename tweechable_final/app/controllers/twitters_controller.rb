@@ -11,9 +11,7 @@ class TwittersController < ApplicationController
     if @lesson
       twitters = Twitter_API.new
       @client = twitters.client
-      # (0..5).each do |i|
-      #  to_send = @lesson[('t'+i.to_s)].slice!(0..139)
-      to_send = "#{params[:twitter_handle]} #{@lesson['t1']}".slice!(0..139)
+      to_send = @lesson.tweets[0].text
       puts to_send
       @client.update(to_send)
     end
