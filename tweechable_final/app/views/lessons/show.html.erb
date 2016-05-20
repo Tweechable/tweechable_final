@@ -11,10 +11,10 @@
   <p><strong>Created At:</strong> <%= @lesson.created_at %></p>
 
   <p><strong>Tweets: </strong></p>
-  <% (1..10).each do |i| %>
-      <% if (@lesson['t'+i.to_s]) %>
-        <p><strong><%= 'Tweet ' + i.to_s %></strong> <%= @lesson['t'+i.to_s] %></p>
-      <% end %>
-  <% end %>
-
+  <div class="jumbotron">
+    <!--if not admin show text, if admin show link to edit-->
+    <% @lesson.tweets.each do |tweet| %>
+        <p><%= link_to tweet.text, edit_tweet_path(tweet.id) %></p>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,16 @@
+<h1>Sign In</h1>
+
+
+<div class="container">
+  <% if flash["notice"].present? %>
+      <p><%= flash["notice"] %></p>
+  <% end %>
+</div>
+
+<%= form_tag "/sessions" do  %>
+
+    <p><%= label_tag :email %><%= text_field_tag :email, '', autofocus: true, size: 40, required: true %></p>
+    <p><%= label_tag :password %><%= text_field_tag :password, '', size: 40, required: true %></p>
+    <p><%= submit_tag "Sign In" %></p>
+
+<% end %>
