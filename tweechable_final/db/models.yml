@@ -3,6 +3,7 @@ User
   email: text
   password_digest: text
   lesson_id: integer
+  admin: boolean
 
 Lesson
   user_id: integer
