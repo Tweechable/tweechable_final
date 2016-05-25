@@ -1,7 +1,24 @@
 class LessonsController < ApplicationController
 
   def index
-    @lessons = Lesson.where(approved: true)
+    @lessons = Lesson.where(approved: true).limit(30)
+    @lessons_all = Lesson.all
+    if params[:keyword].present?
+      @lessons = @lessons_all.where("hash_tag LIKE ? OR description LIKE ? OR category LIKE ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%","%#{params[:keyword]}%")
+    end
+
+    respond_to do |format|
+      format.html do
+        render 'index'
+      end
+      format.json do
+        render json: @lessons_all
+      end
+      format.xml do
+        render xml: @lessons_all
+      end
+    end
+
   end
 
   def show
@@ -9,7 +26,9 @@ class LessonsController < ApplicationController
   end
 
   def new
+    @user = User.find_by(id: params[:id])
     @lesson = Lesson.new
+    return @user, @lesson
   end
 
   def create

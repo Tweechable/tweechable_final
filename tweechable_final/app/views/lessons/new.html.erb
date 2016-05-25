@@ -1,4 +1,15 @@
 <h2>Add a New Lesson</h2>
 
-<%= render 'form' %>
+<% if @user != nil %>
+  <% if @user.id == session[:user_id].to_i %>
+  <%= render 'form' %>
+  <% else %>
 
+  <% end %>
+
+<% else %>
+
+<p>You need tobe a member of Tweechable to contribute lessons.</p>
+<p>Join today and start contributing and collaborating!</p>
+
+<% end %>
