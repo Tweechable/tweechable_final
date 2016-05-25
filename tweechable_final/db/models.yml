@@ -2,14 +2,15 @@ User
   name: text
   email: text
   password_digest: text
+  lesson_id: integer
 
 Lesson
+  user_id: integer
   hash_tag: string
   created_at: datetime
   category: string
   description: text
   approved: boolean
-
 
 #  the Ts will be replaced by the tweet model. one to many relationship
 Tweet
@@ -20,7 +21,6 @@ Tweet
 # people who are about to get educated using this for now to educate from our site
 Educatee
   lesson_id: integer
-  hash_tag: string
   educated: boolean
   twitter_handle: string
 
