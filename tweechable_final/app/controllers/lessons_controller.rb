@@ -23,7 +23,7 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find_by(id: params[:id])
-    @contributors = Array.new()
+    @contributors = Array.new
     @lesson.contributions.each do |contributor|
       if contributor.creator
         @creator = contributor.user.name

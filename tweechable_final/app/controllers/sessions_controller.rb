@@ -10,6 +10,8 @@ class SessionsController < ApplicationController
       if user.authenticate(params[:password])
         session["user_id"] = user.id
         flash["notice"] = "Welcome back, #{user.name}"
+        user.updated_at = Time.now
+        user.save
         redirect_to lessons_url
         return
       else
@@ -22,6 +24,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session.delete(:message)
     reset_session
     redirect_to root_url
   end
