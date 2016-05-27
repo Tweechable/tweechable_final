@@ -16,6 +16,15 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "contributions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "lesson_id"
+    t.boolean "creator",   default: false
+  end
+
+  add_index "contributions", ["lesson_id"], name: "index_contributions_on_lesson_id", using: :btree
+  add_index "contributions", ["user_id"], name: "index_contributions_on_user_id", using: :btree
+
   create_table "educatees", force: :cascade do |t|
     t.integer "lesson_id"
     t.boolean "educated",       default: false
@@ -25,15 +34,13 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "educatees", ["lesson_id"], name: "index_educatees_on_lesson_id", using: :btree
 
   create_table "lessons", force: :cascade do |t|
-    t.integer  "user_id"
     t.string   "hash_tag"
-    t.datetime "created_at"
     t.string   "category"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "approved",    default: false
   end
-
-  add_index "lessons", ["user_id"], name: "index_lessons_on_user_id", using: :btree
 
   create_table "mentions", force: :cascade do |t|
     t.string  "in_reply_to_screen_name"
@@ -56,13 +63,13 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.text    "name"
-    t.text    "email"
-    t.text    "password_digest"
-    t.integer "lesson_id"
-    t.boolean "admin",           default: false
+    t.text     "name"
+    t.text     "email"
+    t.text     "password_digest"
+    t.boolean  "admin",                default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "how_found_tweechable"
   end
-
-  add_index "users", ["lesson_id"], name: "index_users_on_lesson_id", using: :btree
 
 end

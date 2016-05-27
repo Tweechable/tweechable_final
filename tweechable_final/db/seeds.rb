@@ -2,20 +2,26 @@ Lesson.delete_all
 Tweet.delete_all
 Mention.delete_all
 User.delete_all
+Contribution.delete_all
 Educatee.delete_all
+
+User.create name: 'Admin', email: 'admin@example.org', password: 'TweechableAdmin', password_confirmation: 'TweechableAdmin', created_at: Time.new, updated_at: Time.new, how_found_tweechable: "ChiHackNight", admin:true
+u1 = User.create name: 'Grace Hopper', email: 'grace@example.org', password: 'cobol', password_confirmation: 'cobol',created_at:Time.new, updated_at: Time.new, how_found_tweechable: "Friend!",admin:false
+u2 = User.create name: 'Cookie Monster', email: 'cookie@example.org', password: 'cookies', password_confirmation: 'cookies',created_at:Time.new, updated_at:Time.new, how_found_tweechable: "Twitter!",admin:false
 
 l1 = Lesson.new
 l1.hash_tag = "#betterwhiteperson"
 l1.created_at = 20071120
+l1.updated_at = 20071119
 l1.category = "racisim"
 l1.description = "How to be a better white person"
 l1.approved = false
 l1.save
 
-
 l2 = Lesson.new
 l2.hash_tag = "#blackonblackviolence"
 l2.created_at = 20071119
+l2.updated_at = 20071119
 l2.category = "racism"
 l2.description = "A common misconception"
 l2.approved = true
@@ -24,6 +30,7 @@ l2.save
 l3 = Lesson.new
 l3.hash_tag = "#yesaboutslavery"
 l3.created_at = 20071118
+l3.updated_at = 20071119
 l3.category = "slavery"
 l3.description = "This is a common misconception and it is horrible"
 l3.approved = true
@@ -33,6 +40,7 @@ l4 = Lesson.new
 l4.hash_tag = "#whiteprivilege"
 l4.category = "privilege"
 l4.created_at = 20071117
+l4.updated_at = 20071119
 l4.approved = true
 l4.save
 
@@ -181,3 +189,21 @@ t47.lesson_id = l4.id
 t47.text = "in fact, white privilege extends to everything from AirBNB acceptance rates to apartment rentals"
 t47.approved = true
 t47.save
+
+Contribution.create(user_id:u1.id,lesson_id:l1.id,creator:true)
+Contribution.create(user_id:u1.id,lesson_id:l2.id,creator:true)
+Contribution.create(user_id:u2.id,lesson_id:l3.id,creator:true)
+Contribution.create(user_id:u2.id,lesson_id:l4.id,creator:true)
+Contribution.create(user_id:u2.id,lesson_id:l4.id,creator:false)
+Contribution.create(user_id:u1.id,lesson_id:l1.id,creator:false)
+Contribution.create(user_id:u1.id,lesson_id:l2.id,creator:false)
+Contribution.create(user_id:u2.id,lesson_id:l3.id,creator:false)
+
+
+print "There are now #{User.count} users in the database.\n" #populated
+print "There are now #{Lesson.count} lessons in the database.\n" #populated there is one lesson that's not approved. go to admin panel!
+print "There are now #{Mention.count} mentions in the database.\n"
+print "There are now #{Contribution.count} contributions in the database.\n"
+print "There are now #{Tweet.count} tweets in the database.\n"
+print "There are now #{Educatee.count} educatees in the database.\n"
+
