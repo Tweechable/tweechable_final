@@ -1,0 +1,23 @@
+<h1>My Account</h1>
+
+<% if @user.id == session[:user_id].to_i %>
+    <p>Name: <%= @user.name %></p>
+    <p>Email: <%= @user.email %></p>
+    <p>Joined Tweechable: <%= @user.created_at.strftime('%c') %></p>
+    <p>Last sign in: <%= @user.updated_at.strftime('%c') %></p>
+    <p>How did you find Tweechable: <%= @user.how_found_tweechable %></p>
+    <p>Lessons I created:</p>
+    <ul>
+      <% @created_lessons.each do |lesson| %>
+      <li><%= link_to lesson.hash_tag, lesson_path(lesson.id)%></li>
+      <% end %>
+    </ul>
+    <p>Lessons I edited:</p>
+    <ul>
+      <% @edited_lessons.each do |lesson| %>
+        <li><%= link_to lesson.hash_tag, lesson_path(lesson.id) %></li>
+      <% end %>
+    </ul>
+<% else %>
+
+<% end %>

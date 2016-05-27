@@ -1,0 +1,24 @@
+<%= form_for @lesson do |form| %>
+
+    <p>
+      <%= form.label :hash_tag %>
+      <br>
+      <%= form.text_field :hash_tag, size: 80, autofocus: true %>
+    </p>
+
+    <p>
+      <%= form.label :category %>
+      <br>
+      <%= form.text_field :category %>
+    </p>
+
+    <p>
+      <%= form.label :description %>
+      <br>
+      <%= form.text_field :description %>
+    </p>
+
+    <p><%= form.submit %></p>
+
+<% end %>
+
