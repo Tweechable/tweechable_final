@@ -2,16 +2,25 @@ User
   name: text
   email: text
   password_digest: text
+  admin: boolean
+  created_at: datetime
+  updated_at: datetime
+  how_found_tweechable: text
 
 Lesson
   hash_tag: string
-  created_at: datetime
   category: string
   description: text
+  created_at: datetime
+  updated_at: datetime
   approved: boolean
 
+# lesson has many users through contributors
+Contribution
+  user_id: integer
+  lesson_id: integer
+  creator: boolean
 
-#  the Ts will be replaced by the tweet model. one to many relationship
 Tweet
   lesson_id: integer
   text: string
@@ -20,7 +29,6 @@ Tweet
 # people who are about to get educated using this for now to educate from our site
 Educatee
   lesson_id: integer
-  hash_tag: string
   educated: boolean
   twitter_handle: string
 

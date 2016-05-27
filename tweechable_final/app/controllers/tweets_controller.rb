@@ -21,6 +21,14 @@ class TweetsController < ApplicationController
     tweet.lesson_id = cookies["current_lesson_id"]
     tweet.approved = true
     tweet.save
+
+    # create a new contribution for editor
+    contribution = Contribution.new
+    contribution.lesson_id = tweet.lesson_id
+    contribution.user_id = session["user_id"]
+    contribution.creator = false
+    contribution.save
+
     redirect_to tweets_url(id: tweet.lesson_id)
   end
 
@@ -32,6 +40,14 @@ class TweetsController < ApplicationController
     tweet = Tweet.find_by(id: params[:id])
     tweet.text = params[:tweet][:text]
     tweet.save
+
+    # create a new contribution for editor
+    contribution = Contribution.new
+    contribution.lesson_id = tweet.lesson_id
+    contribution.user_id = session["user_id"]
+    contribution.creator = false
+    contribution.save
+
     redirect_to tweets_url(id: tweet.lesson_id)
   end
 

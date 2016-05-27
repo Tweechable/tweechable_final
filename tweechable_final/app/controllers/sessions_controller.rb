@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to movies_url
+    redirect_to root_url
   end
 
 end
