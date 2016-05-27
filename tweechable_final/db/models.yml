@@ -1,0 +1,43 @@
+User
+  name: text
+  email: text
+  password_digest: text
+  admin: boolean
+  created_at: datetime
+  updated_at: datetime
+  how_found_tweechable: text
+
+Lesson
+  hash_tag: string
+  category: string
+  description: text
+  created_at: datetime
+  updated_at: datetime
+  approved: boolean
+
+# lesson has many users through contributors
+Contribution
+  user_id: integer
+  lesson_id: integer
+  creator: boolean
+
+Tweet
+  lesson_id: integer
+  text: string
+  approved: boolean
+
+# people who are about to get educated using this for now to educate from our site
+Educatee
+  lesson_id: integer
+  educated: boolean
+  twitter_handle: string
+
+# from the bot's metioned_by_timeline to store tasks
+Mention
+  in_reply_to_screen_name: string
+  favorite_count: integer
+  in_reply_to_user_id: integer
+  lang: string
+  retweet_count: integer
+  text: string
+  hash_tag: string #extract from the tweet

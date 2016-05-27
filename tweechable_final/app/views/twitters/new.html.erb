@@ -1,0 +1,17 @@
+<%= form_tag "/twitters", :method => :post do %>
+
+    <p>
+      <%= label_tag :hash_tag, "Hash Tag (for example: #betterwhiteperson)" %>
+      <br>
+      <%= text_field_tag :hash_tag, "", :size => 50 %>
+    </p>
+
+    <p>
+      <%= label_tag :twitter_handle, "I want to educate (for example: @hater)" %>
+      <br>
+      <%= text_field_tag :twitter_handle, "", :size => 50 %>
+    </p>
+
+    <input type="submit" value="Educate!">
+
+<% end %>
