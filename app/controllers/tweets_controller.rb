@@ -30,6 +30,17 @@ class TweetsController < ApplicationController
     contribution.save
 
     redirect_to tweets_url(id: tweet.lesson_id)
+
+    # Nice to have: rerendering on the same page but this is low priority compared to cron job. hahaha...
+    # respond_to do |format|
+    #   format.html do
+    #     redirect_to tweets_url(id: tweet.lesson_id)
+    #   end
+    #   format.js do
+    #
+    #   end
+    # end
+
   end
 
   def edit
@@ -50,6 +61,7 @@ class TweetsController < ApplicationController
 
     redirect_to tweets_url(id: tweet.lesson_id)
   end
+
 
 
 end
