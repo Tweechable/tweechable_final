@@ -9,10 +9,13 @@ class UsersController < ApplicationController
     @created_lessons = Array.new
     @edited_lessons = Array.new
     contributions.each do |contribution|
-      if contribution.creator
-        @created_lessons << Lesson.find_by(id: contribution.lesson_id)
-      else
-        @edited_lessons << Lesson.find_by(id: contribution.lesson_id)
+      lesson = Lesson.find_by(id: contribution.lesson_id)
+      if lesson
+        if contribution.creator
+          @created_lessons << lesson
+        else
+          @edited_lessons << lesson
+        end
       end
     end
     return @user, @created_lessons.uniq!, @edited_lessons.uniq!
@@ -27,7 +30,6 @@ class UsersController < ApplicationController
   end
 
   def create
-
     user_params = params.require(:name,:email,:password).permit(:how_found_tweechable)
     # user.name = params[:user][:name]
     # user.email = params[:user][:email]
@@ -45,4 +47,5 @@ class UsersController < ApplicationController
     User.delete(params[:id])
     redirect_to users_url
   end
+
 end
