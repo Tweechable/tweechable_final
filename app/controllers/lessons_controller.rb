@@ -1,5 +1,11 @@
 class LessonsController < ApplicationController
 
+  before_action :find_lesson, :except => [:index, :create, :new]
+
+  def find_lesson
+    @lesson = Lesson.find_by(id: params[:id])
+  end
+
   def index
     @lessons = Lesson.where(approved: true).limit(30)
     @lessons_all = Lesson.all
@@ -22,7 +28,6 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @lesson = Lesson.find_by(id: params[:id])
     @contributors = Array.new
     @lesson.contributions.each do |contributor|
       if contributor.creator
@@ -65,27 +70,25 @@ class LessonsController < ApplicationController
   end
 
   def update
-    lesson = Lesson.find_by(id: params[:id])
-    lesson.hash_tag = params[:lesson][:hash_tag]
-    lesson.created_at = params[:lesson][:date]
-    lesson.description = params[:lesson][:description]
-    lesson.approved = true
-    lesson.save
+    @lesson.hash_tag = params[:lesson][:hash_tag]
+    @lesson.created_at = params[:lesson][:date]
+    @lesson.description = params[:lesson][:description]
+    @lesson.approved = true
+    @lesson.save
 
     # create a new contribution for editor
     contribution = Contribution.new
-    contribution.lesson_id = lesson.id
+    contribution.lesson_id = @lesson.id
     contribution.user_id = session["user_id"]
     contribution.creator = false
     contribution.save
 
-    redirect_to lesson_url(lesson.id)
+    redirect_to lesson_url(@lesson.id)
   end
 
   def destroy
-    lesson = Lesson.find_by(id: params[:id])
-    if lesson
-      lesson.delete
+    if @lesson
+      @lesson.delete
     end
     redirect_to lessons_url
   end
