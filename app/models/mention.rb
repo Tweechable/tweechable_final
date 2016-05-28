@@ -7,6 +7,8 @@ class Mention < ActiveRecord::Base
     mentions = @client.mentions_timeline
     mentions.each do |tweet|
       m = Mention.new
+      m.created_at = Time.now
+      m.educated = false
       m.in_reply_to_screen_name = tweet.in_reply_to_screen_name
       m.favorite_count = tweet.favorite_count
       m.in_reply_to_user_id = tweet.in_reply_to_screen_name

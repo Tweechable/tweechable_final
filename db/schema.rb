@@ -43,13 +43,15 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "mentions", force: :cascade do |t|
-    t.string  "in_reply_to_screen_name"
-    t.integer "favorite_count"
-    t.integer "in_reply_to_user_id"
-    t.string  "lang"
-    t.integer "retweet_count"
-    t.string  "text"
-    t.string  "hash_tag"
+    t.string   "in_reply_to_screen_name"
+    t.integer  "favorite_count"
+    t.integer  "in_reply_to_user_id"
+    t.string   "lang"
+    t.integer  "retweet_count"
+    t.string   "text"
+    t.string   "hash_tag"
+    t.datetime "created_at"
+    t.boolean  "educated",                default: false
   end
 
   add_index "mentions", ["in_reply_to_user_id"], name: "index_mentions_on_in_reply_to_user_id", using: :btree

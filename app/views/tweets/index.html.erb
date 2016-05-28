@@ -1,8 +1,10 @@
 <h2>Now let's add more tweets to your lesson on <%= @lesson.hash_tag %>!</h2>
 
-<% @lesson.tweets.each do |tweet| %>
-    <p><%= link_to tweet.text, edit_tweet_path(tweet.id) %></p>
-<% end %>
+<div class="container" id="tweets">
+  <% @lesson.tweets.each do |tweet| %>
+      <p><%= link_to tweet.text, edit_tweet_path(tweet.id) %></p>
+  <% end %>
+</div>
 
 <h3><%= link_to "Add a tweet", new_tweet_path(id: @lesson.id), class: "btn btn-primary" %></h3>
 <h3><%= link_to "Looking good, I'm done!", lessons_path, class: "btn btn-primary" %></h3>

@@ -34,6 +34,8 @@ Educatee
 
 # from the bot's metioned_by_timeline to store tasks
 Mention
+  created_at: datetime
+  educated: boolean
   in_reply_to_screen_name: string
   favorite_count: integer
   in_reply_to_user_id: integer
