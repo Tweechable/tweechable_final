@@ -1,9 +1,9 @@
 <%= form_for @lesson do |form| %>
 
     <p>
-      <%= form.label :hash_tag %>
+      <%= form.label 'hash tag for example #betterwhiteperson' %>
       <br>
-      <%= form.text_field :hash_tag, size: 80, autofocus: true %>
+      <%= form.text_field :hash_tag, size: 50, autofocus: true %>
     </p>
 
     <p>
@@ -18,7 +18,7 @@
       <%= form.text_field :description %>
     </p>
 
-    <p><%= form.submit %></p>
+    <p><%= form.submit :class => "btn btn-primary"%></p>
 
 <% end %>
 

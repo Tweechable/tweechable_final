@@ -31,10 +31,6 @@ class UsersController < ApplicationController
 
   def create
     user_params = params.require(:name,:email,:password).permit(:how_found_tweechable)
-    # user.name = params[:user][:name]
-    # user.email = params[:user][:email]
-    # user.password = params[:user][:password]
-    # user.how_found_tweechable = params[:user][:how_found_tweechable]
     @new_user = User.new(user_params)
     @new_user.created_at = Time.now
     @new_user.updated_at = Time.now

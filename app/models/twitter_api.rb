@@ -11,5 +11,4 @@ class Twitter_API
   end
 end
 
-# twitters = Twitter_API.new
-# client = twitters.client
+

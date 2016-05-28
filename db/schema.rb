@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "contributions", ["user_id"], name: "index_contributions_on_user_id", using: :btree
 
   create_table "educatees", force: :cascade do |t|
-    t.integer "lesson_id"
-    t.boolean "educated",       default: false
-    t.string  "twitter_handle"
+    t.integer  "lesson_id"
+    t.datetime "created_at"
+    t.string   "twitter_handle"
+    t.boolean  "educated",       default: false
   end
 
   add_index "educatees", ["lesson_id"], name: "index_educatees_on_lesson_id", using: :btree
@@ -39,27 +40,30 @@ ActiveRecord::Schema.define(version: 0) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "approved",    default: false
+    t.boolean  "approved",    default: true
   end
 
   create_table "mentions", force: :cascade do |t|
+    t.datetime "created_at"
     t.string   "in_reply_to_screen_name"
     t.integer  "favorite_count"
-    t.integer  "in_reply_to_user_id"
+    t.string   "in_reply_to_user_id"
     t.string   "lang"
     t.integer  "retweet_count"
     t.string   "text"
     t.string   "hash_tag"
-    t.datetime "created_at"
-    t.boolean  "educated",                default: false
+    t.boolean  "replied",                 default: false
+    t.integer  "lesson_id"
+    t.string   "handler"
   end
 
   add_index "mentions", ["in_reply_to_user_id"], name: "index_mentions_on_in_reply_to_user_id", using: :btree
+  add_index "mentions", ["lesson_id"], name: "index_mentions_on_lesson_id", using: :btree
 
   create_table "tweets", force: :cascade do |t|
     t.integer "lesson_id"
     t.string  "text"
-    t.boolean "approved",  default: false
+    t.boolean "approved",  default: true
   end
 
   add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id", using: :btree

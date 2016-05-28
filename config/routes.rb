@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   get '/pages/:page' => 'pages#show'
 
-  get '/twitters/new' => 'twitters#new'
-  get '/twitters' => 'twitters#index'
-  post '/twitters' => 'twitters#create'
+  get '/educatees/new' => 'educatees#new'
+  get '/educatees' => 'educatees#index'
+  post '/educatees' => 'educatees#create'
 
   get '/login' => 'sessions#new'
   post '/sessions' => 'sessions#create'

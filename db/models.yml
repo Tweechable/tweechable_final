@@ -2,7 +2,7 @@ User
   name: text
   email: text
   password_digest: text
-  admin: boolean
+  admin: boolean(false)
   created_at: datetime
   updated_at: datetime
   how_found_tweechable: text
@@ -13,7 +13,7 @@ Lesson
   description: text
   created_at: datetime
   updated_at: datetime
-  approved: boolean
+  approved: boolean(true)  #for maximum content creation for now. jajaja...
 
 # lesson has many users through contributors
 Contribution
@@ -24,22 +24,30 @@ Contribution
 Tweet
   lesson_id: integer
   text: string
-  approved: boolean
+  approved: boolean(true)
 
-# people who are about to get educated using this for now to educate from our site
+# People who are about to get educated
+# Using this for now to educate from our site
+# For educating user from twitter see Mention
+# FIXME: There is a way to combine the Educatee and Mention models but for now I'd rather not aka :through mention
 Educatee
   lesson_id: integer
-  educated: boolean
+  created_at: datetime
+#  mention_id: integer
   twitter_handle: string
+  educated: boolean(false)
 
-# from the bot's metioned_by_timeline to store tasks
+# From the bot's metioned_by_timeline to store tasks
 Mention
   created_at: datetime
-  educated: boolean
-  in_reply_to_screen_name: string
+  in_reply_to_screen_name: string  #this field is kind of useless now since it's just the name of our twitter accnt
   favorite_count: integer
-  in_reply_to_user_id: integer
+  in_reply_to_user_id: string
   lang: string
   retweet_count: integer
   text: string
-  hash_tag: string #extract from the tweet
+  hash_tag: string #extracted from the tweet
+  replied: boolean
+  lesson_id: integer
+  handler: string
+
