@@ -11,16 +11,16 @@
 #### Thanks Kevin for allowing me to develope this idea for my web development final course project. This is NOT the official tweechable repository. 
 
 
-#### To run locally 
+### To run locally 
 	- git clone the repository
 	- use your own authentication token (see below)
 	- on terminal
-		- start postgres locally!!! 
+		- start *postgres* locally!!! 
 		- cd into the directory
 		- bundle install
 		- rake db:migrate
 		- rake db:seed
-		- rails server
+		- rails server -> localhost:3000
 
 
 ### Use your own authentication token before running locally 
@@ -35,7 +35,7 @@
 	- test site: https://tweechable-test.herokuapp.com/
 	- you can tweet @TweechableTest @ignorantTwitter #ALessonThat'sAvailable  
 	- tasks scheduled to run every 10 minutes so the response will take a while...yay free tier
-	- admin panel: ask me for credential
+	- admin panel: ask me for credential. Locally: log in with E-mail: admin@example.org Password: admin and go to http://localhost:3000/admin 
 
 ### Roadmap for improvement:
 	- User: handle registeration/validation/retrieve pword etc. top priority..
