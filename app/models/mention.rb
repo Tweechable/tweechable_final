@@ -21,6 +21,7 @@ class Mention < ActiveRecord::Base
       else
         m = Mention.new
         m.created_at = Time.now
+
         #FIXME: those two fields will have the same value over and over again b/c we are at tweechable first leave this for now
         m.in_reply_to_screen_name = tweet.in_reply_to_screen_name
         m.in_reply_to_user_id = tweet.in_reply_to_user_id
@@ -45,8 +46,8 @@ class Mention < ActiveRecord::Base
   end
 
   def self.reply_mentions
-    mention = Mention.where(replied: false).first
-    @lesson = Lesson.find_by(lesson_id: mention.lesson_id)
+    mention = Mention.where(replied:false).where.not(lesson_id:nil).first
+    @lesson = Lesson.find_by(id: mention.lesson_id)
 
     if @lesson
       twitters = Twitter_API.new
@@ -54,8 +55,8 @@ class Mention < ActiveRecord::Base
 
       # only sending out one tweet for now for demo
       # add the blank two make sure we can tag! otherwise it'd be one string
-      to_send = @lesson.tweets[0].text + ' ' + params[:twitter_handle]
-      @client.update(to_send, in_reply_to_status_id: mention.in_reply_to_status_id)
+      to_send = @lesson.tweets[0].text + ' ' + mention.handler
+      @client.update(to_send) #, in_reply_to_status_id: mention.in_reply_to_status_id)
     end
 
   end

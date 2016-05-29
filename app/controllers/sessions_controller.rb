@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:message)
+    session.delete(:user_id)
     reset_session
     redirect_to root_url
   end

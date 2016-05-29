@@ -1,3 +1,5 @@
 class Educatee < ActiveRecord::Base
-  belongs_to :lessons
+
+  belongs_to :lesson
+
 end
