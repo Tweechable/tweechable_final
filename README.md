@@ -38,7 +38,9 @@
 	- admin panel: ask me for credential
 
 ### Roadmap for improvement:
-	- Pagination for displaying all lessons. I don't expect that many lessons for now so I'm okay with scatter it on the main page. top priority...
+	- User: handle registeration/validation/retrieve pword etc. top priority..
+
+	- Pagination for displaying all lessons. I don't expect that many lessons for now so I'm okay with scatter it on the main page. 
 
 	- Lesson Model: the model currently allows not having any tweets. I want to keep it this way so we can at least collect interesting lessons (hash tag ideas) that others can contribute to. But we should display something like “This lesson doesn’t have any tweets yet! Please contribute to make it better!”
 
