@@ -13,19 +13,14 @@ class Mention < ActiveRecord::Base
       #FIXME: a more sophisticated approach for this
       hash_tag = tweet.text.scan(/#\S+/)[0]
       handler = tweet.text.scan(/@\S+/)[1]
-      m = Mention.find_by(handler: handler, hash_tag: hash_tag, replied: false)
+      m = Mention.find_by(handler: handler, hash_tag: hash_tag)
 
       if m
         # we already have it in the database, don't retrieve again
-        # need to check the timestamp is recent but we are not doing it right now. this is kind of hacky
+        # FIXME: need to check the timestamp is recent but we are not doing it right now. this is kind of hacky
       else
         m = Mention.new
         m.created_at = Time.now
-
-        #FIXME: those two fields will have the same value over and over again b/c we are at tweechable first leave this for now
-        m.in_reply_to_screen_name = tweet.in_reply_to_screen_name
-        m.in_reply_to_user_id = tweet.in_reply_to_user_id
-
         m.favorite_count = tweet.favorite_count
         m.lang = tweet.lang
         m.retweet_count = tweet.retweet_count
@@ -56,7 +51,14 @@ class Mention < ActiveRecord::Base
       # only sending out one tweet for now for demo
       # add the blank two make sure we can tag! otherwise it'd be one string
       to_send = @lesson.tweets[0].text + ' ' + mention.handler
-      @client.update(to_send) #, in_reply_to_status_id: mention.in_reply_to_status_id)
+      @t = @client.update(to_send) 
+      if @t
+        mention.replied = true
+        mention.save
+      else
+        #FIXME: do something here if we didn't reply the user but leave it for now meh.
+      end
+
     end
 
   end

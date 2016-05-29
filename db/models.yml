@@ -40,9 +40,7 @@ Educatee
 # From the bot's metioned_by_timeline to store tasks
 Mention
   created_at: datetime
-  in_reply_to_screen_name: string  #this field is kind of useless now since it's just the name of our twitter accnt
   favorite_count: integer
-  in_reply_to_user_id: string
   lang: string
   retweet_count: integer
   text: string
