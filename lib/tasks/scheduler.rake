@@ -5,7 +5,7 @@ task :update_mentions => :environment do
   puts "done updating mentions."
 end
 
-task :send_reminders => :environment do
+task :reply_mentions => :environment do
   puts "Replying to mentions..."
   Mention.reply_mentions
   puts "done replying."
