@@ -5,7 +5,6 @@ User.delete_all
 Contribution.delete_all
 Educatee.delete_all
 
-User.create name: 'Admin', email: 'admin@example.org', password: 'TweechableAdmin', password_confirmation: 'TweechableAdmin', created_at: Time.new, updated_at: Time.new, how_found_tweechable: "ChiHackNight", admin:true
 u1 = User.create name: 'Grace Hopper', email: 'grace@example.org', password: 'cobol', password_confirmation: 'cobol',created_at:Time.new, updated_at: Time.new, how_found_tweechable: "Friend!",admin:false
 u2 = User.create name: 'Cookie Monster', email: 'cookie@example.org', password: 'cookies', password_confirmation: 'cookies',created_at:Time.new, updated_at:Time.new, how_found_tweechable: "Twitter!",admin:false
 
@@ -15,7 +14,7 @@ l1.created_at = 20071120
 l1.updated_at = 20071119
 l1.category = "racisim"
 l1.description = "How to be a better white person"
-l1.approved = false
+l1.approved = true
 l1.save
 
 l2 = Lesson.new
