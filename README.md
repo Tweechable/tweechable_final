@@ -31,9 +31,9 @@
 	- replace the content in quote with your own tokens into your app/models/twitter_api.rb file and you are done :]
 
 ### Feature List
-	- test acct on twitter: https://tweechable-test.herokuapp.com/
+	- test acct on twitter: https://twitter.com/TweechableTest
 	- test site: https://tweechable-test.herokuapp.com/
-	- you can tweet @TweechableTest @ignorantTwitter #  
+	- you can tweet @TweechableTest @ignorantTwitter #ALessonThat'sAvailable  
 	- tasks scheduled to run every 10 minutes so the response will take a while...yay free tier
 	- admin panel: ask me for credential
 
