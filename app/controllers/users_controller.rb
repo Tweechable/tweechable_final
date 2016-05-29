@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    redirect_to lessons_url
   end
 
   def new
