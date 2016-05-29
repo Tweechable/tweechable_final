@@ -51,7 +51,7 @@ class Mention < ActiveRecord::Base
       # only sending out one tweet for now for demo
       # add the blank two make sure we can tag! otherwise it'd be one string
       to_send = @lesson.tweets[0].text + ' ' + mention.handler
-      @t = @client.update(to_send) 
+      @t = @client.update(to_send)
       if @t
         mention.replied = true
         mention.save

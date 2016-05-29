@@ -14,4 +14,5 @@ class PagesController < ApplicationController
     File.exist?(Pathname.new(Rails.root + "app/views/pages/#{params[:page]}.html.erb"))
   end
 
+
 end
