@@ -49,6 +49,7 @@ GEM
     buftok (0.2.0)
     builder (3.2.2)
     byebug (9.0.5)
+    chronic (0.10.2)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -66,6 +67,8 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
+    email_validator (1.6.0)
+      activemodel
     equalizer (0.0.10)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -227,6 +230,8 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    whenever (0.9.7)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -238,6 +243,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  email_validator
   ez
   jbuilder (~> 2.0)
   jquery-rails
@@ -254,6 +260,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  whenever
 
 BUNDLED WITH
    1.12.5
