@@ -38,9 +38,14 @@
 	- admin panel: ask me for credential. Locally: log in with E-mail: admin@example.org Password: admin and go to http://localhost:3000/admin 
 
 ### Roadmap for improvement:
-	- User: handle registeration/validation/retrieve pword etc. top priority..
 
-	- Pagination for displaying all lessons. I don't expect that many lessons for now so I'm okay with scatter it on the main page. 
+	- User: validate E-mail address
+
+	- User: retrieve password
+
+	- Pagination for displaying all lessons.
+
+	- Reply mentions: if there's no hash tag, the app crashes. Need a fallback.
 
 	- Lesson Model: the model currently allows not having any tweets. I want to keep it this way so we can at least collect interesting lessons (hash tag ideas) that others can contribute to. But we should display something like “This lesson doesn’t have any tweets yet! Please contribute to make it better!”
 
