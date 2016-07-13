@@ -40,6 +40,10 @@ gem 'bcrypt'
 gem 'devise'
 # rails admin
 gem 'rails_admin'
+# validate email
+gem 'email_validator'
+# whenever for cron job
+gem 'whenever', :require => false
 
 
 # Use Unicorn as the app server
