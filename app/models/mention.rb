@@ -48,19 +48,20 @@ class Mention < ActiveRecord::Base
       twitters = Twitter_API.new
       @client = twitters.client
 
-      # only sending out one tweet for now for demo
-      # add the blank two make sure we can tag! otherwise it'd be one string
-      to_send = @lesson.tweets[0].text + ' ' + mention.handler
-      @t = @client.update(to_send)
-      if @t
-        mention.replied = true
-        mention.save
-      else
-        #FIXME: do something here if we didn't reply the user but leave it for now meh.
+      @lesson.tweets.each do |message|
+        # add the blank too make sure we can tag! otherwise it'd be one string
+        to_send = message.text + ' ' + mention.handler
+        puts "Tweeting: #{to_send}"
+        @t = @client.update(to_send)
+        if !@t
+          #If something goes wrong during this process, it should probably do something about it
+          puts "Something went wrong with posting this tweet: #{to_send}"
+        end
       end
-
+      #Right now this is assuming the reply went successfully
+      mention.update(replied: true);
     end
-
+    
   end
 
 end
