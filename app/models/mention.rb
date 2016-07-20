@@ -15,7 +15,7 @@ class Mention < ActiveRecord::Base
       # Get a list of all the handles in a post
       handles = tweet.text.scan(/@\S+/)
       #Remove @tweechable_moments because we don't need to be sending any tweets to ourselves
-      handles.delete("@tweechable_moments")
+      handles.delete("@tweechable")
       # handles[0] is the person who wrote the tweet, so handles[1] will be the target
       handler = handles[1]
       m = Mention.find_by(handler: handler, hash_tag: hash_tag)
