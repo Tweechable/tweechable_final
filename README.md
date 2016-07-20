@@ -39,14 +39,6 @@
 
 ### Roadmap for improvement:
 
-	- User: validate E-mail address
-
-	- User: retrieve password
-
-	- Pagination for displaying all lessons.
-
-	- Reply mentions: if there's no hash tag, the app crashes. Need a fallback.
-
 	- Lesson Model: the model currently allows not having any tweets. I want to keep it this way so we can at least collect interesting lessons (hash tag ideas) that others can contribute to. But we should display something like “This lesson doesn’t have any tweets yet! Please contribute to make it better!”
 
 	- Twitter API Callback: If the post is successful redirect to display the tweet, if not redirect to a page saying “oh-oh”
