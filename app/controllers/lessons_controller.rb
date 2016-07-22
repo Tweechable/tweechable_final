@@ -7,7 +7,8 @@ class LessonsController < ApplicationController
   end
 
   def index
-    @lessons = Lesson.where(approved: true)
+    # @lessons = Lesson.where(approved: true)
+    @lessons = Lesson.where(approved: true).paginate(:page => params[:page], :per_page => 10)
     @lessons_all = Lesson.all
     if params[:keyword].present?
       @lessons = @lessons_all.where("hash_tag LIKE ? OR description LIKE ? OR category LIKE ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%","%#{params[:keyword]}%")
