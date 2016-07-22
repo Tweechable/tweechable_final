@@ -22,6 +22,13 @@ class TweetsController < ApplicationController
     tweet.approved = true
     tweet.save
 
+    if tweet.text.length > 126
+      flash[:warning] = "The tweet you just created is more than 126 characters. This may cause problems
+      with twitter's character limits, especially when responding to users with long user name. If the 
+      tweet includes a URL then you should be fine but we'd recommend checking it against twitter before
+      going ahead."
+    end
+
     # create a new contribution for editor
     contribution = Contribution.new
     contribution.lesson_id = tweet.lesson_id
@@ -40,7 +47,6 @@ class TweetsController < ApplicationController
     #
     #   end
     # end
-
   end
 
   def edit
@@ -61,7 +67,4 @@ class TweetsController < ApplicationController
 
     redirect_to tweets_url(id: tweet.lesson_id)
   end
-
-
-
 end

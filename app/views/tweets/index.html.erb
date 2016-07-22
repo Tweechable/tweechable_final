@@ -1,5 +1,12 @@
 <h2>Now let's add more tweets to your lesson on <%= @lesson.hash_tag %>!</h2>
 
+<% flash.each do |name, msg| -%>
+  <div class = "alert alert-<%= name %>">
+  	<%= msg %>
+  	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  </div>
+<% end -%>
+ 
 <div class="container" id="tweets">
   <% @lesson.tweets.each do |tweet| %>
       <p><%= link_to tweet.text, edit_tweet_path(tweet.id) %></p>
