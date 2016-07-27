@@ -1,2 +1,2 @@
-web: bin/rails server -p $PORT -e $RAILS_ENV
+web: bundle exec puma -C config/puma.rb
 update: bundle exec rails runner update.rb

@@ -68,5 +68,9 @@ group :development do
   gem 'quiet_assets'
 end
 
+group :production do
+  gem 'puma'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
