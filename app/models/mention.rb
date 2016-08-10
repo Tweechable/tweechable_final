@@ -1,5 +1,6 @@
 # should be activerecord
 class Mention < ActiveRecord::Base
+  validates :handler, presence: true
 
   belongs_to :lesson
 
@@ -46,7 +47,7 @@ class Mention < ActiveRecord::Base
   end
 
   def self.reply_mentions
-    mentions = Mention.where(replied: false).where.not(lesson_id:nil)
+    mentions = Mention.where(replied: false).where.not(lesson_id: nil)
     mentions.each do |mention|
       @lesson = Lesson.find_by(id: mention.lesson_id)
 
