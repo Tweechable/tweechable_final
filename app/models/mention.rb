@@ -11,7 +11,10 @@ class Mention < ActiveRecord::Base
     mentions.each do |tweet|
       #need to check that we are not adding repeated mentions but a more elegant approach...
       #FIXME: a more sophisticated approach for this
-      hash_tag = tweet.text.scan(/#\S+/)[0]
+
+      #Retrieves the first hash tag listed in the tweet.
+      #FIXME: What if people use multiple tweets
+      hash_tag = tweet.hashtags[0].text
 
       # Get a list of all the handles in a post
       handles = tweet.text.scan(/@\S+/)
