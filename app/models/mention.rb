@@ -9,40 +9,50 @@ class Mention < ActiveRecord::Base
     @client = twitter.client
     mentions = @client.mentions_timeline
     mentions.each do |tweet|
+      puts "Found the following tweet: #{tweet.text}"
+      # Ok, take a step back. What does this need to do?
+      # This needs to take a tweet, determine if it needs to be a mention,
+      # And if it does, make that mention.
+      # Reasons why it might not be a mention:
+      #  - It does not have a valid hashtag
+      #  - It doesn't have a target
+      #  - We've already sent this message
+
+
       #need to check that we are not adding repeated mentions but a more elegant approach...
       #FIXME: a more sophisticated approach for this
-      hash_tag = tweet.text.scan(/#\S+/)[0]
+
+      #Retrieves the first hashtag listed in the tweet.
+      #FIXME: What if people use multiple tweets
+      hash_tag = "##{tweet.hashtags[0].text}"
 
       # Get a list of all the handles in a post
       handles = tweet.text.scan(/@\S+/)
       #Remove @tweechable_moments because we don't need to be sending any tweets to ourselves
       handles.delete("@tweechable")
-      # handles[0] is the person who wrote the tweet, so handles[1] will be the target
-      handler = handles[1]
-      m = Mention.find_by(handler: handler, hash_tag: hash_tag)
-
-      if m
+      # for every handle in the tweet
+      handles.each do |handle|
         # we already have it in the database, don't retrieve again
         # FIXME: need to check the timestamp is recent but we are not doing it right now. this is kind of hacky
-      else
-        m = Mention.new
-        m.created_at = Time.now
-        m.favorite_count = tweet.favorite_count
-        m.lang = tweet.lang
-        m.retweet_count = tweet.retweet_count
-        m.text = tweet.text
-        m.hash_tag = hash_tag
-        m.handler = handler
+        if Mention.where(handler: handle, hash_tag: hash_tag).count == 0
+          puts "We have not seen that tweet before, so let's save it"
+          m = Mention.new
+          # m.created_at = Time.now
+          m.favorite_count = tweet.favorite_count
+          m.lang = tweet.lang
+          m.retweet_count = tweet.retweet_count
+          m.text = tweet.text
+          m.hash_tag = hash_tag
+          m.handler = handle
 
-        lesson = Lesson.find_by(hash_tag: m.hash_tag)
-        if lesson
-          m.lesson_id = lesson.id
-        else
-          m.lesson_id = nil
+          lesson = Lesson.find_by(hash_tag: m.hash_tag)
+          if lesson
+            puts "The hashtag #{hash_tag} has a lesson associated with it, go ahead and save the message"
+            m.lesson_id = lesson.id
+            m.save
+          end
         end
-        m.save
       end
-
     end
   end
 
