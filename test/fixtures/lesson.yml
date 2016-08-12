@@ -1,0 +1,9 @@
+test_lesson:
+  hash_tag: "#test"
+  category: "test"
+  description: "a test lesson"
+
+test_lesson_two:
+  hash_tag: "#test_two"
+  category: "test"
+  description: "a second test lesson"
