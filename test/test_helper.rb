@@ -7,4 +7,12 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def generate_tweet(text)
+  	Twitter::Tweet.new({id: 1, 
+						favorite_count: 0,
+            lang: "en", 
+						retweet_count: 0, 
+						source: "@tweeter",
+						text: text})
+  end
 end
