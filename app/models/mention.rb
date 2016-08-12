@@ -10,7 +10,7 @@ class Mention < ActiveRecord::Base
     @client = twitter.client
     mentions = @client.mentions_timeline
     mentions.each do |tweet|
-      Mentions.generate_mention(tweet)
+      Mention.generate_mention(tweet)
     end
   end
 

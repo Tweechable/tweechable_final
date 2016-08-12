@@ -7,6 +7,13 @@ class MentionsTest < ActiveSupport::TestCase
 		assert_equal(1, Mention.count, "A new tweet should have been created")
 	end
 
+	test "Given a well formatted tweet with tweechable first, generate_mention should make a mention" do
+		tweet = generate_tweet("@tweechable please help @target #test")
+		Mention.generate_mention(tweet)
+		assert_equal(1, Mention.count, "A new tweet should have been created")
+		assert_equal(Mention.first.handler, "@target")
+	end
+
 	test "If a tweet doesn't have a hashtag, no mention should be generated" do
 		tweet = generate_tweet("@target hey @tweechable please help test")
 		Mention.generate_mention(tweet)
@@ -34,9 +41,9 @@ class MentionsTest < ActiveSupport::TestCase
 		assert_equal(1, Mention.count, "A tweet shouldn't have been created")
 	end
 
-	# tweet with multiple hashtags, the correct one isn't first
-
-	# Tweet with multiple valid hashtags
-
-	# Tweet with multiple targets
+	test "If there are two valid handles, mentions should be generated for both of them" do
+		tweet = generate_tweet("@target_one @target_two hey @tweechable please help #test")
+		Mention.generate_mention(tweet)
+		assert_equal(2, Mention.count, "A new tweet should have been created")
+	end
 end
