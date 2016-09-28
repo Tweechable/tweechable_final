@@ -47,23 +47,23 @@ class LessonsController < ApplicationController
   end
 
   def create
-    lesson = Lesson.new
-    lesson.hash_tag = params[:lesson][:hash_tag]
-    lesson.created_at = Time.now
-    lesson.category = params[:lesson][:category]
-    lesson.description = params[:lesson][:description]
-    lesson.approved = true
-    lesson.save
-    cookies["new_lesson_id"] = lesson.id
+      lesson = Lesson.new
+      lesson.hash_tag = params[:lesson][:hash_tag]
+      lesson.created_at = Time.now
+      lesson.category = params[:lesson][:category]
+      lesson.description = params[:lesson][:description]
+      lesson.approved = true
+      lesson.save
+      cookies["new_lesson_id"] = lesson.id
 
     # create a new contribution for creator
-    contribution = Contribution.new
-    contribution.lesson_id = lesson.id
-    contribution.user_id = session["user_id"]
-    contribution.creator = true
-    contribution.save
+      contribution = Contribution.new
+      contribution.lesson_id = lesson.id
+      contribution.user_id = session["user_id"]
+      contribution.creator = true
+      contribution.save
 
-    redirect_to tweets_url(id:lesson.id)
+      redirect_to tweets_url(id:lesson.id)
   end
 
   def edit
