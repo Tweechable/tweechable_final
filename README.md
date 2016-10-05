@@ -16,8 +16,10 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanaus
 ### Tech Stack
 
  - Hosted on Heroku
- - Built in Ruby on Rails (Rails 4.2.6)
-
+ - Built in Ruby on Rails (Rails 4.2.6) using:
+	- [Devise](https://github.com/plataformatec/devise) for authentication
+ 	- [Twitter API](https://github.com/sferik/twitter) for the Twitter bot
+ 	- [Rails Admin](https://github.com/sferik/rails_admin) for the admin panel
 
 ### To run locally 
 - git clone the repository
