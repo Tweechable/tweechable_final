@@ -32,12 +32,12 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanaus
 	- `rake db:seed` - fill the database with seed data
 	- `rails server` - hosts local server at `localhost:3000`
 
-### Use your own authentication token before running locally 
-- prereq: register a twitter account and twitter would require your phone number for obtaining the tokens 
-- follow the instruction and create a new app here: https://apps.twitter.com/ 
-- go to "Keys and Access Tokens" tab. You should have your consumer key and consumer secret key.
-- scroll down and click "create my access token". 
-- replace the content in quote with your own tokens into your app/models/twitter_api.rb file and you are done :]
+### Setup a Twitter Authentication Token 
+- Prerequisites: Register a Twitter account with a phone number. Twitter requires having a phone number for obtaining the authentication tokens 
+- Follow the instructions to create a new Twitter app on the [Twitter Apps Panel](https://apps.twitter.com/)
+- Go to "Keys and Access Tokens" tab. You should have your consumer key and consumer secret key.
+- Scroll down and click "create my access token". 
+- Replace the content in quotes with your own tokens in the `app/models/twitter_api.rb` file and you are done :smiley:
 
 ### Feature List
 - test acct on twitter: https://twitter.com/TweechableTest
