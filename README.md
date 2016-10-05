@@ -13,6 +13,11 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanaus
 - Twitter: #tweechablemoments and [@tweechable](https://twitter.com/tweechable)
 - [Chi Hack Night Work group](https://chihacknight.org/breakouts.html)
 
+### Tech Stack
+
+ - Hosted on Heroku
+ - Built in Ruby on Rails (Rails 4.2.6)
+
 
 ### To run locally 
 - git clone the repository
