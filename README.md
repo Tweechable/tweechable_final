@@ -5,11 +5,14 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanaus
 
 ### Learn More:
 
-- Work group: https://chihacknight.org/breakouts.html 
+- [Github Repository](https://github.com/Tweechable/tweechable)
 
-- Twitter: #tweechablemoments
+- [Tweechable Website](https://tweechable.herokuapp.com/)
 
-- Github: https://github.com/Tweechable/tweechable
+- Twitter: #tweechablemoments and [@tweechable](https://twitter.com/tweechable)
+
+- [Chi Hack Night Work group](https://chihacknight.org/breakouts.html)
+
 
 
 ### To run locally 
