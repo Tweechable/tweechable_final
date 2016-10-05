@@ -21,17 +21,16 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanaus
  	- [Twitter API](https://github.com/sferik/twitter) for the Twitter bot
  	- [Rails Admin](https://github.com/sferik/rails_admin) for the admin panel
 
-### To run locally 
-- git clone the repository
-- use your own authentication token (see below)
-- on terminal
+### Running Locally
+- `git clone` the repository to your local machine (see [here](https://help.github.com/articles/cloning-a-repository/) for help)
+- Setup your authentication token (see below)
+- In terminal:
 	- start *postgres* locally!!! 
 	- cd into the directory
-	- bundle install
-	- rake db:migrate
-	- rake db:seed
-	- rails server -> localhost:3000
-
+	- `bundle install` - install all of the needed gems (specified in the Gemfile)
+	- `rake db:migrate` - updated your local database schema to the latest point based on the migrations
+	- `rake db:seed` - fill the database with seed data
+	- `rails server` - hosts local server at `localhost:3000`
 
 ### Use your own authentication token before running locally 
 - prereq: register a twitter account and twitter would require your phone number for obtaining the tokens 
