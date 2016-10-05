@@ -22,14 +22,20 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanaus
  	- [Rails Admin](https://github.com/sferik/rails_admin) for the admin panel
 
 ### Running Locally
+- A few requirements:
+	- You have Ruby on Rails (`rails` and `ruby`, possibly through RVM or rbenv) on your machine
+	- You have `git` on your machine
+	- You have PSQL (`postgresql`) on your machine
+	- You have the `bundler` gem on your machine
 - `git clone` the repository to your local machine (see [here](https://help.github.com/articles/cloning-a-repository/) for help)
 - Setup your authentication token (see below)
 - In terminal:
-	- start *postgres* locally!!! 
-	- cd into the directory
+	- Start *postgres* locally (usually using `psql` command, or `sudo su - postgres`)
+	- Create a DB in postgres called *tweechable-development*
+	- `cd` into the cloned directory
 	- `bundle install` - install all of the needed gems (specified in the Gemfile)
-	- `rake db:migrate` - updated your local database schema to the latest point based on the migrations
-	- `rake db:seed` - fill the database with seed data
+	- `rake db:migrate` - updated your local database schema to the latest point based on the migrations (note that postgres must be running for this to work)
+	- `rake db:seed` - fill the database with seed data (note that postgres must be running for this to work)
 	- `rails server` - hosts local server at `localhost:3000`
 
 ### Setup a Twitter Authentication Token 
