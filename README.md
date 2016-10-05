@@ -39,12 +39,16 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanaus
 - Scroll down and click "create my access token". 
 - Replace the content in quotes with your own tokens in the `app/models/twitter_api.rb` file and you are done :smiley:
 
-### Feature List
-- test acct on twitter: https://twitter.com/TweechableTest
-- test site: https://tweechable-test.herokuapp.com/
-- you can tweet @TweechableTest @ignorantTwitter #ALessonThat'sAvailable  
-- tasks scheduled to run every 10 minutes so the response will take a while...yay free tier
-- admin panel: ask me for credential. Locally: log in with E-mail: admin@example.org Password: admin and go to http://localhost:3000/admin 
+### Testing Tweechable
+- [Test account on Twitter](https://twitter.com/TweechableTest)
+- [Test site](https://tweechable-test.herokuapp.com/)
+- You can tweet [@TweechableTest](https://twitter.com/TweechableTest) @*ignorantTwitter* #*AnAvailableLesson*  
+- The task is scheduled to run every 10 minutes so the response will take a while, due to limitations of Heroku Scheduler
+- Admin panel
+	- Production
+		- Ask an owner for credentials
+	- Local
+		- Log in with e-mail *admin@example.org* and password *admin* and go to `http://localhost:3000/admin`
 
 ### Roadmap for improvement:
 
