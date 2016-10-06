@@ -11,7 +11,7 @@ class LessonsController < ApplicationController
     @lessons = Lesson.where(approved: true).paginate(:page => params[:page], :per_page => 10)
     @lessons_all = Lesson.all
     if params[:keyword].present?
-      @lessons = @lessons_all.where("hash_tag LIKE ? OR description LIKE ? OR category LIKE ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%","%#{params[:keyword]}%").paginate(:page => params[:page], :per_page => 1)
+      @lessons = @lessons_all.where("hash_tag LIKE ? OR description LIKE ? OR category LIKE ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%","%#{params[:keyword]}%").paginate(:page => params[:page], :per_page => 10)
     end
 
     respond_to do |format|
