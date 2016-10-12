@@ -1,41 +1,60 @@
-# Tweechable is a Twitter service that responds with pre-written content when mentioned on Twitter.  
+# Tweechable - an educational Twitter service
 
-## Idea originated at Chi Hack Night by Kevin Pujanauski. See more about the project please visit: 
-	
-- Work group: https://chihacknight.org/breakouts.html 
+<img src="app/assets/images/logo.jpg?raw=true" align="right" width="100" alt="Tweechable Logo">
 
-- Twitter: #tweechablemoments
+Tweechable is an automatic education Twitter service that provides lessons when mentioned, helping to deal with repeated questions that are asked on Twitter. It helps provide well-written educational lessons on Twitter to ease the burden off of online activists. 
 
-- Github: https://github.com/Tweechable/tweechable
+Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanauski.
 
-#### Thanks Kevin for allowing me to develope this idea for my web development final course project. This is NOT the official tweechable repository. 
+### Learn More:
 
+- [Github Repository](https://github.com/Tweechable/tweechable)
+- [Tweechable Website](https://tweechable.herokuapp.com/)
+- Twitter: #tweechablemoments and [@tweechable](https://twitter.com/tweechable)
+- [Chi Hack Night Work group](https://chihacknight.org/breakouts.html)
 
-### To run locally 
-- git clone the repository
-- use your own authentication token (see below)
-- on terminal
-	- start *postgres* locally!!! 
-	- cd into the directory
-	- bundle install
-	- rake db:migrate
-	- rake db:seed
-	- rails server -> localhost:3000
+### Tech Stack
 
+ - Hosted on Heroku
+ - Built in Ruby on Rails (Rails 4.2.6) using:
+	- [Devise](https://github.com/plataformatec/devise) for authentication
+ 	- [Twitter API](https://github.com/sferik/twitter) for the Twitter bot
+ 	- [Rails Admin](https://github.com/sferik/rails_admin) for the admin panel
 
-### Use your own authentication token before running locally 
-- prereq: register a twitter account and twitter would require your phone number for obtaining the tokens 
-- follow the instruction and create a new app here: https://apps.twitter.com/ 
-- go to "Keys and Access Tokens" tab. You should have your consumer key and consumer secret key.
-- scroll down and click "create my access token". 
-- replace the content in quote with your own tokens into your app/models/twitter_api.rb file and you are done :]
+### Running Locally
+- A few requirements:
+	- You have Ruby on Rails (`rails` and `ruby`, possibly through RVM or rbenv) on your machine
+	- You have `git` on your machine
+	- You have PSQL (`postgresql`) on your machine
+	- You have the `bundler` gem on your machine
+- `git clone` the repository to your local machine (see [here](https://help.github.com/articles/cloning-a-repository/) for help)
+- Setup your authentication token (see below)
+- In terminal:
+	- Start *postgres* locally (usually using `psql` command, or `sudo su - postgres`)
+	- Create a DB in postgres called *tweechable-development*
+	- `cd` into the cloned directory
+	- `bundle install` - install all of the needed gems (specified in the Gemfile)
+	- `rake db:migrate` - updated your local database schema to the latest point based on the migrations (note that postgres must be running for this to work)
+	- `rake db:seed` - fill the database with seed data (note that postgres must be running for this to work)
+	- `rails server` - hosts local server at `localhost:3000`
 
-### Feature List
-- test acct on twitter: https://twitter.com/TweechableTest
-- test site: https://tweechable-test.herokuapp.com/
-- you can tweet @TweechableTest @ignorantTwitter #ALessonThat'sAvailable  
-- tasks scheduled to run every 10 minutes so the response will take a while...yay free tier
-- admin panel: ask me for credential. Locally: log in with E-mail: admin@example.org Password: admin and go to http://localhost:3000/admin 
+### Setup a Twitter Authentication Token 
+- Prerequisites: Register a Twitter account with a phone number. Twitter requires having a phone number for obtaining the authentication tokens 
+- Follow the instructions to create a new Twitter app on the [Twitter Apps Panel](https://apps.twitter.com/)
+- Go to "Keys and Access Tokens" tab. You should have your consumer key and consumer secret key.
+- Scroll down and click "create my access token". 
+- Replace the content in quotes with your own tokens in the `app/models/twitter_api.rb` file and you are done :smiley:
+
+### Testing Tweechable
+- [Test account on Twitter](https://twitter.com/TweechableTest)
+- [Test site](https://tweechable-test.herokuapp.com/)
+- You can tweet [@TweechableTest](https://twitter.com/TweechableTest) @*ignorantTwitter* #*AnAvailableLesson*  
+- The task is scheduled to run every 10 minutes so the response will take a while, due to limitations of Heroku Scheduler
+- Admin panel
+	- Production
+		- Ask an owner for credentials
+	- Local
+		- Log in with e-mail *admin@example.org* and password *admin* and go to `http://localhost:3000/admin`
 
 ### Roadmap for improvement:
 
