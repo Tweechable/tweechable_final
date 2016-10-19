@@ -1,0 +1,39 @@
+/* Created based on https://dev.twitter.com/web/overview/css */
+
+/* Sample Tweet Styling */
+.sample-tweets
+{
+  .sample-tweet {
+    display: inline-block;
+    font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    border-color: #eee #ddd #bbb;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    margin: 10px 5px;
+    padding: 16px;
+    max-width: 468px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    background-color: white;
+  }
+   
+  .sample-tweet a {
+    color: inherit;
+    font-weight: normal;
+    text-decoration: none;
+    outline: 0 none;
+  }
+   
+  .sample-tweet a:hover,
+  .sample-tweet a:focus {
+    text-decoration: underline;
+  }
+
+  .sample-tweet .handle { color: #0084B4; }
+}
