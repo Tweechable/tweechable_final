@@ -1,5 +1,5 @@
 # Getting Started
-Welcome to Tweechable Moments!  This is a guide for new members who want to contribute to the project's technical portion.  Please also read our [Code of Conduct] (CODE_OF_CONDUCT.md) before getting started.
+Welcome to Tweechable Moments!  This is a guide for new members who want to contribute to the project's technical portion.  We require that new members read our [Code of Conduct] (CODE_OF_CONDUCT.md) before getting started.
 
 ## Sections
 ### System Requirements
@@ -8,7 +8,7 @@ Welcome to Tweechable Moments!  This is a guide for new members who want to cont
 ### Setup a Twitter authentication token
 ### Testing Tweechable
 ### Guidelines for submitting a pull request
-### Guideliness for pushing a release
+### Guidelines for documenting your work
 ### Relevant Resources
 
 
@@ -19,55 +19,51 @@ Welcome to Tweechable Moments!  This is a guide for new members who want to cont
 - Postgres 9.5.4
 - Bundler gem
 
-### Install Guidelines
-## Mac Install Guidelines 
-We highly recommend using homebrew to install needed components.  Here are further instructions.  Also, check out the helpful advice here https://gist.github.com/mikelikesbikes/3712106678a2aed284da
+## Install Guidelines
+### Mac Install Guidelines 
+We highly recommend using homebrew to install needed components.  Here are further instructions.
 
-# Install Homebrew
+#### Install Homebrew
 Check if you have already installed Homebrew.  If you have installed Homebrew, you should see the below.
-'
-$ which brew
-/usr/local/bin/brew
-'
-If you don't see that, run the below to install homebrew
-' ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" '
+`$ which brew
+/usr/local/bin/brew`  
+If you don't see that, run the below to install homebrew 
+`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" `
 
-# Install Git
+#### Install Git
 See if you have git installed
-' which git
- /usr/local/bin/git '
- If you don't get a result, run the below to install git.
-'brew install git'
+`which git
+ /usr/local/bin/git ` 
+ If you don't get a result, run the below to install git.  
+`brew install git`
 
-# Install a Ruby Manager
+#### Install a Ruby Manager
 We highly recommend you use a Ruby manager, preferably rbenv, to manage your Ruby version.
-# Rbenv instructions
+
+##### Rbenv instructions
 First, check if you already have rbenv installed.
-' which rbenv 
-/usr/local/bin/rbenv
-'
-If you don't get a result for 'which rbenv', run the below
-'$ brew install ruby-build rbenv'
+` which rbenv 
+/usr/local/bin/rbenv`  
+If you don't get a result for `which rbenv`, run the below 
+`$ brew install ruby-build rbenv`
 
-After installing 'rbenv', add the below to your '.bash_profile' to tell your computer to use 'rbenv'
-'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi'
+After installing `rbenv`, add the below to your `.bash_profile` to tell your computer to use `rbenv`
+`if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi`
 
-# Install Ruby
+#### Install Ruby
 Use rbenv to see all of the rubies available for install
-'$ rbenv install --list'
+`$ rbenv install --list`  
 Will show you all the rubies available for installation
-'$ rbenv install 2.3.1'
-Will install ruby version 2.3.1
-'$ rbenv global 2.3.1'
-Will set the global/shell/local ruby
+`$ rbenv install 2.3.1`  
+Will install ruby version 2.3.1  
+`$ rbenv global 2.3.1`  
+Will set the global ruby.  (The global ruby will be used by default in all your work on your local machine.)
 
-# Install Bundler
-'gem install bundler
-rbenv rehash'
-'gem install sqlite3 pg'
+#### Install Bundler Gem
+`gem install bundler`
 
-
-## Non-Mac Install Guidelines
+### Non-Mac Install Guidelines
+`this area is under construction`
 
 ### Running Locally
 - A few requirements:
@@ -93,7 +89,6 @@ rbenv rehash'
 - Scroll down and click "create my access token". 
 - Replace the content in quotes with your own tokens in the `app/models/twitter_api.rb` file and you are done :smiley:
 
-
 ### Testing Tweechable
 - [Test account on Twitter](https://twitter.com/TweechableTest)
 - [Test site](https://tweechable-test.herokuapp.com/)
@@ -105,17 +100,44 @@ rbenv rehash'
 	- Local
 		- Log in with e-mail *admin@example.org* and password *admin* and go to `http://localhost:3000/admin`
 
+### Guidelines for Submitting a Change to Tweechable
+ - See something in Tweechable that could be better?  Open an issue!
+ - If you want to work an an existing issue, please comment on it that you are working on it.  
+- If someone is already working on an issue that interests you, contact them about collaborating.
+ - Once you start working on an issue, create a branch on your local machine with a name that indicates what you're doing (e.g. `add-educatee-opt-out-ability`)
+ - This is Chicago: when working, commit early, commit often.
+ - After you finish up your work, push your branch to the tweechable_final repo and open a pull request.
+ - Do not merge your own pull request!
+ - One technical project maintainer needs to approve and merge your pull request
+ - Technical Project Maintainers as of October 2016 are: @lw334, @TheJHyde, @McEileen
+ - In order to become a technical project maintainer, you should make four (or more) contributions to Tweechable's tech component over a month.  Involvement includes, but is not limited to:
+ 	- Attending ChiHackNight meetings
+ 	- Opening issues
+ 	- Making pull requests 
+ 	- Offering feedback on code
+ 	- Offering feedback on documentation
+ - Only technical project maintainers will make pushes to the twitter bot itself.
+
+### Guidelines for Documenting Your Work
+- On a more serious note, write clear, concise commit messages.
+- For inspiration on how to write good commit messages, please watch this video [Do Your Commit Messages Suck: by Ryan McGeary] (https://www.youtube.com/watch?v=8YjSty6bfog).  We learned of the video through [exercism] (exercism.io) - thanks, exercism!
+
+
 ### Relevant Resources
 If you are new to Tweechable's tech stack and would like more experience, check out the resources below.
-# Ruby
+
+#### Ruby
 - [Official Ruby Documentation] (ruby-doc.org)
 - [Codecademy's Ruby course] (www.codecademy.com/learn/ruby)
 - [Learn to Program by Chris Pine] (https://pine.fm/LearnToProgram/)
-# Rails
+
+#### Rails
 - [Rails Guides] (guides.rubyonrails.org)
 - [Rails for Zombies] (https://www.codeschool.com/courses/rails-for-zombies-redux)
 - [Rails for Zombies Cheatsheet] (http://courseware.codeschool.com/rails_for_zombies_2_cheatsheets.pdf)
-# Twitter API
-- [Twitter API Documentation] https://dev.twitter.com/streaming/overview
+
+#### Twitter API
+- [Twitter API Documentation] (https://dev.twitter.com/streaming/overview)
 - [Learn how to use the twitter API] (https://www.codecademy.com/en/tracks/twitter)
 - [Tutorial on how to create a twitter bot] (http://www.katelyndinkgrave.com/ruby/2016/01/31/civ-game-generator-twitterbot.html)
+
