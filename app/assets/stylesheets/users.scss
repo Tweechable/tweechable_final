@@ -17,8 +17,11 @@ div.sign-up-container form input[type="submit"] {
   color: white;
   border: none;
   width: 400px;
-}
 
-div.sign-up-container form input[type="submit"]:hover {
-  background-color: #71c9f7;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: #71c9f7;
+  }
 }
