@@ -21,6 +21,7 @@
     font-weight: normal;
     line-height: 20px;
     background-color: white;
+    text-align: left;
   }
    
   .sample-tweet a {
@@ -36,4 +37,14 @@
   }
 
   .sample-tweet .handle { color: #0084B4; }
+}
+
+/* About Page Sample Styling */
+.jumbotron.sample-tweets
+{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  height: 500px;
+  overflow-y: scroll;
 }
