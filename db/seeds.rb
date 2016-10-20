@@ -100,14 +100,14 @@ t22.save
 
 t23 = Tweet.new
 t23.lesson_id = l2.id
-t23.text = "also consider that many people - black, white, others, are devoting their lives to interrupting violence in cities. We honor their efforts, but our focus is police violence. "
+t23.text = "also consider that many people - black, white, others, are devoting their lives to interrupting violence in cities. We honor their efforts, but our focus is police violence.→ "
 t23.link = "http://bit.ly/BoBViol2"
 t23.approved = true
 t23.save
 
 t24 = Tweet.new
 t24.lesson_id = l2.id
-t24.text = "finally, @overworked_activist and I would like you to consider the structural issues that lead to a neighborhood having high incidence of violent crime: economic oppty, school & mental health "
+t24.text = "finally, @overworked_activist and I would like you to consider the structural issues that lead to a neighborhood having high incidence of violent crime: economic oppty, school & mental health.→ "
 # THIS BIT.LY link doesn't connect to a website.
 t24.link = "http://bit.ly/BoBViol3"
 t24.approved = true
@@ -148,7 +148,7 @@ t34.save
 
 t35 = Tweet.new
 t35.lesson_id = l3.id
-t35.text = "that slavery, subordination to the superior race, is his natural and normal condition. "
+t35.text = "that slavery, subordination to the superior race, is his natural and normal condition.→ "
 t35.link = "http://bit.ly/1KfcIEu"
 t35.approved = true
 t35.save
@@ -180,7 +180,7 @@ t43.save
 
 t44 = Tweet.new
 t44.lesson_id = l4.id
-t44.text = "White-sounding names got 50% more callbacks for the SAME RESUME than black-sounding names → "
+t44.text = "White-sounding names got 50% more callbacks for the SAME RESUME than black-sounding names.→ "
 t44.link = "http://bit.ly/1euCp1b"
 t44.approved = true
 t44.save
