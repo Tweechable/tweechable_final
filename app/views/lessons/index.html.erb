@@ -20,7 +20,7 @@
       <div class="col-md-4">
         <h3><%= link_to lesson.hash_tag, lesson_path(lesson.id) %></h3>
         <% lesson.tweets.each do |tweet| %>
-        <p><%= tweet.text %></p>
+        <p><%= tweet.text %> <%= link_to_if tweet.link, "source",tweet.link, target: '_blank' %></p>
         <% end %>
       </div>
   <% end %>

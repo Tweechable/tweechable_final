@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "tweets", force: :cascade do |t|
     t.integer "lesson_id"
     t.string  "text"
+    t.string  "link"
     t.boolean "approved",  default: true
   end
 
