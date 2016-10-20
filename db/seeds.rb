@@ -58,7 +58,6 @@ t12.save
 
 t13 = Tweet.new
 t13.lesson_id = l1.id
-# t13.text = "start reading/listening to all the great work that POC have already written → %><a href=\"http://wapo.st/1DwWy71\">SOURCE TEST</a>"
 t13.text = "start reading/listening to all the great work that POC have already written → "
 t13.link = "http://wapo.st/1DwWy71"
 t13.approved = true
@@ -81,6 +80,7 @@ t15.save
 t16 = Tweet.new
 t16.lesson_id = l1.id
 t16.text = "feel free to connect with groups like BreakItDown or Showing Up for Racial Justice to learn more → "
+# This link still works, but the SURJ page has been moved or doesn't exist any more.
 t16.link = "http://bit.ly/1rvxgBe"
 t16.approved = true
 t16.save
