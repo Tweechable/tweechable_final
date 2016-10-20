@@ -22,7 +22,7 @@
         <% lesson.tweets.each do |tweet| %>
         <p><%= tweet.text %> 
           <% if tweet.link %>
-            <%= link_to_if tweet.link, "source",tweet.link, target: '_blank' %>
+            <%= link_to "source",tweet.link, target: '_blank' %>
             <% end %>
             </p>
         <% end %>
