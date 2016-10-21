@@ -20,11 +20,12 @@
       <div class="col-md-4">
         <h3><%= link_to lesson.hash_tag, lesson_path(lesson.id) %></h3>
         <% lesson.tweets.each do |tweet| %>
-        <p><%= tweet.text %> 
-          <% if tweet.link %>
-            <%= link_to "source",tweet.link, target: '_blank' %>
-            <% end %>
-            </p>
+          <p>
+            <%= tweet.text %> 
+            
+            <% # if a source was specified for this tweet, display it %>
+            <%= link_to "source", tweet.link, target: '_blank' if tweet.link %>
+          </p>
         <% end %>
       </div>
   <% end %>
