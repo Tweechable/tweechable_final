@@ -117,9 +117,11 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
  	- Offering feedback on code
  	- Offering feedback on documentation
  - Only technical project maintainers will make pushes to the twitter bot itself.
+ - Only technical project maintainers can make pushes to master
+ - If someone is invited to be a contributor for to the tweechable repo, then doesn't contribute to the project for a month, they will be removed as a contributor.
 
 ### Guidelines for Documenting Your Work
-- On a more serious note, write clear, concise commit messages.
+- Write clear, concise commit messages.
 - For inspiration on how to write good commit messages, please watch this video [Do Your Commit Messages Suck: by Ryan McGeary] (https://www.youtube.com/watch?v=8YjSty6bfog).  We learned of the video through [exercism] (exercism.io) - thanks, exercism!
 
 
