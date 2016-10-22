@@ -46,7 +46,7 @@ l4.save
 
 t11 = Tweet.new
 t11.lesson_id = l1.id
-t11.text = "Hi,I was asked to get in touch with you about not being a terrible white person"
+t11.text = "Hi, I was asked to get in touch with you about working for racial justice as a white person"
 t11.approved = true
 t11.save
 
@@ -83,7 +83,7 @@ t16.save
 
 t21 = Tweet.new
 t21.lesson_id = l2.id
-t21.text = "Hi @ignorant_tweeter, @overworked_activist asked me to get in touch with you about black-on-black violence"
+t21.text = "Hi, I was asked to get in touch with you about black-on-black violence"
 t21.approved = true
 t21.save
 
@@ -101,13 +101,13 @@ t23.save
 
 t24 = Tweet.new
 t24.lesson_id = l2.id
-t24.text = "finally, @overworked_activist and I would like you to consider the structural issues that lead to a neighborhood having high incidence of violent crime: economic oppty, school & mental health $ bit.ly/BoBViol3"
+t24.text = "finally, please consider the structural issues that lead to a neighborhood having high incidence of violent crime: economic oppty, school & mental health $ bit.ly/BoBViol3"
 t24.approved = true
 t24.save
 
 t25 = Tweet.new
 t25.lesson_id = l2.id
-t25.text = "if you have other questions on the issue, i'm happy to help further, or you can explore the syllabus here: bit.ly/BoBViolSyl"
+t25.text = "if you have other questions on the issue, I'm happy to help further, or you can explore the syllabus here: bit.ly/BoBViolSyl"
 t25.approved = true
 t25.save
 
