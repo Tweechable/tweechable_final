@@ -23,6 +23,16 @@
     background-color: white;
     text-align: left;
 
+    a {
+      color: inherit;
+      font-weight: normal;
+      text-decoration: none;
+      outline: 0 none;
+     
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
     .avatar {
       float: left;
       width: 48px;
@@ -30,18 +40,6 @@
       margin-right: 10px;
     }
     .text { margin-left: 58px; }
-  }
-   
-  .sample-tweet a {
-    color: inherit;
-    font-weight: normal;
-    text-decoration: none;
-    outline: 0 none;
-  }
-   
-  .sample-tweet a:hover,
-  .sample-tweet a:focus {
-    text-decoration: underline;
   }
 
   .handle { color: #0084B4; }
@@ -57,17 +55,20 @@
   overflow-y: scroll;
 }
 
-/* Desktop */
+/* Desktop Styling @media */
 @media (min-width: 800px)
 {
+  /* Break up tweets on about into three columns */
   .tweet-col {
     width: 33%;
     display: inline-block;
     vertical-align: top;
   }
 }
+/* Mobile  Styling @media */
 @media (max-width: 799px)
 {
+  /* Show all tweets in one column */
   .tweet-col { 
     width: 100%;
   }
