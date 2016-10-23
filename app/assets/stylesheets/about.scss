@@ -50,13 +50,17 @@
 {
   padding-top: 10px;
   padding-bottom: 10px;
-  text-align: center;
   height: 500px;
   overflow-y: scroll;
 }
 
-/* Desktop Styling @media */
-@media (min-width: 800px)
+.tweet-col .col-text {
+  margin: 0px 5px;
+  text-align: left;
+}
+
+/* Large Desktop Styling @media */
+@media (min-width: 1300px)
 {
   /* Break up tweets on about into three columns */
   .tweet-col {
@@ -66,10 +70,12 @@
   }
 }
 /* Mobile  Styling @media */
-@media (max-width: 799px)
+@media (max-width: 1299px)
 {
   /* Show all tweets in one column */
   .tweet-col { 
     width: 100%;
+    max-width: 480px;
+    margin: auto;
   }
 }
