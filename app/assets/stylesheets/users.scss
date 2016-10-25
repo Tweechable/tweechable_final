@@ -1,7 +1,8 @@
 
 div.form-container {
+  margin: 0 auto;
   text-align: center;
-
+  width: 80%;
   form input {
     border: 1px solid #dfe0e6;
     border-radius: 2px;
@@ -11,7 +12,9 @@ div.form-container {
   div.form-group input {
     padding: 6px 10px;
     height: 50px;
-    width: 400px;
+    width: 100%;
+    max-width: 450px;
+    min-width: 200px;
   }
 
   h1 {
@@ -22,7 +25,9 @@ div.form-container {
     background-color: #5ea2c5;
     color: white;
     border: none;
-    width: 400px;
+    width: 100%;
+    max-width: 450px;
+    min-width: 200px;
     padding: 7px;
     &:focus {
       outline: none;
