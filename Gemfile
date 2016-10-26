@@ -35,7 +35,6 @@ gem 'jquery-ui-rails'
 gem 'pg'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
-# devise potentially..
 gem 'devise'
 # rails admin
 gem 'rails_admin'
