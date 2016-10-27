@@ -75,7 +75,10 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
 - Setup your authentication token (see below)
 - In terminal:
 	- Start *postgres* locally (usually using `psql` command, or `sudo su - postgres`)
-	- Create a DB in postgres called *tweechable-development*
+		- If you don't have postgres, `$brew install postgresql`
+		- Start the postgres server: `$pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start` 
+		- To eventually stop the server: `$pg_ctl -D /usr/local/var/postgres stop -s -m fast`
+	- Create a DB in postgres called *tweechable_development*
 	- `cd` into the cloned directory
 	- `bundle install` - install all of the needed gems (specified in the Gemfile)
 	- `rake db:migrate` - updated your local database schema to the latest point based on the migrations (note that postgres must be running for this to work)
