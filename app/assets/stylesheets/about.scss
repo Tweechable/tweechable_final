@@ -1,0 +1,83 @@
+/* Created based on https://dev.twitter.com/web/overview/css */
+
+/* Sample Tweet Styling */
+.sample-tweets
+{
+  .sample-tweet {
+    display: inline-block;
+    font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    border-color: #eee #ddd #bbb;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    margin: 10px 5px;
+    padding: 16px;
+    max-width: 468px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    background-color: white;
+    text-align: left;
+
+    a {
+      color: inherit;
+      font-weight: normal;
+      text-decoration: none;
+      outline: 0 none;
+     
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+    .avatar {
+      float: left;
+      width: 48px;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    .text { margin-left: 58px; }
+  }
+
+  .handle { color: #0084B4; }
+}
+
+/* About Page Sample Styling */
+.jumbotron.sample-tweets
+{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.tweet-col .col-text {
+  margin: 0px 5px;
+  text-align: left;
+  font-weight: bold;
+  color: #0084B4;
+}
+
+/* Large Desktop Styling @media */
+@media (min-width: 1300px)
+{
+  /* Break up tweets on about into three columns */
+  .tweet-col {
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+/* Mobile  Styling @media */
+@media (max-width: 1299px)
+{
+  /* Show all tweets in one column */
+  .tweet-col { 
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+  }
+}
