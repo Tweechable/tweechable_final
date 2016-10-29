@@ -7,9 +7,9 @@
     </p>
     
     <p>
-      <%= form.label :link, "Source (for example: http://www.nber.org/papers/w22589?sy=589)" %>
+      <%= form.label :link, "Source (for example: www.nber.org/papers/w22589?sy=589)" %>
       <br>
-      <%= form.text_field :link, :size => 50 %>
+      http://&nbsp<%= form.text_field :link, :size => 50 %>
     </p>     
 
     <p><%= form.submit :class => "btn btn-primary"%></p>
