@@ -16,18 +16,20 @@
 
 <br>
 <div class="row">
-  <% @lessons.each do |lesson| %>
-      <div class="col-md-4">
-        <h3><%= link_to lesson.hash_tag, lesson_path(lesson.id) %></h3>
-        <% lesson.tweets.each do |tweet| %>
-          <p>
-            <%= tweet.text %> 
-            
-            <% # if a source was specified for this tweet, display it %>
-            <%= link_to "source", tweet.link, target: '_blank' if tweet.link %>
-          </p>
-        <% end %>
-      </div>
+  <% if params[:keyword].present? #if this is a search %>
+    <h2>Lessons Matching: "<i><%= params[:keyword] %></i>"</h2>
+  <% end %>
+  <% unless @lessons.empty? %>
+    <% @lessons.each do |lesson| %>
+        <div class="col-md-4">
+          <h3><%= link_to lesson.hash_tag, lesson_path(lesson.id) %></h3>
+          <% lesson.tweets.each do |tweet| %>
+          <p><%= tweet.text %></p>
+          <% end %>
+        </div>
+    <% end %>
+  <% else %>
+    No results found! Consider creating a new lesson if you're looking for something worthwhile!
   <% end %>
 </div>
 
