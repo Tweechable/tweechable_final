@@ -16,7 +16,6 @@ class TweetsController < ApplicationController
   end
 
   def create
-    p params
     tweet = Tweet.new
     tweet.text = params[:tweet][:text]
     tweet.link = "http://" + params[:tweet][:link]
