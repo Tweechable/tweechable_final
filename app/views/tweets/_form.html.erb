@@ -5,6 +5,12 @@
       <br>
       <%= form.text_field :text, size: 80, autofocus: true %>
     </p>
+    
+    <p>
+      <%= form.label :link, "Source (for example: www.nber.org/papers/w22589?sy=589)" %>
+      <br>
+      http://&nbsp<%= form.text_field :link, :size => 50 %>
+    </p>     
 
     <p><%= form.submit :class => "btn btn-primary"%></p>
 

@@ -1,0 +1,38 @@
+
+div.form-container {
+  text-align: center;
+  form input {
+    border: 1px solid #dfe0e6;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+  }
+
+  div.form-group input {
+    padding: 6px 10px;
+    height: 50px;
+    width: 100%;
+    max-width: 450px;
+    min-width: 200px;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  form input[type="submit"] {
+    background-color: #5ea2c5;
+    color: white;
+    border: none;
+    width: 100%;
+    max-width: 450px;
+    min-width: 200px;
+    padding: 7px;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      background-color: #71c9f7;
+    }
+  }
+
+}
