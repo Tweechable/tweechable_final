@@ -4,7 +4,7 @@
 
 Tweechable is an automatic education Twitter service that provides lessons when mentioned, helping to deal with repeated questions that are asked on Twitter. It helps provide well-written educational lessons on Twitter to ease the burden off of online activists. 
 
-Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanauski.
+Idea originated at [Chi Hack Night](https://chihacknight.org/).
 
 [Fill this out to become a contributor] (https://goo.gl/forms/8h4klAN0az3jDqoG3)
 
