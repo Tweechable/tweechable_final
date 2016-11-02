@@ -15,6 +15,7 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanaus
 - Twitter: #tweechablemoments and [@tweechable](https://twitter.com/tweechable)
 - [Chi Hack Night Work group](https://chihacknight.org/breakouts.html)
 - [Join the tweechable-moments channel on the ChiHackNight slack] (slackme.chihacknight.org)
+- [Fill this out to become a contributor] (https://goo.gl/forms/8h4klAN0az3jDqoG3)
 
 ### Tech Stack
 
@@ -23,8 +24,6 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanaus
 	- [Devise](https://github.com/plataformatec/devise) for authentication
  	- [Twitter API](https://github.com/sferik/twitter) for the Twitter bot
  	- [Rails Admin](https://github.com/sferik/rails_admin) for the admin panel
-
-
 
 ### Roadmap for improvement:
 
