@@ -6,6 +6,8 @@ Tweechable is an automatic education Twitter service that provides lessons when 
 
 Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanauski.
 
+[Fill this out to become a contributor] (https://goo.gl/forms/8h4klAN0az3jDqoG3)
+
 ### Learn More:
 
 - [Our Code of Conduct] (CODE_OF_CONDUCT.md) (required reading for all project members)
@@ -15,7 +17,6 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanaus
 - Twitter: #tweechablemoments and [@tweechable](https://twitter.com/tweechable)
 - [Chi Hack Night Work group](https://chihacknight.org/breakouts.html)
 - [Join the tweechable-moments channel on the ChiHackNight slack] (slackme.chihacknight.org)
-- [Fill this out to become a contributor] (https://goo.gl/forms/8h4klAN0az3jDqoG3)
 
 ### Tech Stack
 
