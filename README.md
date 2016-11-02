@@ -8,6 +8,8 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/) by Kevin Pujanaus
 
 ### Learn More:
 
+- [Our Code of Conduct] (CODE_OF_CONDUCT.md) (required reading for all project members)
+- [Getting Started Guide] (GETTING_STARTED.md)
 - [Github Repository](https://github.com/Tweechable/tweechable)
 - [Tweechable Website](https://tweechable.herokuapp.com/)
 - Twitter: #tweechablemoments and [@tweechable](https://twitter.com/tweechable)
