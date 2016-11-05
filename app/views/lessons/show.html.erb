@@ -22,13 +22,8 @@
   </ul>
   <p><strong>Tweets: </strong></p>
   <div class="jumbotron">
-    <!--if not admin show text, if admin show link to edit-->
-      <% @lesson.tweets.each do |tweet| %>
-        <% if session["user_id"].present? %>
-          <p><%= link_to tweet.text, edit_tweet_path(tweet.id) %></p>
-        <% else %>
-          <p><%= tweet.text %></p>
-        <% end %>
+    <% @lesson.tweets.each do |tweet| %>
+      <%= raw tweet_and_url(tweet) %>
     <% end %>
   </div>
 

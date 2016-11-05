@@ -58,7 +58,8 @@ t12.save
 
 t13 = Tweet.new
 t13.lesson_id = l1.id
-t13.text = "start reading/listening to all the great work that POC have already written → http://wapo.st/1DwWy71"
+t13.text = "start reading/listening to all the great work that POC have already written → "
+t13.link = "http://wapo.st/1DwWy71"
 t13.approved = true
 t13.save
 
@@ -71,13 +72,16 @@ t14.save
 
 t15 = Tweet.new
 t15.lesson_id = l1.id
-t15.text = "Step 3 is to act: donate time, talent, treasure to POC-led organizations and movements → http://byp100.org/"
+t15.text = "Step 3 is to act: donate time, talent, treasure to POC-led organizations and movements → "
+t15.link = "http://byp100.org/"
 t15.approved = true
 t15.save
 
 t16 = Tweet.new
 t16.lesson_id = l1.id
-t16.text = "feel free to connect with groups like BreakItDown or Showing Up for Racial Justice to learn more → http://bit.ly/1rvxgBe"
+t16.text = "feel free to connect with groups like BreakItDown or Showing Up for Racial Justice to learn more → "
+# This link still works, but the SURJ page has been moved or doesn't exist any more.
+t16.link = "http://bit.ly/1rvxgBe"
 t16.approved = true
 t16.save
 
@@ -89,25 +93,31 @@ t21.save
 
 t22 = Tweet.new
 t22.lesson_id = l2.id
-t22.text = "sure, >90% blacks are killed by other blacks, but it's the same for every race in the US. 82% of whites are killed by other whites, this is the result of segregation.→ bit.ly/BoBViol1"
+t22.text = "sure, >90% blacks are killed by other blacks, but it's the same for every race in the US. 82% of whites are killed by other whites, this is the result of segregation.→ "
+t22.link = "http://bit.ly/BoBViol1"
 t22.approved = true
 t22.save
 
 t23 = Tweet.new
 t23.lesson_id = l2.id
-t23.text = "also consider that many people - black, white, others, are devoting their lives to interrupting violence in cities. We honor their efforts, but our focus is police violence. bit.ly/BoBViol2"
+t23.text = "also consider that many people - black, white, others, are devoting their lives to interrupting violence in cities. We honor their efforts, but our focus is police violence.→ "
+t23.link = "http://bit.ly/BoBViol2"
 t23.approved = true
 t23.save
 
 t24 = Tweet.new
 t24.lesson_id = l2.id
-t24.text = "finally, @overworked_activist and I would like you to consider the structural issues that lead to a neighborhood having high incidence of violent crime: economic oppty, school & mental health $ bit.ly/BoBViol3"
+t24.text = "finally, @overworked_activist and I would like you to consider the structural issues that lead to a neighborhood having high incidence of violent crime: economic oppty, school & mental health.→ "
+# THIS BIT.LY link doesn't connect to a website.
+t24.link = "http://bit.ly/BoBViol3"
 t24.approved = true
 t24.save
 
 t25 = Tweet.new
 t25.lesson_id = l2.id
-t25.text = "if you have other questions on the issue, i'm happy to help further, or you can explore the syllabus here: bit.ly/BoBViolSyl"
+t25.text = "if you have other questions on the issue, i'm happy to help further, or you can explore the syllabus here: "
+# THIS BIT.LY link doesn't connect to a website.
+t25.link = "http://bit.ly/BoBViolSyl"
 t25.approved = true
 t25.save
 
@@ -119,7 +129,8 @@ t31.save
 
 t32 = Tweet.new
 t32.lesson_id = l3.id
-t32.text = "At the time of founding,important Confederate figures said it was about slavery, including secession statements from GA, SC, MS, etc.→ http://huff.to/1WarMcm"
+t32.text = "At the time of founding,important Confederate figures said it was about slavery, including secession statements from GA, SC, MS, etc.→ "
+t32.link = "http://huff.to/1WarMcm"
 t32.approved = true
 t32.save
 
@@ -137,7 +148,8 @@ t34.save
 
 t35 = Tweet.new
 t35.lesson_id = l3.id
-t35.text = "that slavery, subordination to the superior race, is his natural and normal condition. souce:http://bit.ly/1KfcIEu"
+t35.text = "that slavery, subordination to the superior race, is his natural and normal condition.→ "
+t35.link = "http://bit.ly/1KfcIEu"
 t35.approved = true
 t35.save
 
@@ -168,7 +180,8 @@ t43.save
 
 t44 = Tweet.new
 t44.lesson_id = l4.id
-t44.text = "White-sounding names got 50% more callbacks for the SAME RESUME than black-sounding names → http://bit.ly/1euCp1b"
+t44.text = "White-sounding names got 50% more callbacks for the SAME RESUME than black-sounding names.→ "
+t44.link = "http://bit.ly/1euCp1b"
 t44.approved = true
 t44.save
 
@@ -180,7 +193,9 @@ t45.save
 
 t46 = Tweet.new
 t46.lesson_id = l4.id
-t46.text = "less likely to have student debt, more likely to have accessed GI benefits, and much more → http://n.pr/1NklFiu"
+t46.text = "less likely to have student debt, more likely to have accessed GI benefits, and much more → "
+# This link still works, but NPR moved or took down the article
+t46.link = "http://n.pr/1NklFiu"
 t46.approved = true
 t46.save
 

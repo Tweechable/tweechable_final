@@ -31,7 +31,11 @@ class EducateesController < ApplicationController
       # @client.update(first_ttext)
 
       rest.each do |t|
-        ttext = t.text + ' ' + params[:twitter_handle]
+        if t.link
+          ttext = t.text + ' ' + t.link + ' ' + params[:twitter_handle] 
+        else
+          ttext = t.text + ' ' + params[:twitter_handle] 
+        end
         @client.update(ttext)
       end
 

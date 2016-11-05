@@ -24,6 +24,7 @@ Contribution
 Tweet
   lesson_id: integer
   text: string
+  link: string
   approved: boolean(true)
 
 # People who are about to get educated
