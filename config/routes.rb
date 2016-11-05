@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get '/pages/:page' => 'pages#show'
 
-  get '/educatees/new' => 'educatees#new'
+  # get '/educatees/new' => 'educatees#new' - Try Tweechable page, removed per issue #41
   get '/educatees' => 'educatees#index'
   post '/educatees' => 'educatees#create'
 
