@@ -1,3 +1,6 @@
+<!-- WE NEED TO USE THE DEVISE VIEWS FOR THE FORM -->
+
+
 <div class="form-container">
   <h1>Sign Up</h1>
   <%= form_for @user do |f| %>
@@ -15,7 +18,7 @@
     </div>
     <div class="form-group">
       <%= f.label :password_confirmation, class: 'sr-only' %>
-      <%= f.password_field :password_confirmation, size: 40, required: true, placeholder: 'Confirm email' %>
+      <%= f.password_field :password_confirmation, size: 40, required: true, placeholder: 'Confirm password' %>
     </div>
     <div class="form-group">
       <%= f.label :how_did_you_find_tweechable_?, class: 'sr-only' %>
