@@ -29,21 +29,21 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
-    user = User.new
-    user.name = params[:user][:name]
-    user.email = params[:user][:email]
-    user.password = params[:user][:password]
-    user.created_at = Time.now
-    user.updated_at = Time.now
-    user.save
-    #created = User.find_by(email: params[:user][:email])
-    #if !created
-    #  redirect_to users_url, notice: "Invalid E-mail"
-    #  return
-    #end
-    redirect_to lessons_url
-  end
+  # def create
+  #   user = User.new
+  #   user.name = params[:user][:name]
+  #   user.email = params[:user][:email]
+  #   user.password = params[:user][:password]
+  #   user.created_at = Time.now
+  #   user.updated_at = Time.now
+  #   user.save
+  #   #created = User.find_by(email: params[:user][:email])
+  #   #if !created
+  #   #  redirect_to users_url, notice: "Invalid E-mail"
+  #   #  return
+  #   #end
+  #   redirect_to lessons_url
+  # end
 
   def destroy
     User.delete(params[:id])
