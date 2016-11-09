@@ -90,12 +90,14 @@ class LessonsController < ApplicationController
         contribution.user_id = session["user_id"]
         contribution.creator = false
         contribution.save
+
+        redirect_to lesson_url(@lesson.id)
       else 
         redirect_to lessons_path
       end  
     end
 
-    redirect_to lesson_url(@lesson.id)
+    
   end
 
   def destroy
