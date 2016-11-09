@@ -1,6 +1,8 @@
 class LessonsController < ApplicationController
+  before_action :is_admin?, :only => [:edit]
+  before_action :find_lesson, :except => [:index, :create, :new, :edit]
 
-  before_action :find_lesson, :except => [:index, :create, :new]
+
 
   def find_lesson
     @lesson = Lesson.find_by(id: params[:id])
@@ -68,21 +70,30 @@ class LessonsController < ApplicationController
 
   def edit
     @lesson = Lesson.find_by(id: params[:id])
+    
+   
   end
 
   def update
-    @lesson.hash_tag = params[:lesson][:hash_tag]
-    @lesson.created_at = params[:lesson][:date]
-    @lesson.description = params[:lesson][:description]
-    @lesson.approved = true
-    @lesson.save
+    # cannot update unless curr user is admin
+    if (current_user)
+      if (current_user.admin)
+        @lesson.hash_tag = params[:lesson][:hash_tag]
+        @lesson.created_at = params[:lesson][:date]
+        @lesson.description = params[:lesson][:description]
+        @lesson.approved = true
+        @lesson.save
 
-    # create a new contribution for editor
-    contribution = Contribution.new
-    contribution.lesson_id = @lesson.id
-    contribution.user_id = session["user_id"]
-    contribution.creator = false
-    contribution.save
+        # create a new contribution for editor
+        contribution = Contribution.new
+        contribution.lesson_id = @lesson.id
+        contribution.user_id = session["user_id"]
+        contribution.creator = false
+        contribution.save
+      else 
+        redirect_to lessons_path
+      end  
+    end
 
     redirect_to lesson_url(@lesson.id)
   end
