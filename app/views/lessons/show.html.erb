@@ -20,6 +20,7 @@
     <li><%= name %></li>
     <% end %>
   </ul>
+  <p><strong>Intro Tweet:</strong> <%= @lesson.intro %></p>
   <p><strong>Tweets: </strong></p>
   <div class="jumbotron">
     <% @lesson.tweets.each do |tweet| %>

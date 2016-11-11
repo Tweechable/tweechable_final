@@ -53,17 +53,13 @@ class Mention < ActiveRecord::Base
       if @lesson
         twitters = Twitter_API.new
         @client = twitters.client
-
-        @lesson.tweets.each do |message|
-          # add the blank too make sure we can tag! otherwise it'd be one string
-          to_send = message.text + ' ' + mention.handler
-          puts "Tweeting: #{to_send}"
-          @t = @client.update(to_send)
-          if !@t
-            #If something goes wrong during this process, it should probably do something about it
-            puts "Something went wrong with posting this tweet: #{to_send}"
-          end
+        to_send = mention.handler + ' ' + @lesson.intro + @lesson.get_root_link
+        puts "Tweeting: #{to_send}"
+        @t = @client.update(to_send)
+        if !@t
+          puts "Something went wrong with post this tweet: #{to_send}"
         end
+
         #Right now this is assuming the reply went successfully
         mention.update(replied: true);
       end
