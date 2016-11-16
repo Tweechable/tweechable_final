@@ -2,9 +2,9 @@
   <%= @lesson.hash_tag %>
   <% if session["user_id"].present? %>
     <small>
-      <%= link_to "Edit This Lesson", edit_lesson_path(@lesson.id) %>
       <% if User.find_by(id: session["user_id"]).admin %>
-      <%= link_to "Delete This Lesson", lesson_path(@lesson.id), :method => :delete %>
+        <%= link_to "Edit This Lesson", edit_lesson_path(@lesson.id) %>
+        <%= link_to "Delete This Lesson", lesson_path(@lesson.id), :method => :delete %>
       <% end %>
     </small>
   <% end %>
