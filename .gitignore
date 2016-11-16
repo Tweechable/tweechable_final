@@ -16,4 +16,5 @@
 !/log/.keep
 /tmp
 
-/app/models/twitter_api.rb
+# Ignore Sublime files
+*sublime*
