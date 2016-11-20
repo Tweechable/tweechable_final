@@ -14,6 +14,7 @@ Lesson
   created_at: datetime
   updated_at: datetime
   approved: boolean(true)  #for maximum content creation for now. jajaja...
+  intro: string
 
 # lesson has many users through contributors
 Contribution

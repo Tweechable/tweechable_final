@@ -8,4 +8,14 @@ class Lesson < ActiveRecord::Base
 
   validates :hash_tag, presence:true
 
+  def get_root_link
+  	link = tweets.first.link
+  	if link
+  		return link
+  	else
+  		puts "Root link requested for Lesson with unpublished tweets."
+  		return ""
+  	end
+  end
+
 end
