@@ -8,8 +8,8 @@ module ApplicationHelper
 			html = "<p>" + tweet.text
 		end
 
-		if tweet.link
-			html += link_to(tweet.link, tweet.link, target: '_blank')
+		if tweet.cited_src
+			html += link_to(tweet.cited_src, tweet.link, target: '_blank')
 		end
 
 		html += "</p>"
