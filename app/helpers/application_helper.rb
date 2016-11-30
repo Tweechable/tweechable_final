@@ -9,7 +9,7 @@ module ApplicationHelper
 		end
 
 		if tweet.cited_src
-			html += link_to(tweet.cited_src, tweet.link, target: '_blank')
+			html += link_to(tweet.cited_src, tweet.cited_src, target: '_blank')
 		end
 
 		html += "</p>"
