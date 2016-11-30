@@ -75,6 +75,7 @@ class LessonsController < ApplicationController
     @lesson.hash_tag = params[:lesson][:hash_tag]
     @lesson.created_at = params[:lesson][:date]
     @lesson.description = params[:lesson][:description]
+    @lesson.intro = params[:lesson][:intro]
     @lesson.approved = true
     @lesson.save
 
