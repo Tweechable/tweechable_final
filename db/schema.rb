@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20161130025438) do
     t.datetime "updated_at"
     t.boolean  "approved",    default: true
     t.string   "intro"
-    t.string   "thread_link"
   end
 
   create_table "mentions", force: :cascade do |t|
@@ -63,7 +62,7 @@ ActiveRecord::Schema.define(version: 20161130025438) do
     t.integer "lesson_id"
     t.string  "text"
     t.boolean "approved",  default: true
-    t.string  "link"
+    t.string  "cited_src"
   end
 
   add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id", using: :btree
