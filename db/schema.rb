@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109015511) do
+ActiveRecord::Schema.define(version: 20161130024407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 20161109015511) do
   create_table "tweets", force: :cascade do |t|
     t.integer "lesson_id"
     t.string  "text"
-    t.string  "link"
     t.boolean "approved",  default: true
+    t.string  "cited_src"
   end
 
   add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id", using: :btree
@@ -76,5 +76,7 @@ ActiveRecord::Schema.define(version: 20161109015511) do
     t.datetime "updated_at"
     t.text     "how_found_tweechable"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
