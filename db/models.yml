@@ -15,6 +15,7 @@ Lesson
   updated_at: datetime
   approved: boolean(true)  #for maximum content creation for now. jajaja...
   intro: string
+  thread_link: string
 
 # lesson has many users through contributors
 Contribution
@@ -25,7 +26,7 @@ Contribution
 Tweet
   lesson_id: integer
   text: string
-  link: string
+  cited_src: string
   approved: boolean(true)
 
 # People who are about to get educated

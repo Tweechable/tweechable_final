@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20161130025438) do
     t.datetime "updated_at"
     t.boolean  "approved",    default: true
     t.string   "intro"
+    t.string   "thread_link"
   end
 
   create_table "mentions", force: :cascade do |t|
