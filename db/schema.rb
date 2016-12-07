@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20161111161547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "tweets", force: :cascade do |t|
     t.integer "lesson_id"
     t.string  "text"
-    t.string  "link"
     t.boolean "approved",  default: true
+    t.string  "link"
   end
 
   add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id", using: :btree
@@ -69,11 +69,13 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "users", force: :cascade do |t|
     t.text     "name"
     t.text     "email"
-    t.text     "password_digest"
     t.boolean  "admin",                default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "how_found_tweechable"
+    t.text     "password_digest"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
