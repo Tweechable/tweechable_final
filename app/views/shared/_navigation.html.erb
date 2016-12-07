@@ -28,13 +28,11 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <% if session["user_id"].present? %>
-            <% current_user = User.find_by(id: session["user_id"]) %>
-            <li><%= link_to "Hello #{current_user.name} !", user_path(current_user), class:"btn btn-primary"%></li>
-            <li><%= link_to "Sign Out", logout_path, class:"btn btn-default"%></li>
+        <% if current_user %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete%>
         <% else %>
-            <li><%= link_to "Sign Up", new_user_path, class:"btn btn-default" %></li>
-            <li><%= link_to "Sign In", login_path, class:"btn btn-default" %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <%= link_to "Login", new_user_session_path %>
         <% end %>
       </ul>
 
