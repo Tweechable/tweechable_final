@@ -18,3 +18,5 @@
 
 # Ignore Sublime files
 *sublime*
+coverage
+

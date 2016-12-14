@@ -72,6 +72,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    docile (1.1.5)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
     email_validator (1.6.0)
@@ -199,6 +200,11 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     simple_oauth (0.3.1)
+    simplecov (0.12.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     spring (1.7.2)
     sprockets (3.6.3)
       concurrent-ruby (~> 1.0)
@@ -267,6 +273,7 @@ DEPENDENCIES
   rails_admin
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  simplecov
   spring
   turbolinks
   twitter
@@ -276,4 +283,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.12.5
+   1.13.2

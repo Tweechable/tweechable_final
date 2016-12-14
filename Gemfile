@@ -46,6 +46,8 @@ gem 'whenever', :require => false
 
 gem 'bootstrap-will_paginate'
 
+gem 'simplecov', :require => false, :group => :test
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
