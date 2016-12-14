@@ -1,6 +1,6 @@
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = User.new(name: "ChiHacker", password: "password")
+    @user = users(:valid)
   end
 
   test 'valid user' do
