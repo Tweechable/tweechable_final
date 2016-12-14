@@ -12,4 +12,12 @@ class UserTest < ActiveSupport::TestCase
     refute @user.valid?
     assert_not_nil @user.errors[:name]
   end
+
+  test '#contributions' do
+    assert_equal 2, @user.contributions.size
+  end
+
+  test '#lessons' do
+    assert_equal 2, @user.contributions.size
+  end
 end
