@@ -89,13 +89,18 @@ class LessonsController < ApplicationController
     redirect_to lesson_url(@lesson.id)
   end
 
+  def publish
+    @lesson = Lesson.find(params[:id])
+    @lesson.publish
+ 
+    flash["info"] = "This lesson has been published to Twitter."
+    redirect_to lesson_url(@lesson.id)
+  end
+
   def destroy
     if @lesson
       @lesson.delete
     end
     redirect_to lessons_url
   end
-
-
-
 end

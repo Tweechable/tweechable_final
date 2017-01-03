@@ -53,7 +53,7 @@ class Mention < ActiveRecord::Base
       if @lesson
         twitters = Twitter_API.new
         @client = twitters.client
-        to_send = mention.handler + ' ' + @lesson.intro + @lesson.thread_link
+        to_send = "#{mention.handler} #{@lesson.intro} #{@lesson.thread_link}"
         puts "Tweeting: #{to_send}"
         @t = @client.update(to_send)
         if !@t

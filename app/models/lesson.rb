@@ -7,4 +7,39 @@ class Lesson < ActiveRecord::Base
   has_many :educatees
 
   validates :hash_tag, presence:true
+
+  # Tests if there's been an update to the lesson since the last time it was posted.
+  def needs_update
+  	if !posted_at.nil?
+	  	last_update = updated_at
+	  	tweets.each do |tweet|
+	  		if !tweet.updated_at.nil? && tweet.updated_at > last_update
+	  			last_update = tweet.updated_at
+	  		end
+	  	end
+
+	  	# Lesson's updated_at is always going to be slightly after posted_at when you post a lesson
+	  	# because when you post a lesson, you immediately update it to reflect this fact.
+	  	# So we add a second to posted_at to counteract this. This means you can't update lessons more 
+	  	# often than once a second, which I think that should be fine.
+	  	last_update > (posted_at + 1.seconds)
+  	else
+  		true
+  	end
+  end
+
+  # Publishes all the tweets in a lesson in a thread.
+  def publish
+    twitters = Twitter_API.new
+    @client = twitters.client
+    
+    tweet_id = 0;
+    tweets.order(:id).each do |tweet|
+      tweet_id = tweet.publish_tweet(@client, tweet_id)
+    end
+
+    update(approved: true,
+    	thread_link: "https://twitter.com/tweechable/status/#{tweets.first.twitter_id}", 
+    	posted_at: DateTime.now)
+  end
 end

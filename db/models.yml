@@ -16,6 +16,7 @@ Lesson
   approved: boolean(true)  #for maximum content creation for now. jajaja...
   intro: string
   thread_link: string
+  posted_at: datetime
 
 # lesson has many users through contributors
 Contribution
@@ -28,6 +29,9 @@ Tweet
   text: string
   cited_src: string
   approved: boolean(true)
+  twitter_id: bigint
+  created_at: datetime
+  updated_at: datetime
 
 # People who are about to get educated
 # Using this for now to educate from our site
@@ -40,7 +44,7 @@ Educatee
   twitter_handle: string
   educated: boolean(false)
 
-# From the bot's metioned_by_timeline to store tasks
+# From the bot's mentioned_by_timeline to store tasks
 Mention
   created_at: datetime
   favorite_count: integer
