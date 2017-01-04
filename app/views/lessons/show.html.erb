@@ -22,7 +22,7 @@
   <p><strong>Created At:</strong> <%= @lesson.created_at %></p>
   <p><strong>Created by: <%= @creator %></strong></p>
   <p><strong>Last Posted: </strong><%= @lesson.posted_at %>
-  <% if !@lesson.posted_at.nil? %>
+  <% if @lesson.posted_at.exists? %>
     (<%= link_to "Twitter Thread", @lesson.thread_link %>)
   <% end %></p>
   <p><strong>Edited by: </strong></p>
@@ -31,12 +31,7 @@
     <li><%= name %></li>
     <% end %>
   </ul>
-  <p><strong>Approved: </strong>
-  <% if @lesson.approved %>
-    Yes 
-  <% else %>
-    No 
-  <% end %>
+  <p><strong>Approved: </strong> <% if @lesson.approved ? "Yes" : "No" %></p>
   <p><strong>Intro Tweet:</strong> <%= @lesson.intro %></p>
   <p><strong>Tweets: </strong></p>
   <div class="jumbotron">
@@ -47,7 +42,7 @@
 
   <% if @lesson.approved && @lesson.needs_update && User.find_by(id: session["user_id"]).admin %> 
     <h1>
-      <%= link_to "Publish Lesson", "/lessons/publish/#{@lesson.id}" %>
+      <%= link_to "Publish Lesson", publish_lesson_path(@lesson) %>
     </h1>
   <% end %>
 

@@ -65,6 +65,5 @@ class Mention < ActiveRecord::Base
       end
     end
   end
-
 end
 
