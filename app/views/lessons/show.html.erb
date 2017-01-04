@@ -22,16 +22,16 @@
   <p><strong>Created At:</strong> <%= @lesson.created_at %></p>
   <p><strong>Created by: <%= @creator %></strong></p>
   <p><strong>Last Posted: </strong><%= @lesson.posted_at %>
-  <% if @lesson.posted_at.exists? %>
+  <% unless @lesson.posted_at.nil? %>
     (<%= link_to "Twitter Thread", @lesson.thread_link %>)
   <% end %></p>
   <p><strong>Edited by: </strong></p>
   <ul>
     <% @contributors.each do |name| %>
-    <li><%= name %></li>
+      <li><%= name %></li>
     <% end %>
   </ul>
-  <p><strong>Approved: </strong> <% if @lesson.approved ? "Yes" : "No" %></p>
+  <p><strong>Approved: </strong> <%= @lesson.approved ? "Yes" : "No" %></p>
   <p><strong>Intro Tweet:</strong> <%= @lesson.intro %></p>
   <p><strong>Tweets: </strong></p>
   <div class="jumbotron">

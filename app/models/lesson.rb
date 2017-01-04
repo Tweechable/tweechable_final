@@ -10,12 +10,12 @@ class Lesson < ActiveRecord::Base
 
   # Tests if there's been an update to the lesson since the last time it was posted.
   def needs_update
-  	if posted_at.exists?
+  	unless posted_at.nil?
 	  	# Lesson's updated_at is always going to be slightly after posted_at when you post a lesson
 	  	# because when you post a lesson, you immediately update it to reflect this fact.
 	  	# So we add a second to posted_at to counteract this. This means you can't update lessons more 
 	  	# often than once a second, which I think that should be fine.
-	  	last_update > (posted_at + 1.seconds)
+	  	updated_at > (posted_at + 1.seconds)
   	else
   		true
   	end
