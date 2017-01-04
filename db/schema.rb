@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130025438) do
+ActiveRecord::Schema.define(version: 20170104192318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "block_lists", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "user_name"
+    t.boolean  "can_send",              default: true
+    t.boolean  "can_receive",           default: true
+    t.integer  "user_id",     limit: 8
+  end
+
+  add_index "block_lists", ["user_id"], name: "index_block_lists_on_user_id", using: :btree
 
   create_table "contributions", force: :cascade do |t|
     t.integer "user_id"
@@ -43,6 +54,7 @@ ActiveRecord::Schema.define(version: 20161130025438) do
     t.boolean  "approved",    default: true
     t.string   "intro"
     t.string   "thread_link"
+    t.datetime "posted_at"
   end
 
   create_table "mentions", force: :cascade do |t|
@@ -60,13 +72,17 @@ ActiveRecord::Schema.define(version: 20161130025438) do
   add_index "mentions", ["lesson_id"], name: "index_mentions_on_lesson_id", using: :btree
 
   create_table "tweets", force: :cascade do |t|
-    t.integer "lesson_id"
-    t.string  "text"
-    t.boolean "approved",  default: true
-    t.string  "cited_src"
+    t.integer  "lesson_id"
+    t.string   "text"
+    t.boolean  "approved",             default: true
+    t.string   "cited_src"
+    t.integer  "twitter_id", limit: 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id", using: :btree
+  add_index "tweets", ["twitter_id"], name: "index_tweets_on_twitter_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.text     "name"

@@ -56,3 +56,10 @@ Mention
   lesson_id: integer
   handler: string
 
+BlockList
+  created_at: datetime
+  updated_at: datetime
+  user_name: string
+  user_id: bigint
+  can_send: boolean(true)
+  can_receive: boolean(true)
