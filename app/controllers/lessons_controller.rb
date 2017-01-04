@@ -54,6 +54,7 @@ class LessonsController < ApplicationController
     lesson.created_at = Time.now
     lesson.category = params[:lesson][:category]
     lesson.description = params[:lesson][:description]
+    lesson.intro = params[:lesson][:intro]
     lesson.approved = true
     lesson.save
     cookies["new_lesson_id"] = lesson.id
@@ -96,8 +97,15 @@ class LessonsController < ApplicationController
         redirect_to lessons_path
       end  
     end
-
     
+  end
+
+  def publish
+    @lesson = Lesson.find(params[:id])
+    @lesson.publish
+ 
+    flash["info"] = "This lesson has been published to Twitter."
+    redirect_to lesson_url(@lesson.id)
   end
 
   def destroy
@@ -106,7 +114,4 @@ class LessonsController < ApplicationController
     end
     redirect_to lessons_url
   end
-
-
-
 end
