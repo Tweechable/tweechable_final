@@ -1,3 +1,10 @@
+<% flash.each do |name, msg| -%>
+  <div class = "alert alert-<%= name %>">
+    <%= msg %>
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  </div>
+<% end %>
+
 <h1>
   <%= @lesson.hash_tag %>
   <% if session["user_id"].present? %>
@@ -14,17 +21,34 @@
   <p><strong><%= @lesson.description %></strong></p>
   <p><strong>Created At:</strong> <%= @lesson.created_at %></p>
   <p><strong>Created by: <%= @creator %></strong></p>
+  <p><strong>Last Posted: </strong><%= @lesson.posted_at %>
+  <% if !@lesson.posted_at.nil? %>
+    (<%= link_to "Twitter Thread", @lesson.thread_link %>)
+  <% end %></p>
   <p><strong>Edited by: </strong></p>
   <ul>
     <% @contributors.each do |name| %>
     <li><%= name %></li>
     <% end %>
   </ul>
+  <p><strong>Approved: </strong>
+  <% if @lesson.approved %>
+    Yes 
+  <% else %>
+    No 
+  <% end %>
+  <p><strong>Intro Tweet:</strong> <%= @lesson.intro %></p>
   <p><strong>Tweets: </strong></p>
   <div class="jumbotron">
     <% @lesson.tweets.each do |tweet| %>
       <%= raw tweet_and_url(tweet) %>
     <% end %>
   </div>
+
+  <% if @lesson.approved && @lesson.needs_update && User.find_by(id: session["user_id"]).admin %> 
+    <h1>
+      <%= link_to "Publish Lesson", "/lessons/publish/#{@lesson.id}" %>
+    </h1>
+  <% end %>
 
 </div>

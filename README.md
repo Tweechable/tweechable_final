@@ -16,7 +16,7 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/).
 - [Tweechable Website](https://tweechable.herokuapp.com/)
 - Twitter: #tweechablemoments and [@tweechable](https://twitter.com/tweechable)
 - [Chi Hack Night Work group](https://chihacknight.org/breakouts.html)
-- [Join the tweechable-moments channel on the ChiHackNight slack] (slackme.chihacknight.org)
+- [Join the tweechable-moments channel on the ChiHackNight slack] (http://slackme.chihacknight.org)
 
 ### Tech Stack
 

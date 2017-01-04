@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'pages#show', page:'home'
 
   resources :lessons
+  get '/lessons/publish/:id' => 'lessons#publish'
   resources :tweets
   resources :users
 
