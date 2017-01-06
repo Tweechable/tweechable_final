@@ -2,8 +2,6 @@ class LessonsController < ApplicationController
   before_action :is_admin?, :only => [:edit]
   before_action :find_lesson, :except => [:index, :create, :new, :edit]
 
-
-
   def find_lesson
     @lesson = Lesson.find_by(id: params[:id])
   end

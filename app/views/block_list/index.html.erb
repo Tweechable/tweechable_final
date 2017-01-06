@@ -1,0 +1,20 @@
+<h1>Cannot Send</h1>
+
+<ul>
+	<% @list.where(can_send: false).order(:user_name).each do |block| %>
+		<li>
+			<%= link_to block.user_name, "https://twitter.com/#{block.user_name}"%>
+			(<%= link_to "Remove Block", block_list_path(block, post: {can_send: true}), method: :put %>)
+		</li>
+	<% end %>
+</ul>
+
+<h1>Cannot Receive</h1>
+<ul>
+	<% @list.where(can_receive: false).order(:user_name).each do |block| %>
+		<li>
+			<%= link_to block.user_name, "https://twitter.com/#{block.user_name}" %>
+			(<%= link_to "Remove Block", block_list_path(block, post: {can_receive: true}), method: :put %>)
+		</li>
+	<% end %>
+</ul>

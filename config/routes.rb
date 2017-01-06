@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/lessons/publish/:id' => 'lessons#publish'
   resources :tweets
   resources :users
+  resources :block_list, only: [:index, :update, :new, :create]
 
   get '/pages/:page' => 'pages#show'
 
