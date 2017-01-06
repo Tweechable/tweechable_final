@@ -13,6 +13,23 @@ class ActiveSupport::TestCase
             lang: "en", 
 						retweet_count: 0, 
 						source: "@tweeter",
-						text: text})
+						text: text,
+            user: {
+              id: 0,
+              screen_name: "tweeter"
+              }})
+  end
+
+  def generate_tweet_author(text, id, screen_name)
+    Twitter::Tweet.new({id: 1, 
+                favorite_count: 0,
+                lang: "en", 
+                retweet_count: 0, 
+                source: "@#{screen_name}",
+                text: text,
+                user: {
+                  id: id,
+                  screen_name: screen_name
+                  }})
   end
 end

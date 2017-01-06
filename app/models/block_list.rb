@@ -1,8 +1,14 @@
 class BlockList < ActiveRecord::Base
-
 	after_save :check_block
 
-	def self.can_receive(user_id)
+	def self.can_receive_handle(handle, client)
+		twitter = Twitter_API.new
+    	client = twitter.client
+    	user = client.user_search(user_name).first
+    	can_receive_id(user.id)
+	end
+
+	def self.can_receive_id(user_id)
 		!BlockList.where(user_id: user_id, can_receive: false).any?
 	end
 
