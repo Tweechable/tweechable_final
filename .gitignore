@@ -18,3 +18,7 @@
 
 # Ignore Sublime files
 *sublime*
+
+#Ignore idea directory & .byebug_history
+.idea/
+.byebug_history
