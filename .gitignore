@@ -16,6 +16,11 @@
 !/log/.keep
 /tmp
 
+/app/models/twitter_api.rb
+config/secrets.yml
+# Ignore application configuration
+/config/application.yml
+
 # Ignore Sublime files
 *sublime*
 

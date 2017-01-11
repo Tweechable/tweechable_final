@@ -5,9 +5,9 @@ User.delete_all
 Contribution.delete_all
 Educatee.delete_all
 
-User.create name: 'Kurt Cobain', email: 'admin@example.org', password: 'admin', password_confirmation: 'admin',created_at:Time.new, updated_at: Time.new, how_found_tweechable: "Friend!",admin:true
-u1 = User.create name: 'Grace Hopper', email: 'grace@example.org', password: 'cobol', password_confirmation: 'cobol',created_at:Time.new, updated_at: Time.new, how_found_tweechable: "Friend!",admin:false
-u2 = User.create name: 'Cookie Monster', email: 'cookie@example.org', password: 'cookies', password_confirmation: 'cookies',created_at:Time.new, updated_at:Time.new, how_found_tweechable: "Twitter!",admin:false
+User.create username: 'Kurt Cobain', email: 'admin@example.org', password: 'admin', password_confirmation: 'admin',created_at:Time.new, updated_at: Time.new, how_found_tweechable: "Friend!",admin:true
+u1 = User.create username: 'Grace Hopper', email: 'grace@example.org', password: 'cobol', password_confirmation: 'cobol',created_at:Time.new, updated_at: Time.new, how_found_tweechable: "Friend!",admin:false
+u2 = User.create username: 'Cookie Monster', email: 'cookie@example.org', password: 'cookies', password_confirmation: 'cookies',created_at:Time.new, updated_at:Time.new, how_found_tweechable: "Twitter!",admin:false
 
 l1 = Lesson.new
 l1.hash_tag = "#betterwhiteperson"
