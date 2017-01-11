@@ -1,6 +1,8 @@
 class LessonsController < ApplicationController
+  before_action :is_admin?, :only => [:edit]
+  before_action :find_lesson, :except => [:index, :create, :new, :edit]
 
-  before_action :find_lesson, :except => [:index, :create, :new]
+
 
   def find_lesson
     @lesson = Lesson.find_by(id: params[:id])
@@ -64,12 +66,13 @@ class LessonsController < ApplicationController
       contribution.creator = true
       contribution.save
     end
-      redirect_to tweets_url(id:lesson.id)
-
+    redirect_to tweets_url(id:lesson.id)
   end
 
   def edit
     @lesson = Lesson.find_by(id: params[:id])
+    
+   
   end
 
   def update
@@ -88,6 +91,11 @@ class LessonsController < ApplicationController
       contribution.save
     end
 
+  def publish
+    @lesson = Lesson.find(params[:id])
+    @lesson.publish
+ 
+    flash["info"] = "This lesson has been published to Twitter."
     redirect_to lesson_url(@lesson.id)
   end
 
@@ -97,7 +105,4 @@ class LessonsController < ApplicationController
     end
     redirect_to lessons_url
   end
-
-
-
 end

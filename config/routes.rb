@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   root 'pages#show', page:'home'
 
   resources :lessons
+  get '/lessons/publish/:id' => 'lessons#publish'
   resources :tweets
   resources :users
 
   get '/pages/:page' => 'pages#show'
 
-  get '/educatees/new' => 'educatees#new'
+  # get '/educatees/new' => 'educatees#new' - Try Tweechable page, removed per issue #41
   get '/educatees' => 'educatees#index'
   post '/educatees' => 'educatees#create'
 

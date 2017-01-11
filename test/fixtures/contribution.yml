@@ -1,0 +1,7 @@
+one:
+  user: valid
+  lesson: test_lesson
+
+two:
+  user: valid
+  lesson: test_lesson_two

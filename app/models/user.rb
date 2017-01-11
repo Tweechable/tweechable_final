@@ -10,5 +10,4 @@ class User < ActiveRecord::Base
 
 	has_many :contributions
 	has_many :lessons, through: :contributions
-
 end

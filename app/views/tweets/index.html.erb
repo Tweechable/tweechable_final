@@ -9,7 +9,7 @@
  
 <div class="container" id="tweets">
   <% @lesson.tweets.each do |tweet| %>
-      <p><%= link_to tweet.text, edit_tweet_path(tweet.id) %></p>
+  	<%= raw tweet_and_url(tweet) %>
   <% end %>
 </div>
 
