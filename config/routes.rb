@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :lessons do
     get 'publish', on: :member
+    # get '/lessons/publish/:id' => 'lessons#publish'
   end
-  # get '/lessons/publish/:id' => 'lessons#publish'
   resources :tweets
   resources :users
 
