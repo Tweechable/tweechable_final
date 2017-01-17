@@ -28,4 +28,4 @@ config/secrets.yml
 .idea/
 .byebug_history
 
-.DS_Store
+*.DS_Store
