@@ -27,3 +27,5 @@ config/secrets.yml
 #Ignore idea directory & .byebug_history
 .idea/
 .byebug_history
+
+.DS_Store
