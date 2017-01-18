@@ -86,6 +86,7 @@ class LessonsController < ApplicationController
       contribution.creator = false
       contribution.save
     end
+  end
 
   def publish
     @lesson.publish
