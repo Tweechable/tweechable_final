@@ -19,11 +19,17 @@ class BlockList < ActiveRecord::Base
 	def self.add_user(user_name, can_send, can_receive)
 		twitter = Twitter_API.new
     	client = twitter.client
-    	user = client.user_search(user_name).first
-    	BlockList.create(user_name: user_name, 
-    		user_id: user.id, 
-    		can_send: can_send, 
-    		can_receive: can_receive)
+    	begin
+	    	user = client.user_search(user_name).first
+	    rescue Twitter::Error => e
+	    	puts "----------------- I NOTICED THIS ERROR --------------"
+	    	raise StandardError.new("Username Not Found")
+	    else
+			BlockList.create(user_name: user_name, 
+				user_id: user.id, 
+				can_send: can_send, 
+				can_receive: can_receive)
+		end
 	end
 
 	def check_block

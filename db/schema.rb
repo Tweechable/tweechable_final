@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170104192318) do
-=======
 ActiveRecord::Schema.define(version: 20161111161547) do
->>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +20,9 @@ ActiveRecord::Schema.define(version: 20161111161547) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_name"
+    t.integer  "user_id",     limit: 8
     t.boolean  "can_send",              default: true
     t.boolean  "can_receive",           default: true
-    t.integer  "user_id",     limit: 8
   end
 
   add_index "block_lists", ["user_id"], name: "index_block_lists_on_user_id", using: :btree

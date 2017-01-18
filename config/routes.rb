@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   resources :tweets
   resources :users
-  resources :block_list, only: [:index, :update, :new, :create]
+  resources :block_list
 
   get '/pages/:page' => 'pages#show'
 
