@@ -1,8 +1,6 @@
 class LessonsController < ApplicationController
-  before_action :is_admin?, :only => [:edit]
+  before_action :is_admin?, :only => [:edit, :publish]
   before_action :find_lesson, :except => [:index, :create, :new, :edit]
-
-
 
   def find_lesson
     @lesson = Lesson.find_by(id: params[:id])
@@ -71,8 +69,6 @@ class LessonsController < ApplicationController
 
   def edit
     @lesson = Lesson.find_by(id: params[:id])
-    
-   
   end
 
   def update
@@ -90,18 +86,18 @@ class LessonsController < ApplicationController
       contribution.creator = false
       contribution.save
     end
+  end
 
   def publish
-    @lesson = Lesson.find(params[:id])
     @lesson.publish
- 
+
     flash["info"] = "This lesson has been published to Twitter."
     redirect_to lesson_url(@lesson.id)
   end
 
   def destroy
     if @lesson
-      @lesson.delete
+      @lesson.destroy
     end
     redirect_to lessons_url
   end

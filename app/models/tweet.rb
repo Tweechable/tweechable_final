@@ -1,6 +1,6 @@
 class Tweet < ActiveRecord::Base
 
-  belongs_to :lesson
+  belongs_to :lesson, :touch => true
 
   # tweet is 140 char max and tweeter name is 15 char max. so we we let 124 to be the max length so that
   # after we add in the (screen name + the blank) to form the tag the tweet is 140 max and allow to be published

@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20161111161547) do
     t.boolean  "approved",    default: true
     t.string   "intro"
     t.string   "thread_link"
+    t.datetime "posted_at"
   end
 
   create_table "mentions", force: :cascade do |t|
@@ -60,37 +61,27 @@ ActiveRecord::Schema.define(version: 20161111161547) do
   add_index "mentions", ["lesson_id"], name: "index_mentions_on_lesson_id", using: :btree
 
   create_table "tweets", force: :cascade do |t|
-    t.integer "lesson_id"
-    t.string  "text"
-    t.boolean "approved",  default: true
-    t.string  "cited_src"
+    t.integer  "lesson_id"
+    t.string   "text"
+    t.boolean  "approved",             default: true
+    t.string   "cited_src"
+    t.integer  "twitter_id", limit: 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id", using: :btree
+  add_index "tweets", ["twitter_id"], name: "index_tweets_on_twitter_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.text     "name"
     t.text     "email"
-    t.boolean  "admin",                  default: false
+    t.boolean  "admin",                default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "how_found_tweechable"
-    t.string   "encrypted_password",                     null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
-    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
 end
