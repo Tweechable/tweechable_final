@@ -1,7 +1,6 @@
 User
   name: text
   email: text
-  password_digest: text
   admin: boolean(false)
   created_at: datetime
   updated_at: datetime
