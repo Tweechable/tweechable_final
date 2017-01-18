@@ -40,7 +40,7 @@
     <% end %>
   </div>
 
-  <% if @lesson.approved && @lesson.needs_update && User.find_by(id: session["user_id"]).admin %> 
+  <% if @lesson.approved && @lesson.needs_update && User.find_by(id: session["user_id"]) && User.find_by(id: session["user_id"]).admin %> 
     <h1>
       <%= link_to "Publish Lesson", publish_lesson_path(@lesson) %>
     </h1>
