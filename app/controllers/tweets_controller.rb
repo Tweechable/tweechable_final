@@ -18,7 +18,7 @@ class TweetsController < ApplicationController
   def create
     tweet = Tweet.new
     tweet.text = params[:tweet][:text]
-    tweet.link = params[:tweet][:link]
+    tweet.cited_src = params[:tweet][:cited_src]
     tweet.lesson_id = cookies["current_lesson_id"]
     tweet.approved = true
     tweet.save
@@ -57,7 +57,7 @@ class TweetsController < ApplicationController
   def update
     tweet = Tweet.find_by(id: params[:id])
     tweet.text = params[:tweet][:text]
-    tweet.link = params[:tweet][:link] 
+    tweet.cited_src = params[:tweet][:cited_src] 
     tweet.save
 
     # create a new contribution for editor

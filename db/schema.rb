@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(version: 20161111161547) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "approved",    default: true
+    t.string   "intro"
+    t.string   "thread_link"
+    t.datetime "posted_at"
   end
 
   create_table "mentions", force: :cascade do |t|
@@ -58,13 +61,17 @@ ActiveRecord::Schema.define(version: 20161111161547) do
   add_index "mentions", ["lesson_id"], name: "index_mentions_on_lesson_id", using: :btree
 
   create_table "tweets", force: :cascade do |t|
-    t.integer "lesson_id"
-    t.string  "text"
-    t.boolean "approved",  default: true
-    t.string  "link"
+    t.integer  "lesson_id"
+    t.string   "text"
+    t.boolean  "approved",             default: true
+    t.string   "cited_src"
+    t.integer  "twitter_id", limit: 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id", using: :btree
+  add_index "tweets", ["twitter_id"], name: "index_tweets_on_twitter_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.text     "name"
@@ -73,7 +80,6 @@ ActiveRecord::Schema.define(version: 20161111161547) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "how_found_tweechable"
-    t.text     "password_digest"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
