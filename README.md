@@ -1,4 +1,6 @@
-# Tweechable - an educational Twitter service
+# Tweechable - an educational Twitter service 
+[![Build Status](https://travis-ci.org/Tweechable/tweechable_final.svg?branch=master)](https://travis-ci.org/Tweechable/tweechable_final)
+
 
 <img src="app/assets/images/logo.jpg?raw=true" align="right" width="100" alt="Tweechable Logo">
 
