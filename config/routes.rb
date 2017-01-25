@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
+
   root 'pages#show', page:'home'
 
-  resources :lessons
+  resources :lessons do
+    get 'publish', on: :member
+    # get '/lessons/publish/:id' => 'lessons#publish'
+  end
   resources :tweets
   resources :users
 
