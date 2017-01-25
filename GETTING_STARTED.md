@@ -8,7 +8,7 @@ Welcome to Tweechable Moments!  This is a guide for new members who want to cont
 ### Setup a Twitter authentication token
 ### Testing Tweechable
 ### Guidelines for submitting a pull request
-### Guidelines for documenting your work
+### Guidelines for maintaining code quality
 ### Relevant Resources
 
 
@@ -123,9 +123,12 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
  - Only technical project maintainers can make pushes to master
  - If someone is invited to be a contributor for to the tweechable repo, then doesn't contribute to the project for a month, they will be removed as a contributor.
 
-### Guidelines for Documenting Your Work
+### Guidelines for Maintaining Code Quality
 - Write clear, concise commit messages.
 - For inspiration on how to write good commit messages, please watch this video [Do Your Commit Messages Suck: by Ryan McGeary] (https://www.youtube.com/watch?v=8YjSty6bfog).  We learned of the video through [exercism] (exercism.io) - thanks, exercism!
+- Write tests.
+- Tweechable tracks test coverage with the Travis CI and simplecov gems.  To run simplecov, type `rake test` in terminal and open the generated html file to view test coverage.
+
 
 
 ### Relevant Resources
