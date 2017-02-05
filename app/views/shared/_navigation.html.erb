@@ -17,7 +17,6 @@
         <li><%= link_to "Browse Lessons", lessons_path %></li>
         <li><%= link_to "Why Tweechable", '/pages/about' %></li>
 
-        <li><%= link_to "Team", '/pages/team' %></li>
         <% if User.find_by(id: session["user_id"]) && User.find_by(id: session["user_id"]).admin %>
           <li>
             <%= link_to "Admin", '/pages/admin' %>
