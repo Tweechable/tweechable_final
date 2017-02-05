@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :tweets
   resources :users
+  resources :block_list
 
   get '/pages/:page' => 'pages#show'
 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+NoSend:
+  user_name: NoSend
+  user_id: 100 
+  can_send: false
+  can_receive: true
+
+NoReceive:
+  user_name: NoReceive
+  user_id: 101
+  can_send: true
+  can_receive: false

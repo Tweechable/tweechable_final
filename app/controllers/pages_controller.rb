@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_action :check_admin, :only => [:show]
+
 
   def show
     if valid_page?
@@ -14,5 +16,11 @@ class PagesController < ApplicationController
     File.exist?(Pathname.new(Rails.root + "app/views/pages/#{params[:page]}.html.erb"))
   end
 
-
+  # The array in this function should include the names of all static pages which require the
+  # user to be an admin to access
+  def check_admin
+    if ["admin", "team"].include? params[:page]
+      is_admin?
+    end
+  end
 end
