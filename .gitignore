@@ -24,6 +24,8 @@ config/secrets.yml
 # Ignore Sublime files
 *sublime*
 
+coverage
+
 #Ignore idea directory & .byebug_history
 .idea/
 .byebug_history
