@@ -16,6 +16,17 @@ ActiveRecord::Schema.define(version: 20170125175848) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "block_lists", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "user_name"
+    t.integer  "user_id",     limit: 8
+    t.boolean  "can_send",              default: true
+    t.boolean  "can_receive",           default: true
+  end
+
+  add_index "block_lists", ["user_id"], name: "index_block_lists_on_user_id", using: :btree
+
   create_table "contributions", force: :cascade do |t|
     t.integer "user_id"
     t.integer "lesson_id"
@@ -63,8 +74,8 @@ ActiveRecord::Schema.define(version: 20170125175848) do
   create_table "tweets", force: :cascade do |t|
     t.integer  "lesson_id"
     t.string   "text"
-    t.boolean  "approved",             default: true
     t.string   "cited_src"
+    t.boolean  "approved",             default: true
     t.integer  "twitter_id", limit: 8
     t.datetime "created_at"
     t.datetime "updated_at"
