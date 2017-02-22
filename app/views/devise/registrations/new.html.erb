@@ -6,12 +6,12 @@
     <%= devise_error_messages! %>
 
     <div class="form-group">
-      <%= f.label :username, class: 'sr-only' %><br />
+      <%= f.label :username, class: 'sr-only' %>
       <%= f.text_field :username, size: 40, autofocus: true, required: true, placeholder: 'Username' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :email, class: 'sr-only' %><br />
+      <%= f.label :email, class: 'sr-only' %>
       <%= f.email_field :email, size: 40, required: true, placeholder: 'Email'  %>
     </div>
 
@@ -21,7 +21,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :password_confirmation, class: 'sr-only' %><br />
+      <%= f.label :password_confirmation, class: 'sr-only' %>
       <%= f.password_field :password_confirmation, autocomplete: "off", size: 40, required: true, placeholder: 'Confirm password'  %>
     </div>
 

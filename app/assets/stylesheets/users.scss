@@ -35,4 +35,25 @@ div.form-container {
     }
   }
 
+  .checkbox-inline {
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+    padding-left: 0px;
+  }
+
+  .checkbox-inline input[type="checkbox"]
+  {
+    float: left;
+    position: relative;
+    margin: 3px 0px;
+  }
+
+  .checkbox-inline label {
+    text-align: left;
+    padding-left: 30px;
+    margin-top: 0px;
+  }
 }
+
+.devise-links { margin-top: 10px; }
