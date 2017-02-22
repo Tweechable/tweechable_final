@@ -2,12 +2,7 @@ RailsAdmin.config do |config|
 
 
   config.authorize_with do
-    if session["user_id"].present?
-      current_user = User.find_by(id:session["user_id"])
-      puts current_user
-      puts current_user["admin"]
-      redirect_to main_app.root_path unless current_user["admin"] == true
-    else
+    unless current_user and current_user.admin
       redirect_to main_app.root_path
     end
   end
