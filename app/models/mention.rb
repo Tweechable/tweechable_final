@@ -10,6 +10,7 @@ class Mention < ActiveRecord::Base
     @client = twitter.client
     mentions = @client.mentions_timeline
     mentions.each do |tweet|
+      Mention.check_unsubscribes(tweet)
       Mention.generate_mention(tweet)
     end
   end
@@ -17,31 +18,38 @@ class Mention < ActiveRecord::Base
   # Takes a tweet and generates a mention if it's a request for a lesson to be sent
   def self.generate_mention(tweet)
     #Retrieves the first hashtag listed in the tweet.
-    #FIXME: What if people use multiple tweets
     tags = tweet.text.scan(/#\S+/)
     hash_tag = tags[0]
     lesson = Lesson.find_by(hash_tag: hash_tag)
-    if lesson
+    if lesson && BlockList.can_send(tweet.user.id)
       # Get a list of all the handles in a post
-      handles = tweet.text.scan(/@\S+/)
-      #Remove @tweechable_moments because we don't need to be sending any tweets to ourselves
-      handles.delete("@tweechable")
+      # handles = tweet.text.scan(/@\S+/)
+      # #Remove @tweechable_moments because we don't need to be sending any tweets to ourselves
+      # handles.delete("@tweechable")
+      handles = tweet.user_mentions.reject {|user| user.screen_name == "tweechable"}
       # for every handle in the tweet
       handles.each do |handle|
-        # we already have it in the database, don't retrieve again
         # FIXME: need to check the timestamp is recent but we are not doing it right now. this is kind of hacky
-        if Mention.where(handler: handle, hash_tag: hash_tag).count == 0
+        if BlockList.can_receive_id(handle.id) && !Mention.where(handler: handle.screen_name, hash_tag: hash_tag).any?
           m = Mention.new
           m.favorite_count = tweet.favorite_count
           m.lang = tweet.lang
           m.retweet_count = tweet.retweet_count
           m.text = tweet.text
           m.hash_tag = hash_tag
-          m.handler = handle
+          m.handler = handle.screen_name
           m.lesson_id = lesson.id
           m.save
         end
       end
+    end
+  end
+
+  # Checks if a tweet includes STOP in all caps
+  # If it does, adds the person who tweeted it to a list of people who won't receive tweets
+  def self.check_unsubscribes(tweet)
+    if tweet.text.include?("STOP")
+      BlockList.create(user_name: tweet.user.screen_name, user_id: tweet.user.id, can_receive: false)
     end
   end
 

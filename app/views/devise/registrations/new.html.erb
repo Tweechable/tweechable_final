@@ -11,17 +11,17 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :email, class: 'sr-only' %><br />
+      <%= f.label :email, class: 'sr-only' %>
       <%= f.email_field :email, size: 40, required: true, placeholder: 'Email'  %>
     </div>
 
     <div class="form-group">
       <%= f.label :password, class: 'sr-only' %>
-      <%= f.password_field :password, autocomplete: "off", size: 40, required: true, placeholder: 'Password (6 characters minimum)'  %>
+      <%= f.password_field :password, autocomplete: "off", size: 40, required: true, placeholder: "Password (#{@minimum_password_length} characters minimum)"  %>
     </div>
 
     <div class="form-group">
-      <%= f.label :password_confirmation, class: 'sr-only' %><br />
+      <%= f.label :password_confirmation, class: 'sr-only' %>
       <%= f.password_field :password_confirmation, autocomplete: "off", size: 40, required: true, placeholder: 'Confirm password'  %>
     </div>
 
