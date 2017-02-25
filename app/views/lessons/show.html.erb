@@ -35,12 +35,12 @@
   <p><strong>Intro Tweet:</strong> <%= @lesson.intro %></p>
   <p><strong>Tweets: </strong></p>
   <div class="jumbotron">
-    <% @lesson.tweets.each do |tweet| %>
+    <% @lesson.tweets.each.order(:index) do |tweet| %>
       <%= raw tweet_and_url(tweet) %>
     <% end %>
   </div>
 
-  <% if @lesson.approved && @lesson.needs_update && User.find_by(id: session["user_id"]) && User.find_by(id: session["user_id"]).admin %> 
+  <% if @lesson.approved && @lesson.needs_update && User.find_by(id: session["user_id"]) && User.find_by(id: session["user_id"]).admin %>
     <h1>
       <%= link_to "Publish Lesson", publish_lesson_path(@lesson) %>
     </h1>

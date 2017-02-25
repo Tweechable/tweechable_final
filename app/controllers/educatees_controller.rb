@@ -23,7 +23,8 @@ class EducateesController < ApplicationController
 
       # only sending out one tweet for now for demo
       # add the blank two make sure we can tag! otherwise it'd be one string
-      tweets = @lesson.tweets
+      # sort by the index to get the tweets in the correct order
+      tweets = @lesson.tweets.order(:index)
       # first = tweets.shift
       rest = tweets
       #
@@ -32,9 +33,9 @@ class EducateesController < ApplicationController
 
       rest.each do |t|
         if t.cited_src
-          ttext = t.text + ' ' + t.cited_src + ' ' + params[:twitter_handle] 
+          ttext = t.text + ' ' + t.cited_src + ' ' + params[:twitter_handle]
         else
-          ttext = t.text + ' ' + params[:twitter_handle] 
+          ttext = t.text + ' ' + params[:twitter_handle]
         end
         @client.update(ttext)
       end
