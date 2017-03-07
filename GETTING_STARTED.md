@@ -112,7 +112,7 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
  - After you finish up your work, push your branch to the tweechable_final repo and open a pull request.
  - Do not merge your own pull request!
  - One technical project maintainer needs to approve and merge your pull request
- - Technical Project Maintainers as of October 2016 are: @lw334, @TheJHyde, @McEileen
+ - Technical Project Maintainers as of March 2017 are: @lw334, @TheJHyde, @McEileen, @vkoves
  - In order to become a technical project maintainer, you should make four (or more) contributions to Tweechable's tech component over a month.  Involvement includes, but is not limited to:
  	- Attending ChiHackNight meetings
  	- Opening issues
@@ -121,6 +121,7 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
  	- Offering feedback on documentation
  - Only technical project maintainers will make pushes to the twitter bot itself.
  - Only technical project maintainers can make pushes to master
+ - Before making a push to production in heroku, you must push to tweechable-staging to ensure changes will not break production
  - If someone is invited to be a contributor for to the tweechable repo, then doesn't contribute to the project for a month, they will be removed as a contributor.
 
 ### Guidelines for Maintaining Code Quality
