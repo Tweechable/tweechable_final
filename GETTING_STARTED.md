@@ -105,14 +105,14 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
 
 ### Guidelines for Submitting a Change to Tweechable
  - See something in Tweechable that could be better?  Open an issue!
- - If you want to work an an existing issue, please comment on it that you are working on it.  
+ - If you want to work an an existing issue, please assign yourself to it and/or comment on it that you are working on it.  
 - If someone is already working on an issue that interests you, contact them about collaborating.
- - Once you start working on an issue, create a branch on your local machine with a name that indicates what you're doing (e.g. `add-educatee-opt-out-ability`)
+ - Once you start working on an issue, create a branch on your local machine that starts with the issue number and then summarizes the task (e.g. `95/fix-sign-up-form`)
  - This is Chicago: when working, commit early, commit often.
  - After you finish up your work, push your branch to the tweechable_final repo and open a pull request.
  - Do not merge your own pull request!
  - One technical project maintainer needs to approve and merge your pull request
- - Technical Project Maintainers as of March 2017 are: @lw334, @TheJHyde, @McEileen, @vkoves
+ - Technical Project Maintainers as of March 2017 are: @lw334, @TheJHyde, @McEileen, @vkoves, @javierforero
  - In order to become a technical project maintainer, you should make four (or more) contributions to Tweechable's tech component over a month.  Involvement includes, but is not limited to:
  	- Attending ChiHackNight meetings
  	- Opening issues
