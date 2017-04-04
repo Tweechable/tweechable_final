@@ -60,7 +60,7 @@ class LessonsController < ApplicationController
     # create a new contribution for creator
       contribution = Contribution.new
       contribution.lesson_id = lesson.id
-      contribution.user_id = session["user_id"]
+      contribution.user_id = current_user.id
       contribution.creator = true
       contribution.save
     end
@@ -82,7 +82,7 @@ class LessonsController < ApplicationController
       # create a new contribution for editor
       contribution = Contribution.new
       contribution.lesson_id = @lesson.id
-      contribution.user_id = session["user_id"]
+      contribution.user_id = current_user.id
       contribution.creator = false
       contribution.save
     end

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    if !@user || (@user.id != session[:user_id].to_i)
+    if !@user || !current_user || (@user.id != current_user.id)
       redirect_to root_url
     end
     contributions = @user.contributions

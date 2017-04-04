@@ -25,7 +25,7 @@ class TweetsController < ApplicationController
 
     if tweet.text.length > 126
       flash[:warning] = "The tweet you just created is more than 126 characters. This may cause problems
-      with twitter's character limits, especially when responding to users with long user name. If the 
+      with twitter's character limits, especially when responding to users with long user name. If the
       tweet includes a URL then you should be fine but we'd recommend checking it against twitter before
       going ahead."
     end
@@ -33,7 +33,7 @@ class TweetsController < ApplicationController
     # create a new contribution for editor
     contribution = Contribution.new
     contribution.lesson_id = tweet.lesson_id
-    contribution.user_id = session["user_id"]
+    contribution.user_id = current_user.id
     contribution.creator = false
     contribution.save
 
@@ -57,13 +57,13 @@ class TweetsController < ApplicationController
   def update
     tweet = Tweet.find_by(id: params[:id])
     tweet.text = params[:tweet][:text]
-    tweet.cited_src = params[:tweet][:cited_src] 
+    tweet.cited_src = params[:tweet][:cited_src]
     tweet.save
 
     # create a new contribution for editor
     contribution = Contribution.new
     contribution.lesson_id = tweet.lesson_id
-    contribution.user_id = session["user_id"]
+    contribution.user_id = current_user.id
     contribution.creator = false
     contribution.save
 

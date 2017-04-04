@@ -1,5 +1,5 @@
 <p>
-	<%= link_to "Contribute A New Lesson", new_lesson_path(id: session["user_id"]) %>
+	<%= link_to "Contribute A New Lesson", new_lesson_path(id: current_user.id) %>
 </p>
 
 <p>
