@@ -49,4 +49,3 @@ print "There are now #{Mention.count} mentions in the database.\n"
 print "There are now #{Contribution.count} contributions in the database.\n"
 print "There are now #{Tweet.count} tweets in the database.\n"
 print "There are now #{Educatee.count} educatees in the database.\n"
-
