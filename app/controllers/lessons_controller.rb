@@ -86,6 +86,8 @@ class LessonsController < ApplicationController
       contribution.creator = false
       contribution.save
     end
+
+    redirect_to lesson_url(@lesson.id)
   end
 
   def publish
