@@ -2,7 +2,7 @@ module ApplicationHelper
 	def tweet_and_url(tweet)
 		html = ""
 
-		if session["user_id"].present?
+		if current_user
 			html = "<p>" + link_to(tweet.text, edit_tweet_path(tweet.id), class: "edit-link")
 		else
 			html = "<p>" + tweet.text

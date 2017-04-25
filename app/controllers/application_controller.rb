@@ -5,12 +5,8 @@ class ApplicationController < ActionController::Base
 
   #redirects to root if not admin
   def is_admin?
-    if (session.nil?) 
+    unless current_user and current_user.admin
       redirect_to root_path
-    elsif (session[:user_id].nil?)
-      redirect_to root_path
-    else
-      # do nothing if is admin
     end
   end
 end

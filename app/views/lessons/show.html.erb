@@ -7,9 +7,9 @@
 
 <h1>
   <%= @lesson.hash_tag %>
-  <% if session["user_id"].present? %>
+  <% if current_user %>
     <small>
-      <% if User.find_by(id: session["user_id"]).admin %>
+      <% if current_user.admin %>
         <%= link_to "Edit This Lesson", edit_lesson_path(@lesson.id) %>
         <%= link_to "Delete This Lesson", lesson_path(@lesson.id), :method => :delete %>
       <% end %>
@@ -40,7 +40,7 @@
     <% end %>
   </div>
 
-  <% if @lesson.approved && @lesson.needs_update && User.find_by(id: session["user_id"]) && User.find_by(id: session["user_id"]).admin %> 
+  <% if @lesson.approved && @lesson.needs_update && current_user && current_user.admin %>
     <h1>
       <%= link_to "Publish Lesson", publish_lesson_path(@lesson) %>
     </h1>

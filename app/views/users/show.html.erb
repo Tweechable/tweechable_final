@@ -1,6 +1,6 @@
 <h1>My Account</h1>
 
-<% if @user.id == session[:user_id].to_i %>
+<% if current_user and @user.id == current_user.id %>
     <p>Name: <%= @user.name %></p>
     <p>Email: <%= @user.email %></p>
     <p>Joined Tweechable: <%= @user.created_at.strftime('%c') %></p>
