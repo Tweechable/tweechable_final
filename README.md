@@ -16,8 +16,8 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/).
 - Take a look at the [content/UX/other non-technical tasks to be done](https://github.com/Tweechable/tweechable_final/projects/1) and the [technical tasks to be done](https://github.com/Tweechable/tweechable_final/issues)
 
 ### Then, make sure to:
-- [Our Code of Conduct] (CODE_OF_CONDUCT.md) (required reading for all project members)
-- If technical, jump in to the [Getting Started Guide] (GETTING_STARTED.md)
+- [Our Code of Conduct](CODE_OF_CONDUCT.md) (required reading for all project members)
+- If technical, jump in to the [Getting Started Guide](GETTING_STARTED.md)
 - [Github Repository](https://github.com/Tweechable/tweechable)
 - [Tweechable Website](https://tweechable.herokuapp.com/)
 - Twitter: #tweechablemoments and [@tweechable](https://twitter.com/tweechable)
