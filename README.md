@@ -8,7 +8,7 @@ Tweechable is an automatic education Twitter service that provides lessons when 
 
 Idea originated at [Chi Hack Night](https://chihacknight.org/).
 
-[Fill this out to become a contributor] (https://goo.gl/forms/8h4klAN0az3jDqoG3)
+[Fill this out to become a contributor](https://goo.gl/forms/8h4klAN0az3jDqoG3)
 
 ### First three steps to get started:
 - [Sign up for ChiHackNight slack](slackme.chihacknight.org) and join the tweechable moments channel
