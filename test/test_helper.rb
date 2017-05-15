@@ -4,6 +4,12 @@ SimpleCov.start
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+# require 'minitest/rails'
+require 'minitest/reporters'
+
+reporter_options = { color: true }
+Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
+
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -11,10 +17,10 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def generate_tweet(text)
-  	Twitter::Tweet.new({id: 1, 
+  	Twitter::Tweet.new({id: 1,
 						favorite_count: 0,
-            lang: "en", 
-						retweet_count: 0, 
+            lang: "en",
+						retweet_count: 0,
 						source: "@tweeter",
 						text: text,
             user: {
@@ -24,10 +30,10 @@ class ActiveSupport::TestCase
   end
 
   def generate_tweet_author(text, id, screen_name)
-    Twitter::Tweet.new({id: 1, 
+    Twitter::Tweet.new({id: 1,
                 favorite_count: 0,
-                lang: "en", 
-                retweet_count: 0, 
+                lang: "en",
+                retweet_count: 0,
                 source: "@#{screen_name}",
                 text: text,
                 user: {

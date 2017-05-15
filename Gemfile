@@ -47,6 +47,10 @@ gem 'bootstrap-will_paginate'
 
 gem 'simplecov', :require => false, :group => :test
 
+gem 'minitest', group: :test
+gem 'minitest-reporters', group: :test
+
+
 gem 'figaro'
 
 # Use Unicorn as the app server
@@ -67,7 +71,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'quiet_assets'
-  
+
   gem 'better_errors'
   gem 'binding_of_caller'
 end
