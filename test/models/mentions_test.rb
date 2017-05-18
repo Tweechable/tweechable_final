@@ -1,6 +1,21 @@
 require 'test_helper'
 
 class MentionsTest < ActiveSupport::TestCase
+
+	test "When responding to a tweet with the tweechable handle and non-tweechable handles, generate_mention should screen out the tweechable handle" do
+			tweet = generate_tweet("@target hi @tweechable please explain things")
+			handles = Mention.identify_handles(tweet)
+			number_of_handles = handles.length
+			assert_equal(1, number_of_handles, "generate_mention should have screened out the non-tweechable handle")
+	end
+
+	test "When responding to a tweet with multiple non-tweechable handles, generate_mention should identify all non-tweechable handles" do
+			tweet = generate_tweet("@target @targetfriend @targetcousin hi @tweechable please explain things")
+			handles = Mention.identify_handles(tweet)
+			number_of_handles = handles.length
+			assert_equal(3, number_of_handles, "generate_mention should have screened out the non-tweechable handle")
+	end
+
 	# test "Given a well formatted tweet, generate_mention should make a mention" do
 	# 	tweet = generate_tweet("@target hey @tweechable please help #test")
 	# 	Mention.generate_mention(tweet)
@@ -47,17 +62,10 @@ class MentionsTest < ActiveSupport::TestCase
 	# 	assert_equal(2, Mention.count, "A new tweet should have been created")
 	# end
 
-	test "If a user tweets STOP, check_unsubscribe should add them to the Blocklist" do
-		blocks = BlockList.count
-		tweet = generate_tweet("@tweechable STOP")
-		Mention.check_unsubscribes(tweet)
-		assert_equal(blocks + 1, BlockList.count, "The number of blocks should have increased")
-	end
-
-	test "If a user is on the blocklist as can't send, mentions shouldn't be generated for them" do
-		no_send = block_list(:NoSend)
-		tweet = generate_tweet_author("@target_one hey @tweechable please help #test", no_send.user_id, no_send.user_name)
-		Mention.generate_mention(tweet)
-		assert_equal(0, Mention.count, "No new mentions should have been created")
-	end
+	# test "If a user is on the blocklist as can't send, mentions shouldn't be generated for them" do
+	# 	no_send = block_list(:NoSend)
+	# 	tweet = generate_tweet_author("@target_one hey @tweechable please help #test", no_send.user_id, no_send.user_name)
+	# 	Mention.generate_mention(tweet)
+	# 	assert_equal(0, Mention.count, "No new mentions should have been created")
+	# end
 end

@@ -4,6 +4,8 @@ class Mention < ActiveRecord::Base
 
   belongs_to :lesson
 
+  attr_accessor :handles
+
   # Pulls all mentions from the twitter client
   def self.retrieve_mentions
     twitter = Twitter_API.new
@@ -22,13 +24,9 @@ class Mention < ActiveRecord::Base
     hash_tag = tags[0]
     lesson = Lesson.find_by(hash_tag: hash_tag)
     if lesson && BlockList.can_send(tweet.user.id)
-      # Get a list of all the handles in a post
-      # handles = tweet.text.scan(/@\S+/)
-      # #Remove @tweechable_moments because we don't need to be sending any tweets to ourselves
-      # handles.delete("@tweechable")
-      handles = tweet.user_mentions.reject {|user| user.screen_name == "tweechable"}
+      @handles = Mention.identify_handles(tweet)
       # for every handle in the tweet
-      handles.each do |handle|
+      @handles.each do |handle|
         # FIXME: need to check the timestamp is recent but we are not doing it right now. this is kind of hacky
         if BlockList.can_receive_id(handle.id) && !Mention.where(handler: handle.screen_name, hash_tag: hash_tag).any?
           m = Mention.new
@@ -73,5 +71,13 @@ class Mention < ActiveRecord::Base
       end
     end
   end
+
+  def self.identify_handles(tweet)
+    @handles = tweet.text.scan(/@\S+/)
+    @handles.delete("@tweechable")
+    @handles
+  end
+
+
 end
 
