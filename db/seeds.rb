@@ -18,11 +18,11 @@ l1.description = "A first test lesson"
 l1.approved = true
 l1.save
 
-Tweet.create(lesson_id: l1.id, text: "Test 1, tweet 1", approved: true)
-Tweet.create(lesson_id: l1.id, text: "Test 1, tweet 2", approved: true)
-Tweet.create(lesson_id: l1.id, text: "Test 1, tweet 3", approved: true)
-Tweet.create(lesson_id: l1.id, text: "Test 1, tweet 4", approved: true)
-Tweet.create(lesson_id: l1.id, text: "Test 1, tweet 5", approved: true)
+Tweet.create(lesson_id: l1.id, text: "Test 1, tweet 1", approved: true, tweet_index: 0)
+Tweet.create(lesson_id: l1.id, text: "Test 1, tweet 2", approved: true, tweet_index: 1)
+Tweet.create(lesson_id: l1.id, text: "Test 1, tweet 3", approved: true, tweet_index: 2)
+Tweet.create(lesson_id: l1.id, text: "Test 1, tweet 4", approved: true, tweet_index: 3)
+Tweet.create(lesson_id: l1.id, text: "Test 1, tweet 5", approved: true, tweet_index: 4)
 
 l2 = Lesson.new
 l2.hash_tag = "#test2"
@@ -33,10 +33,10 @@ l2.description = "A second test lesson"
 l2.approved = false
 l2.save
 
-Tweet.create(lesson_id: l2.id, text: "Test 2, tweet 1, not approved", approved: false)
-Tweet.create(lesson_id: l2.id, text: "Test 2, tweet 1, approved", approved: true)
-Tweet.create(lesson_id: l2.id, text: "Test 2, tweet 3, has a cited source", approved: true, cited_src: "https://en.wikipedia.org")
-Tweet.create(lesson_id: l2.id, text: "Test 2, tweet 4, has a cited source, not approved", approved: false, cited_src: "https://en.wikipedia.org")
+Tweet.create(lesson_id: l2.id, text: "Test 2, tweet 1, not approved", approved: false, tweet_index: 0)
+Tweet.create(lesson_id: l2.id, text: "Test 2, tweet 1, approved", approved: true, tweet_index: 1)
+Tweet.create(lesson_id: l2.id, text: "Test 2, tweet 3, has a cited source", approved: true, cited_src: "https://en.wikipedia.org", tweet_index: 2)
+Tweet.create(lesson_id: l2.id, text: "Test 2, tweet 4, has a cited source, not approved", approved: false, cited_src: "https://en.wikipedia.org", tweet_index: 3)
 
 Contribution.create(user_id:u1.id, lesson_id:l1.id, creator:true)
 Contribution.create(user_id:u1.id, lesson_id:l2.id, creator:true)
