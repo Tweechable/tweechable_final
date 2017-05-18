@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215015851) do
+ActiveRecord::Schema.define(version: 20170511012203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,13 +75,15 @@ ActiveRecord::Schema.define(version: 20170215015851) do
     t.integer  "lesson_id"
     t.string   "text"
     t.string   "cited_src"
-    t.boolean  "approved",             default: true
-    t.integer  "twitter_id", limit: 8
+    t.boolean  "approved",              default: true
+    t.integer  "twitter_id",  limit: 8
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tweet_index",           default: 0,    null: false
   end
 
   add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id", using: :btree
+  add_index "tweets", ["tweet_index"], name: "index_tweets_on_tweet_index", using: :btree
   add_index "tweets", ["twitter_id"], name: "index_tweets_on_twitter_id", using: :btree
 
   create_table "users", force: :cascade do |t|
