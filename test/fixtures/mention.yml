@@ -1,0 +1,23 @@
+# mention_without_lesson_id:
+#   created_at: Time.now
+#   favorite_count: 4
+#   lang: "English"
+#   retweet_count: 7
+#   text: "this mention has no lesson"
+#   hash_tag: "#test"
+#   replied: false
+#   lesson_id: 0
+#   handler: "unaware_person"
+#   description: "a test lesson"
+
+# mention_already_replied_to:
+#    created_at: Time.now
+#   favorite_count: 4
+#   lang: "English"
+#   retweet_count: 7
+#   text: "this mention has no lesson"
+#   hash_tag: "#test"
+#   replied: false
+#   lesson_id: 0
+#   handler: "unaware_person"
+#   description: "a test lesson"

@@ -1,5 +1,5 @@
 test_first_tweet:
-  lesson_id: 3
+  lesson_id: 0
   text: "An alternative perspective."
   cited_src: "thoughtful dissertation"
   approved: true
@@ -8,7 +8,7 @@ test_first_tweet:
 
 
 test_second_tweet:
-  lesson_id: 3
+  lesson_id: 0
   text: "A viewpoint worth hearing."
   cited_src: "personal narrative"
   approved: true

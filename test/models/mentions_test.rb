@@ -89,4 +89,45 @@ test "If a user is on the blocklist as can't receive, mentions shouldn't be gene
 		assert_equal(2, Mention.count, "A new tweet should have been created")
 	end
 
+	test "If a mention doesn't have a lesson id associated with it, reply_mentions won't respond to it" do
+		tweet_count_before_test = Tweet.count
+		mention_without_lesson_id = Mention.create(id: 0, created_at: Time.now, favorite_count: 3, lang: "English", retweet_count: 5, text: "a mention", hash_tag: "#test", replied: false, handler: "unaware person")
+		Mention.reply_mentions
+		assert_equal(tweet_count_before_test, Tweet.count, "A new tweet shouldn't have been created")
+	end
+
+	test "If a mention has already been replied to, reply_mentions won't respond to it" do
+		tweet_count_before_test = Tweet.count
+		mention_already_replied_to = Mention.create(id: 0, created_at: Time.now, favorite_count: 3, lang: "English", retweet_count: 5, text: "a mention", hash_tag: "#test", replied: true, lesson_id: 0, handler: "unaware man")
+		Mention.reply_mentions
+		assert_equal(tweet_count_before_test, Tweet.count, "A new tweet shouldn't have been created")
+	end
+
+	test "If a mention has a nonexistent lesson id associated with it, reply_mentions won't respond to it" do
+		tweet_count_before_test = Tweet.count
+		mention_with_nonexistent_lesson_id = Mention.create(id: 0, created_at: Time.now, favorite_count: 3, lang: "English", retweet_count: 5, text: "a mention", hash_tag: "#test", replied: false, lesson_id: 34, handler: "unaware man")
+		Mention.reply_mentions
+		assert_equal(tweet_count_before_test, Tweet.count, "A new tweet shouldn't have been created")
+	end
+
+	test "If a mention is well formatted, it will trigger a tweet that contains the potential educatee's handle" do
+		well_formatted_mention = Mention.create(id: 0, created_at: Time.now, favorite_count: 3, lang: "English", retweet_count: 5, text: "a well-formatted mention", hash_tag: "#test", replied: false, lesson_id: 0, handler: "unaware_person")
+		result_tweet = Mention.reply_mentions[0]
+		assert_equal(result_tweet.handler, "unaware_person")
+	end
+
+	test "If a mention is well formatted, it will trigger a tweet that contains the lesson's intro" do
+		well_formatted_mention = Mention.create(id: 0, created_at: Time.now, favorite_count: 3, lang: "English", retweet_count: 5, text: "a well-formatted mention", hash_tag: "#test", replied: false, lesson_id: 0, handler: "unaware_person")
+		result = Mention.reply_mentions[0]
+		assert_equal(result.lesson.intro, "Hi, I heard you want to hear about #test")
+	end
+
+	test "If a mention is well formatted, it will trigger a tweet that contains the lesson's thread link" do
+		well_formatted_mention = Mention.create(id: 0, created_at: Time.now, favorite_count: 3, lang: "English", retweet_count: 5, text: "a well-formatted mention", hash_tag: "#test", replied: false, lesson_id: 0, handler: "unaware_person")
+			result = Mention.reply_mentions[0]
+			target_id = result.lesson.tweets.first.tweet_index
+			p target_id
+			assert_equal(result.lesson.thread_link, "https://twitter.com/tweechable/status/#{target_id}")
+	end
+
 end
