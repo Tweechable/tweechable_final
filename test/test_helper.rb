@@ -8,6 +8,7 @@ require 'rails/test_help'
 require 'minitest/reporters'
 require 'block_list'
 
+
 reporter_options = { color: true }
 Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
 

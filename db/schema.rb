@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20170511012203) do
     t.integer  "twitter_id",  limit: 8
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "tweet_index",           default: 0,    null: false
+    t.integer  "tweet_index",                          null: false
   end
 
   add_index "tweets", ["lesson_id"], name: "index_tweets_on_lesson_id", using: :btree

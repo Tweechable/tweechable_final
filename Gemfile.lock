@@ -76,6 +76,10 @@ GEM
     docile (1.1.5)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     email_validator (1.6.0)
       activemodel
     equalizer (0.0.10)
@@ -272,6 +276,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  dotenv-rails
   email_validator
   figaro
   jbuilder (~> 2.0)
