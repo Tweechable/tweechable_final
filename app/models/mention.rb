@@ -3,8 +3,6 @@ class Mention < ActiveRecord::Base
 
   belongs_to :lesson
 
-  attr_accessor :handles
-
   # Pulls all mentions from the twitter client
   def self.retrieve_mentions
     twitter = Twitter_API.new
@@ -21,22 +19,35 @@ class Mention < ActiveRecord::Base
     #Retrieves the first hashtag listed in the tweet.
     lesson = Mention.identify_lesson(tweet)
     if lesson && BlockList.can_send(tweet.user.id)
-      @handles = Mention.identify_handles(tweet)
-      # for every handle in the tweet
+      @handles = tweet.user_mentions.reject {|user| user.screen_name == "tweechable"}
+      puts "tweet below"
+      puts tweet
+      puts "tweet janx"
+      puts tweet.id
+      puts tweet.favorite_count
+      puts tweet.lang
+      puts tweet.retweet_count
+      puts "tweet.source"
+      puts tweet.source
+      puts "tweet.user"
+      puts tweet.user
+      puts tweet.user_mentions
+      puts "tweet.user_mentions!"
+      puts tweet.user_mentions
       @handles.each do |handle|
         # FIXME: need to check the timestamp is recent but we are not doing it right now. this is kind of hacky
-        handle = handle[1..-1]
-        target_educatee = Educatee.find_by(twitter_handle: handle)
-        if BlockList.can_receive_id(target_educatee.id) && !Mention.where(handler: target_educatee.twitter_handle, hash_tag: lesson.hash_tag).any?
+        if BlockList.can_receive_id(handle.id) && !Mention.where(handler: handle.screen_name, hash_tag: lesson.hash_tag).any?
           m = Mention.new
           m.favorite_count = tweet.favorite_count
           m.lang = tweet.lang
           m.retweet_count = tweet.retweet_count
           m.text = tweet.text
           m.hash_tag = lesson.hash_tag
-          m.handler = target_educatee.twitter_handle
+          m.handler = handle.screen_name
           m.lesson_id = lesson.id
           m.save
+          p "m"
+          p m
         end
       end
     end
@@ -77,10 +88,5 @@ class Mention < ActiveRecord::Base
     lesson = Lesson.find_by(hash_tag: hash_tag)
   end
 
-  def self.identify_handles(tweet)
-    @handles = tweet.text.scan(/@\S+/)
-    @handles.delete("@tweechable")
-    @handles
-  end
 end
 

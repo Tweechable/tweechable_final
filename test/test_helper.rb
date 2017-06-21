@@ -32,16 +32,38 @@ class ActiveSupport::TestCase
               }})
   end
 
-  def generate_tweet_author(text, id, screen_name)
+  def generate_tweet_author(text, author_id, author_screen_name)
     Twitter::Tweet.new({id: 1,
                 favorite_count: 0,
                 lang: "en",
                 retweet_count: 0,
-                source: "@#{screen_name}",
+                source: "@#{author_screen_name}",
                 text: text,
                 user: {
-                  id: id,
-                  screen_name: screen_name
+                  id: author_id,
+                  screen_name: author_screen_name
                   }})
+  end
+
+  def generate_tweet_with_author_and_mentions(text, author_id, author_screen_name, educatee_id, educatee_screen_name)
+    tweet = Twitter::Tweet.new({id: 1,
+                favorite_count: 0,
+                lang: "en",
+                retweet_count: 0,
+                source: "@#{author_screen_name}",
+                text: text,
+                user: {
+                  id: author_id,
+                  screen_name: author_screen_name
+                  },
+                user_mentions: [{
+                  id: educatee_id,
+                  screen_name: educatee_screen_name
+                  }]})
+    p "tweet.user in the test_helper method"
+    p tweet.user
+    p "tweet.user_mentions in the test_helper method"
+    p tweet.user_mentions
+    p tweet
   end
 end
