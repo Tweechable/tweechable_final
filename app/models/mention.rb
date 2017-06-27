@@ -20,20 +20,6 @@ class Mention < ActiveRecord::Base
     lesson = Mention.identify_lesson(tweet)
     if lesson && BlockList.can_send(tweet.user.id)
       @handles = tweet.user_mentions.reject {|user| user.screen_name == "tweechable"}
-      puts "tweet below"
-      puts tweet
-      puts "tweet janx"
-      puts tweet.id
-      puts tweet.favorite_count
-      puts tweet.lang
-      puts tweet.retweet_count
-      puts "tweet.source"
-      puts tweet.source
-      puts "tweet.user"
-      puts tweet.user
-      puts tweet.user_mentions
-      puts "tweet.user_mentions!"
-      puts tweet.user_mentions
       @handles.each do |handle|
         # FIXME: need to check the timestamp is recent but we are not doing it right now. this is kind of hacky
         if BlockList.can_receive_id(handle.id) && !Mention.where(handler: handle.screen_name, hash_tag: lesson.hash_tag).any?
@@ -46,8 +32,7 @@ class Mention < ActiveRecord::Base
           m.handler = handle.screen_name
           m.lesson_id = lesson.id
           m.save
-          p "m"
-          p m
+          m
         end
       end
     end

@@ -60,10 +60,6 @@ class ActiveSupport::TestCase
                   id: educatee_id,
                   screen_name: educatee_screen_name
                   }]})
-    p "tweet.user in the test_helper method"
-    p tweet.user
-    p "tweet.user_mentions in the test_helper method"
-    p tweet.user_mentions
-    p tweet
   end
+
 end
