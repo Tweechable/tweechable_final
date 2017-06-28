@@ -27,12 +27,12 @@ class Lesson < ActiveRecord::Base
     client = twitters.client
 
     tweet_id = 0;
-    tweets.order(:id).each do |tweet|
+    tweets.order(:tweet_index).each do |tweet|
       tweet_id = tweet.publish_tweet(client, tweet_id)
     end
 
     update(approved: true,
-    	thread_link: "https://twitter.com/tweechable/status/#{tweets.first.tweet_index}",
+    	thread_link: "https://twitter.com/tweechable/status/#{tweets.first.twitter_id}",
     	posted_at: DateTime.now)
   end
 end
