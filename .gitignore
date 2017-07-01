@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore environment variables
+.env
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -24,7 +27,9 @@ config/secrets.yml
 # Ignore Sublime files
 *sublime*
 
+#Ignore test coverage files
 coverage
+coverage/**
 
 #Ignore idea directory & .byebug_history
 .idea/

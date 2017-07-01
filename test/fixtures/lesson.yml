@@ -1,9 +1,17 @@
 test_lesson:
+  id: 0
   hash_tag: "#test"
   category: "test"
   description: "a test lesson"
+  approved: true
+  intro: "Hi, I heard you want to hear about #test"
+  thread_link: "https://twitter.com/tweechable/status/0"
 
 test_lesson_two:
+  id: 1
   hash_tag: "#test_two"
   category: "test"
   description: "a second test lesson"
+  approved: true
+  intro:
+  thread_link:

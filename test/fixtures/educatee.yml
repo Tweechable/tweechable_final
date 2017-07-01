@@ -1,0 +1,29 @@
+test_educatee_on_no_receive:
+  id: 101
+  lesson_id: 0
+  twitter_handle: "NoReceive"
+  educated: false
+
+test_educatee_not_on_blocklist:
+  id: 105
+  lesson_id: 0
+  twitter_handle: "test_educatee_not_on_blocklist"
+  educated: false
+
+test_educatee_already_contacted:
+  id: 106
+  lesson_id: 0
+  twitter_handle: "test_educatee_already_contacted"
+  educated: true
+
+target_one:
+  id: 107
+  lesson_id: 0
+  twitter_handle: "target_two"
+  educated: false
+
+target_two:
+  id: 108
+  lesson_id: 0
+  twitter_handle: "target_one"
+  educated: false

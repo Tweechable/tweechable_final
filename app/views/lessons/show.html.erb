@@ -35,7 +35,8 @@
   <p><strong>Intro Tweet:</strong> <%= @lesson.intro %></p>
   <p><strong>Tweets: </strong></p>
   <div class="jumbotron">
-    <% @lesson.tweets.each do |tweet| %>
+    <% @ordered_tweets = @lesson.tweets.order(:tweet_index) %>
+    <% @ordered_tweets.each do |tweet| %>
       <%= raw tweet_and_url(tweet) %>
     <% end %>
   </div>
