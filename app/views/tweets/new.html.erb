@@ -1,3 +1,10 @@
+<% if @tweet.errors.full_messages.any? %>
+  <h4>Errors</h4>
+  <% @tweet.errors.full_messages.each do |error_message| %>
+    <%= error_message if @tweet.errors.full_messages.first == error_message %> <br />
+  <% end %>
+<% end %>
+
 <h2>Add a New Tweet</h2>
 
 <%= render 'form' %>

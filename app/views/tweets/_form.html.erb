@@ -1,17 +1,17 @@
 <%= form_for @tweet do |form| %>
+  
+  <p>
+    <%= form.label :text %>
+    <br>
+    <%= form.text_field :text, size: 80, autofocus: true %>
+  </p>
+  
+  <p>
+    <%= form.label :cited_src, "Source (for example: http://www.nber.org/papers/w22589?sy=589)" %>
+    <br>
+    <%= form.text_field :cited_src, :size => 50 %>
+  </p>     
 
-    <p>
-      <%= form.label :text %>
-      <br>
-      <%= form.text_field :text, size: 80, autofocus: true %>
-    </p>
-    
-    <p>
-      <%= form.label :cited_src, "Source (for example: http://www.nber.org/papers/w22589?sy=589)" %>
-      <br>
-      <%= form.text_field :cited_src, :size => 50 %>
-    </p>     
-
-    <p><%= form.submit :class => "btn btn-primary"%></p>
+  <p><%= form.submit :class => "btn btn-primary"%></p>
 
 <% end %>
