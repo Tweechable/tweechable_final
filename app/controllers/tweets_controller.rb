@@ -22,34 +22,23 @@ class TweetsController < ApplicationController
     @tweet.lesson_id = cookies["current_lesson_id"]
     @tweet.approved = true
     if @tweet.save
-      if tweet.text.length > 126
+      if @tweet.text.length > 126
         flash[:warning] = "The tweet you just created is more than 126 characters. This may cause problems
         with twitter's character limits, especially when responding to users with long user name. If the
         tweet includes a URL then you should be fine but we'd recommend checking it against twitter before
         going ahead."
       end
+      # create a new contribution for editor
+      contribution = Contribution.new
+      contribution.lesson_id = @tweet.lesson_id
+      contribution.user_id = current_user.id
+      contribution.creator = false
+      contribution.save
+
+      redirect_to tweets_url(id: @tweet.lesson_id)
     else
       render :new and return
     end
-
-    # create a new contribution for editor
-    contribution = Contribution.new
-    contribution.lesson_id = @tweet.lesson_id
-    contribution.user_id = current_user.id
-    contribution.creator = false
-    contribution.save
-
-    redirect_to tweets_url(id: @tweet.lesson_id)
-
-    # Nice to have: rerendering on the same page but this is low priority compared to cron job. hahaha...
-    # respond_to do |format|
-    #   format.html do
-    #     redirect_to tweets_url(id: tweet.lesson_id)
-    #   end
-    #   format.js do
-    #
-    #   end
-    # end
   end
 
   def edit
