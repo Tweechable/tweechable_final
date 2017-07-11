@@ -21,8 +21,8 @@ class TweetTest < ActiveSupport::TestCase
   end
 
   test "tweets are not valid without an index" do
-    tweet = Tweet.new
-    assert_not(tweet.valid?)
+    @first_tweet.tweet_index = nil
+    assert_not(@first_tweet.valid?)
   end
 
 end
