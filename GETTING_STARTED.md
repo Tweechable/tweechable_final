@@ -20,21 +20,21 @@ Welcome to Tweechable Moments!  This is a guide for new members who want to cont
 - Bundler gem
 
 ## Install Guidelines
-### Mac Install Guidelines 
+### Mac Install Guidelines
 We highly recommend using homebrew to install needed components.  Here are further instructions.
 
 #### Install Homebrew
 Check if you have already installed Homebrew.  If you have installed Homebrew, you should see the below.
 `$ which brew
-/usr/local/bin/brew`  
-If you don't see that, run the below to install homebrew 
+/usr/local/bin/brew`
+If you don't see that, run the below to install homebrew
 `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" `
 
 #### Install Git
 See if you have git installed
 `which git
- /usr/local/bin/git ` 
- If you don't get a result, run the below to install git.  
+ /usr/local/bin/git `
+ If you don't get a result, run the below to install git.
 `brew install git`
 
 #### Install a Ruby Manager
@@ -42,9 +42,9 @@ We highly recommend you use a Ruby manager, preferably rbenv, to manage your Rub
 
 ##### Rbenv instructions
 First, check if you already have rbenv installed.
-` which rbenv 
-/usr/local/bin/rbenv`  
-If you don't get a result for `which rbenv`, run the below 
+` which rbenv
+/usr/local/bin/rbenv`
+If you don't get a result for `which rbenv`, run the below
 `$ brew install ruby-build rbenv`
 
 After installing `rbenv`, add the below to your `.bash_profile` to tell your computer to use `rbenv`
@@ -52,11 +52,11 @@ After installing `rbenv`, add the below to your `.bash_profile` to tell your com
 
 #### Install Ruby
 Use rbenv to see all of the rubies available for install
-`$ rbenv install --list`  
+`$ rbenv install --list`
 Will show you all the rubies available for installation
-`$ rbenv install 2.3.1`  
-Will install ruby version 2.3.1  
-`$ rbenv global 2.3.1`  
+`$ rbenv install 2.3.1`
+Will install ruby version 2.3.1
+`$ rbenv global 2.3.1`
 Will set the global ruby.  (The global ruby will be used by default in all your work on your local machine.)
 
 #### Install Bundler Gem
@@ -76,7 +76,7 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
 - In terminal:
 	- Start *postgres* locally (usually using `psql` command, or `sudo su - postgres`)
 		- If you don't have postgres, `$brew install postgresql`
-		- Start the postgres server: `$pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start` 
+		- Start the postgres server: `$pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start`
 		- To eventually stop the server: `$pg_ctl -D /usr/local/var/postgres stop -s -m fast`
 	- Create a DB in postgres called *tweechable_development*
 	- `cd` into the cloned directory
@@ -85,17 +85,17 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
 	- `rake db:seed` - fill the database with seed data (note that postgres must be running for this to work)
 	- `rails server` - hosts local server at `localhost:3000`
 
-### Setup a Twitter Authentication Token 
-- Prerequisites: Register a Twitter account with a phone number. Twitter requires having a phone number for obtaining the authentication tokens 
+### Setup a Twitter Authentication Token
+- Prerequisites: Register a Twitter account with a phone number. Twitter requires having a phone number for obtaining the authentication tokens
 - Follow the instructions to create a new Twitter app on the [Twitter Apps Panel](https://apps.twitter.com/)
 - Go to "Keys and Access Tokens" tab. You should have your consumer key and consumer secret key.
-- Scroll down and click "create my access token". 
+- Scroll down and click "create my access token".
 - Replace the content in quotes with your own tokens in the `app/models/twitter_api.rb` file and you are done :smiley:
 
 ### Testing Tweechable
 - [Test account on Twitter](https://twitter.com/TweechableTest)
 - [Test site](https://tweechable-test.herokuapp.com/)
-- You can tweet [@TweechableTest](https://twitter.com/TweechableTest) @*ignorantTwitter* #*AnAvailableLesson*  
+- You can tweet [@TweechableTest](https://twitter.com/TweechableTest) @*ignorantTwitter* #*AnAvailableLesson*
 - The task is scheduled to run every 10 minutes so the response will take a while, due to limitations of Heroku Scheduler
 - Admin panel
 	- Production
@@ -105,7 +105,7 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
 
 ### Guidelines for Submitting a Change to Tweechable
  - See something in Tweechable that could be better?  Open an issue!
- - If you want to work an an existing issue, please assign yourself to it and/or comment on it that you are working on it.  
+ - If you want to work an an existing issue, please assign yourself to it and/or comment on it that you are working on it.
 - If someone is already working on an issue that interests you, contact them about collaborating.
  - Once you start working on an issue, create a branch on your local machine that starts with the issue number and then summarizes the task (e.g. `95/fix-sign-up-form`)
  - This is Chicago: when working, commit early, commit often.
@@ -116,7 +116,7 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
  - In order to become a technical project maintainer, you should make four (or more) contributions to Tweechable's tech component over a month.  Involvement includes, but is not limited to:
  	- Attending ChiHackNight meetings
  	- Opening issues
- 	- Making pull requests 
+ 	- Making pull requests
  	- Offering feedback on code
  	- Offering feedback on documentation
  - Only technical project maintainers will make pushes to the twitter bot itself.
@@ -126,7 +126,7 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
 
 ### Guidelines for Maintaining Code Quality
 - Write clear, concise commit messages.
-- For inspiration on how to write good commit messages, please watch this video [Do Your Commit Messages Suck: by Ryan McGeary] (https://www.youtube.com/watch?v=8YjSty6bfog).  We learned of the video through [exercism] (exercism.io) - thanks, exercism!
+- For inspiration on how to write good commit messages, please watch this video [Do Your Commit Messages Suck: by Ryan McGeary](https://www.youtube.com/watch?v=8YjSty6bfog).  We learned of the video through [exercism](exercism.io) - thanks, exercism!
 - Write tests.
 - Tweechable tracks test coverage with the Travis CI and simplecov gems.  To run simplecov, type `rake test` in terminal and open the generated html file to view test coverage.
 
@@ -136,17 +136,17 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
 If you are new to Tweechable's tech stack and would like more experience, check out the resources below.
 
 #### Ruby
-- [Official Ruby Documentation] (ruby-doc.org)
-- [Codecademy's Ruby course] (www.codecademy.com/learn/ruby)
-- [Learn to Program by Chris Pine] (https://pine.fm/LearnToProgram/)
+- [Official Ruby Documentation](ruby-doc.org)
+- [Codecademy's Ruby course](www.codecademy.com/learn/ruby)
+- [Learn to Program by Chris Pine](https://pine.fm/LearnToProgram/)
 
 #### Rails
-- [Rails Guides] (guides.rubyonrails.org)
-- [Rails for Zombies] (https://www.codeschool.com/courses/rails-for-zombies-redux)
-- [Rails for Zombies Cheatsheet] (http://courseware.codeschool.com/rails_for_zombies_2_cheatsheets.pdf)
+- [Rails Guides](guides.rubyonrails.org)
+- [Rails for Zombies](https://www.codeschool.com/courses/rails-for-zombies-redux)
+- [Rails for Zombies Cheatsheet](http://courseware.codeschool.com/rails_for_zombies_2_cheatsheets.pdf)
 
 #### Twitter API
-- [Twitter API Documentation] (https://dev.twitter.com/streaming/overview)
-- [Learn how to use the twitter API] (https://www.codecademy.com/en/tracks/twitter)
-- [Tutorial on how to create a twitter bot] (http://www.katelyndinkgrave.com/ruby/2016/01/31/civ-game-generator-twitterbot.html)
+- [Twitter API Documentation](https://dev.twitter.com/streaming/overview)
+- [Learn how to use the twitter API](https://www.codecademy.com/en/tracks/twitter)
+- [Tutorial on how to create a twitter bot](http://www.katelyndinkgrave.com/ruby/2016/01/31/civ-game-generator-twitterbot.html)
 
