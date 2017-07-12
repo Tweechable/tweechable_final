@@ -23,7 +23,8 @@
     <% @lessons.each do |lesson| %>
         <div class="col-md-4">
           <h3><%= link_to lesson.hash_tag, lesson_path(lesson.id) %></h3>
-          <% lesson.tweets.each do |tweet| %>
+          <% @ordered_tweets = lesson.tweets.order(:tweet_index) %>
+          <% @ordered_tweets.each do |tweet| %>
             <%= raw tweet_and_url(tweet) %>
           <% end %>
         </div>

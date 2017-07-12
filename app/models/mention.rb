@@ -1,4 +1,3 @@
-# should be activerecord
 class Mention < ActiveRecord::Base
   validates :handler, presence: true
 
@@ -18,28 +17,22 @@ class Mention < ActiveRecord::Base
   # Takes a tweet and generates a mention if it's a request for a lesson to be sent
   def self.generate_mention(tweet)
     #Retrieves the first hashtag listed in the tweet.
-    tags = tweet.text.scan(/#\S+/)
-    hash_tag = tags[0]
-    lesson = Lesson.find_by(hash_tag: hash_tag)
+    lesson = Mention.identify_lesson(tweet)
     if lesson && BlockList.can_send(tweet.user.id)
-      # Get a list of all the handles in a post
-      # handles = tweet.text.scan(/@\S+/)
-      # #Remove @tweechable_moments because we don't need to be sending any tweets to ourselves
-      # handles.delete("@tweechable")
-      handles = tweet.user_mentions.reject {|user| user.screen_name == "tweechable"}
-      # for every handle in the tweet
-      handles.each do |handle|
+      @handles = tweet.user_mentions.reject {|user| user.screen_name == "tweechable"}
+      @handles.each do |handle|
         # FIXME: need to check the timestamp is recent but we are not doing it right now. this is kind of hacky
-        if BlockList.can_receive_id(handle.id) && !Mention.where(handler: handle.screen_name, hash_tag: hash_tag).any?
+        if BlockList.can_receive_id(handle.id) && !Mention.where(handler: handle.screen_name, hash_tag: lesson.hash_tag).any?
           m = Mention.new
           m.favorite_count = tweet.favorite_count
           m.lang = tweet.lang
           m.retweet_count = tweet.retweet_count
           m.text = tweet.text
-          m.hash_tag = hash_tag
+          m.hash_tag = lesson.hash_tag
           m.handler = handle.screen_name
           m.lesson_id = lesson.id
           m.save
+          m
         end
       end
     end
@@ -73,5 +66,12 @@ class Mention < ActiveRecord::Base
       end
     end
   end
+
+  def self.identify_lesson(tweet)
+    tags = tweet.text.scan(/#\S+/)
+    hash_tag = tags[0]
+    lesson = Lesson.find_by(hash_tag: hash_tag)
+  end
+
 end
 

@@ -3,10 +3,6 @@ class UserTest < ActiveSupport::TestCase
     @user = users(:valid)
   end
 
-  test 'valid user' do
-    assert @user.valid?
-  end
-
   test 'invalid without name' do
     @user.name = nil
     refute @user.valid?
