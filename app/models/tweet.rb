@@ -1,8 +1,8 @@
 class Tweet < ActiveRecord::Base
-
   validates :tweet_index, presence: true
   belongs_to :lesson, :touch => true
 
+  before_validation :add_index, on: :create
 
   # tweet is 140 char max and tweeter name is 15 char max. so we we let 124 to be the max length so that
   # after we add in the (screen name + the blank) to form the tag the tweet is 140 max and allow to be published
@@ -24,4 +24,14 @@ class Tweet < ActiveRecord::Base
     return twitter_id
   end
 
+  private
+    def add_index
+      if self.tweet_index.nil?
+        if !self.lesson_id.nil? && self.lesson.tweets.count > 0
+          self.tweet_index = self.lesson.tweets.order(:tweet_index).last.tweet_index + 1
+        else
+          self.tweet_index = 0
+        end
+      end
+    end
 end
