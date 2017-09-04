@@ -1,0 +1,18 @@
+test_first_tweet:
+  lesson_id: 0
+  id: 0
+  text: "An alternative perspective."
+  cited_src: "thoughtful dissertation"
+  approved: true
+  twitter_id: 0
+  tweet_index: 0
+
+
+test_second_tweet:
+  lesson_id: 0
+  id: 1
+  text: "A viewpoint worth hearing."
+  cited_src: "personal narrative"
+  approved: true
+  twitter_id: 1
+  tweet_index: 1
