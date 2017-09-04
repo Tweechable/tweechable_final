@@ -1,2 +1,18 @@
 valid:
   name: ChiHacker
+  email: chihacker@mystery.com
+  admin: true
+  how_found_tweechable: "a friend"
+
+non_admin:
+  name: Learner
+  email: learner@schooliscool.com
+  admin: false
+  how_found_tweechable: "a buddy"
+
+admin:
+  name: admin
+  email: admin@example.org
+  admin: true
+  # confirmed_at: Datetime.now
+  how_found_tweechable: "friend"
