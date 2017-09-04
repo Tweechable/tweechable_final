@@ -28,14 +28,14 @@ class MentionsTest < ActiveSupport::TestCase
 	end
 
 test "If a user is on the blocklist as can't receive, mentions shouldn't be generated for them" do
-		no_receive = block_list(:NoReceive)
+		no_receive = block_lists(:NoReceive)
 		tweet = generate_tweet("@NoReceive hi @tweechable please help test #test")
 		Mention.generate_mention(tweet)
 		assert_equal(0, Mention.count, "No new mentions should have been created")
 	end
 
 	test "If a user is on the blocklist as can't send, mentions shouldn't be generated for them" do
-		no_send = block_list(:NoSend)
+		no_send = block_lists(:NoSend)
 		tweet = generate_tweet_author("@target_one hey @tweechable please help #test", no_send.user_id, no_send.user_name)
 		Mention.generate_mention(tweet)
 		assert_equal(0, Mention.count, "No new mentions should have been created")
