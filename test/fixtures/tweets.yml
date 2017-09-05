@@ -24,3 +24,12 @@ lengthy_tweet:
   approved: true
   twitter_id: 1
   tweet_index: 1
+
+tweet_with_124_length:
+  lesson_id: 1
+  id: 3
+  text: This tweet is a tweechable twoosh because it takes up exactly 124 characters. How cool. How cool. How cool. How cool. Yayyy.
+  cited_src: "personal narrative"
+  approved: true
+  twitter_id: 1
+  tweet_index: 1
