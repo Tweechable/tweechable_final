@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :require_admin_status, only: [:edit, :update]
 
   def index
     @lesson = Lesson.find_by(id: params[:id])
@@ -42,30 +43,30 @@ class TweetsController < ApplicationController
   end
 
   def edit
-    if current_user.admin
-      @tweet = Tweet.find_by(id: params[:id])
-    else
-      redirect_to lessons_url
-    end
+    @tweet = Tweet.find_by(id: params[:id])
   end
 
   def update
-    if current_user.admin
-      tweet = Tweet.find_by(id: params[:id])
-      tweet.text = params[:tweet][:text]
-      tweet.cited_src = params[:tweet][:cited_src]
-      tweet.save
+    tweet = Tweet.find_by(id: params[:id])
+    tweet.text = params[:tweet][:text]
+    tweet.cited_src = params[:tweet][:cited_src]
+    tweet.save
 
-      contribution = Contribution.new
-      contribution.lesson_id = tweet.lesson_id
-      contribution.user_id = current_user.id
-      contribution.creator = false
-      contribution.save
+    contribution = Contribution.new
+    contribution.lesson_id = tweet.lesson_id
+    contribution.user_id = current_user.id
+    contribution.creator = false
+    contribution.save
 
-      redirect_to tweets_url(id: tweet.lesson_id)
-    else
+    redirect_to tweets_url(id: tweet.lesson_id)
+  end
+
+private
+
+  def require_admin_status
+    unless current_user.admin?
       redirect_to lessons_url
     end
-
   end
+
 end
