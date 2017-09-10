@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :require_admin_status, only: [:edit, :update]
 
   def index
     @lesson = Lesson.find_by(id: params[:id])
@@ -51,7 +52,6 @@ class TweetsController < ApplicationController
     tweet.cited_src = params[:tweet][:cited_src]
     tweet.save
 
-    # create a new contribution for editor
     contribution = Contribution.new
     contribution.lesson_id = tweet.lesson_id
     contribution.user_id = current_user.id
@@ -60,4 +60,13 @@ class TweetsController < ApplicationController
 
     redirect_to tweets_url(id: tweet.lesson_id)
   end
+
+private
+
+  def require_admin_status
+    unless current_user.admin?
+      redirect_to lessons_url
+    end
+  end
+
 end

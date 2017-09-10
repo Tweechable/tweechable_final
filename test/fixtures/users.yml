@@ -1,2 +1,13 @@
-valid:
-  name: ChiHacker
+user:
+  name: Learner
+  email: learner@schooliscool.com
+  admin: false
+  confirmed_at: 2017-09-10 14:50:39 -0500
+  how_found_tweechable: "a buddy"
+
+admin:
+  name: admin
+  email: admin@example.org
+  admin: true
+  confirmed_at: 2017-09-10 14:50:39 -0500
+  how_found_tweechable: "friend"
