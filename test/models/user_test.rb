@@ -1,6 +1,6 @@
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = users(:valid)
+    @user = users(:user)
   end
 
   test '#contributions' do
