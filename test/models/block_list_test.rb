@@ -2,8 +2,8 @@ require 'test_helper'
 
 class BlockListTest < ActiveSupport::TestCase
   setup do
-  	@no_send = block_list(:NoSend)
-  	@no_receive = block_list(:NoReceive)
+  	@no_send = block_lists(:NoSend)
+  	@no_receive = block_lists(:NoReceive)
   end
 
   test "Test can_send function" do

@@ -1,0 +1,35 @@
+test_first_tweet:
+  lesson_id: 0
+  id: 0
+  text: "An alternative perspective."
+  cited_src: "thoughtful dissertation"
+  approved: true
+  twitter_id: 0
+  tweet_index: 0
+
+test_second_tweet:
+  lesson_id: 0
+  id: 1
+  text: "A viewpoint worth hearing."
+  cited_src: "personal narrative"
+  approved: true
+  twitter_id: 1
+  tweet_index: 1
+
+lengthy_tweet:
+  lesson_id: 0
+  id: 2
+  text: "This is a very lengthy tweet written by a person who struggles with succinct communication. Who can blame them? It is hard to get a point across in so few characters."
+  cited_src: "personal narrative"
+  approved: true
+  twitter_id: 1
+  tweet_index: 1
+
+tweet_with_124_length:
+  lesson_id: 1
+  id: 3
+  text: This tweet is a tweechable twoosh because it takes up exactly 124 characters. How cool. How cool. How cool. How cool. Yayyy.
+  cited_src: "personal narrative"
+  approved: true
+  twitter_id: 1
+  tweet_index: 1
