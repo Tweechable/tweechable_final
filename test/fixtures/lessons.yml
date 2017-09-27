@@ -13,5 +13,5 @@ test_lesson_two:
   category: "test"
   description: "a second test lesson"
   approved: true
-  intro:
-  thread_link:
+  intro: "Hi, I heard you want to learn about #testlessontwo"
+  thread_link: "https://twitter.com/tweechable/status/1"
