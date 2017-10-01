@@ -33,3 +33,12 @@ tweet_with_124_length:
   approved: true
   twitter_id: 1
   tweet_index: 1
+
+test_unnapproved_tweet:
+  lesson_id: 2
+  id: 4
+  text: "This tweet needs to be reviewed"
+  cited_src: "none"
+  approved: false
+  twitter_id: 0
+  tweet_index: 0
