@@ -1,7 +1,8 @@
 require 'minitest/autorun'
 require 'test_helper'
 
-class TweetsControllerTest < ActionController::TestCase
+class LessonsControllerTest < ActionController::TestCase
+include Devise::Test::ControllerHelpers
 
   def setup
     @approved_lesson = lessons(:test_lesson)
@@ -13,13 +14,8 @@ class TweetsControllerTest < ActionController::TestCase
 
   test "the search feature only returns lessons that are approved" do
       get :index, keyword: "test"
-      assert_equal @approved_lessons, @response.body
       assert_response :success
-  end
-
-  test "the search feature redirects you when you search for lessons that don't exist" do
-    get :index, keyword: "nonexistent"
-    assert_response :redirect
+      assert_no_match(@unapproved_lesson.intro, @response.body)
   end
 
 end
