@@ -1,5 +1,5 @@
 # Getting Started
-Welcome to Tweechable Moments!  This is a guide for new members who want to contribute to the project's technical portion.  We require that new members read our [Code of Conduct] (CODE_OF_CONDUCT.md) before getting started.
+Welcome to Tweechable Moments!  This is a guide for new members who want to contribute to the project's technical portion.  We require that new members read our [Code of Conduct](CODE_OF_CONDUCT.md) before getting started.
 
 ## Sections
 ### System Requirements
