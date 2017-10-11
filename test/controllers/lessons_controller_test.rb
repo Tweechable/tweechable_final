@@ -15,7 +15,15 @@ include Devise::Test::ControllerHelpers
   test "the search feature only returns lessons that are approved" do
       get :index, keyword: "test"
       assert_response :success
-      assert_no_match(@unapproved_lesson.intro, @response.body)
+      assert_no_match(@unapproved_lesson.hash_tag, @response.body)
+      assert_match(@approved_lesson.hash_tag, @response.body)
+  end
+
+    test "the index only returns lessons that are approved" do
+      get :index
+      assert_response :success
+      assert_no_match(@unapproved_lesson.hash_tag, @response.body)
+      assert_match(@approved_lesson.hash_tag, @response.body)
   end
 
 end
