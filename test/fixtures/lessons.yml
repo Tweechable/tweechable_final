@@ -13,5 +13,14 @@ test_lesson_two:
   category: "test"
   description: "a second test lesson"
   approved: true
-  intro:
-  thread_link:
+  intro: "Hi, I heard you want to learn about #testlessontwo"
+  thread_link: "https://twitter.com/tweechable/status/1"
+
+test_unapproved:
+  id: 2
+  hash_tag: "#unapproved_test"
+  category: "development"
+  description: "this lesson still needs some work"
+  approved: false
+  intro: "Hi, I heard you are interested in #unapproved"
+  thread_link: "https://twitter.com/tweechable/status/2"

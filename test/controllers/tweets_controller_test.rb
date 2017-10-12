@@ -7,7 +7,7 @@ class TweetsControllerTest < ActionController::TestCase
 
   def setup
     @lesson = lessons(:test_lesson)
-    @tweet = tweet(:test_first_tweet)
+    @tweet = tweets(:test_first_tweet)
     #Controller tests bypass the router, which is where Devise sees what mappings to use before a request. The below lines tell Devise what mappings to use for a request from an admin or a non-admin user.
     @request.env["devise.mapping"] = Devise.mappings[:admin]
   end
