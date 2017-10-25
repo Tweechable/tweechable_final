@@ -1,0 +1,8 @@
+<%= form_for @contact, url: new_contact_url do |f| %>
+  <%= notice %>
+
+  <%= f.text_field :name, placeholder: 'name' %>
+  <%= f.email_field :email, placeholder: 'email' %>
+  <%= f.text_area :message, placeholder: 'message' %>
+  <%= f.submit 'Send' %>
+<% end %>

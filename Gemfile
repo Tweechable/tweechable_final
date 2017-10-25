@@ -41,6 +41,10 @@ gem 'devise'
 gem 'rails_admin'
 # validate email
 gem 'email_validator'
+#forms, mail
+gem 'mail_form', '~> 1.5.0.rc'
+gem 'simple_form', '~> 3.0.0.rc'
+
 # whenever for cron job
 gem 'whenever', :require => false
 
@@ -75,6 +79,7 @@ group :development do
 
   gem 'better_errors'
   gem 'binding_of_caller'
+
 end
 
 group :production do
