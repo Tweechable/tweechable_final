@@ -16,7 +16,6 @@ Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_opti
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   self.use_transactional_fixtures = true
-  set_fixture_class contacts: Contact
   fixtures :all
 
   # Add more helper methods to be used by all tests here...

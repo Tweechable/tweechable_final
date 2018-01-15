@@ -14,11 +14,23 @@ class ContactsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "post successfully submits the contact form" do
-    put :update, contact: @contact
-    assert_response :redirect
-    # assert_redirected_to tweets_url(id: @tweet.lesson_id)
-  end
+  # test "POST create" do
+  #   assert_difference 'ActionMailer::Base.deliveries.size', 1 do
+  #     post create_contact_path, params: {
+  #       contact: {
+  #         name: 'individual',
+  #         email: 'individual@gmail.com',
+  #         message: 'hello there'
+  #       }
+  #     }
+  #   end
+
+  #   assert_redirected_to new_contact_path
+
+  #   follow_redirect!
+
+  #   assert_match /Message received, thanks!/, response.body
+  # end
 
 
 end
