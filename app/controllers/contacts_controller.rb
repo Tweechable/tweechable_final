@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    if @contact.valid?
+    if @contact.save
       flash.now[:error] = nil
       flash.now[:notice] = 'Message valid.'
     else
