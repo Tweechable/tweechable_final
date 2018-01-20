@@ -33,7 +33,7 @@ gem 'twitter'
 # JQuery UI
 gem 'jquery-ui-rails'
 # Postgres
-gem 'pg'
+gem 'pg', '~> 0.20'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 gem 'devise'
