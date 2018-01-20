@@ -1,11 +1,23 @@
-<h3>Contact Us</h3>
-<p>Questions about the tweechable project? Want to offer feedback on the lessons? Found a broken link? Drop us a note through the form below!</p>
+<div class='container'>
 
-<%= form_for @contact, url: contacts_path do |f| %>
-  <%= notice %>
+  <h3>Contact Us</h3>
+  <p>Questions about the tweechable project? Want to offer feedback on the lessons? Found a broken link? Drop us a note through the form below!</p>
 
-  <%= f.text_field :name, placeholder: 'name' %>
-  <%= f.email_field :email, placeholder: 'email' %>
-  <%= f.text_area :message, placeholder: 'message' %>
-  <%= f.submit 'Send' %>
-<% end %>
+  <%= form_for @contact, url: contacts_path do |f| %>
+    <%= notice %>
+
+
+      <div class='form-group'>
+        <%= f.text_field :name, placeholder: 'name', class: 'form-control' %>
+      </div>
+      <div class='form-group'>
+        <%= f.email_field :email, placeholder: 'email', class: 'form-control' %>
+      </div>
+      <div class='form-group'>
+        <%= f.text_area :message, placeholder: 'message', class: 'form-control' %>
+      </div>
+
+    <%= f.submit 'Send',  class: 'btn btn-primary' %>
+  <% end %>
+
+</div>
