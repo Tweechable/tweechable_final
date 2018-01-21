@@ -14,23 +14,11 @@ class ContactsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  # test "POST create" do
-  #   assert_difference 'ActionMailer::Base.deliveries.size', 1 do
-  #     post create_contact_path, params: {
-  #       contact: {
-  #         name: 'individual',
-  #         email: 'individual@gmail.com',
-  #         message: 'hello there'
-  #       }
-  #     }
-  #   end
+  test "POST create" do
+    post :create, contact: {name: @contact.name, email: @contact.email, message: @contact.message}
 
-  #   assert_redirected_to new_contact_path
-
-  #   follow_redirect!
-
-  #   assert_match /Message received, thanks!/, response.body
-  # end
+    assert_match /Message valid./, response.body
+  end
 
 
 end
