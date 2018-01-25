@@ -43,7 +43,7 @@ gem 'rails_admin'
 gem 'email_validator'
 #forms, mail
 gem 'mail_form', '~> 1.5.0.rc'
-gem 'simple_form', '~> 3.0.0.rc'
+
 
 # whenever for cron job
 gem 'whenever', :require => false

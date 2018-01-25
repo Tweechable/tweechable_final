@@ -233,9 +233,6 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    simple_form (3.0.4)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
     simple_oauth (0.3.1)
     simplecov (0.15.1)
       docile (~> 1.1.0)
@@ -317,7 +314,6 @@ DEPENDENCIES
   rails_admin
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  simple_form (~> 3.0.0.rc)
   simplecov
   spring
   turbolinks
