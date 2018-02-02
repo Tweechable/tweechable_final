@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :tweets
   resources :users
   resources :block_list
+  resources :contacts
+  resources :contacts, only: [:new, :create]
 
   get '/pages/:page' => 'pages#show'
 
@@ -23,5 +25,5 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  
+
 end

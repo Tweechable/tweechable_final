@@ -33,7 +33,7 @@ gem 'twitter'
 # JQuery UI
 gem 'jquery-ui-rails'
 # Postgres
-gem 'pg'
+gem 'pg', '~> 0.20'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 gem 'devise'
@@ -41,6 +41,10 @@ gem 'devise'
 gem 'rails_admin'
 # validate email
 gem 'email_validator'
+#forms, mail
+gem 'mail_form', '~> 1.5.0.rc'
+
+
 # whenever for cron job
 gem 'whenever', :require => false
 
@@ -75,6 +79,7 @@ group :development do
 
   gem 'better_errors'
   gem 'binding_of_caller'
+
 end
 
 group :production do
