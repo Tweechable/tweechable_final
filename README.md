@@ -11,7 +11,6 @@ Idea originated at [Chi Hack Night](https://chihacknight.org/).
 [Fill this out to become a contributor](https://goo.gl/forms/8h4klAN0az3jDqoG3)
 
 ### First three steps to get started:
-- [Sign up for ChiHackNight slack](slackme.chihacknight.org) and join the tweechable moments channel
 - [Jump into the Google Drive folder](https://drive.google.com/drive/u/0/folders/0B5H_yPciI7lWalFxVklhZ0RfUDg) and in particular read the [project outline](https://docs.google.com/document/d/1GXd1CXhlMYkQ6x6Q8i89jkmfDV7VQPp6zpZitr5wdTE/edit)
 - Take a look at the [content/UX/other non-technical tasks to be done](https://github.com/Tweechable/tweechable_final/projects/1) and the [technical tasks to be done](https://github.com/Tweechable/tweechable_final/issues)
 
