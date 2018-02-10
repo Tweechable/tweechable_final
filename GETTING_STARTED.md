@@ -2,14 +2,13 @@
 Welcome to Tweechable Moments!  This is a guide for new members who want to contribute to the project's technical portion.  We require that new members read our [Code of Conduct](CODE_OF_CONDUCT.md) before getting started.
 
 ## Sections
-### System Requirements
-### Install Guidelines
-### Running Locally
-### Setup a Twitter authentication token
-### Testing Tweechable
-### Guidelines for submitting a pull request
-### Guidelines for maintaining code quality
-### Relevant Resources
+### [System Requirements](#system-requirements)
+### [Install Guidelines](#install-guidelines)
+### [Running Locally](#running-locally)
+### [Setup a Twitter authentication token](#setup-a-twitter-authentication-token)
+### [Guidelines for submitting a pull request](#guidelines-for-submitting-a-pull-request)
+### [Guidelines for maintaining code quality](#guidelines-for-maintaining-code-quality)
+### [Relevant Resources](#relevant-resources)
 
 
 ## System Requirements
@@ -92,17 +91,6 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
 - Scroll down and click "create my access token".
 - Replace the content in quotes with your own tokens in the `app/models/twitter_api.rb` file and you are done :smiley:
 
-### Testing Tweechable
-- [Test account on Twitter](https://twitter.com/TweechableTest)
-- [Test site](https://tweechable-test.herokuapp.com/)
-- You can tweet [@TweechableTest](https://twitter.com/TweechableTest) @*ignorantTwitter* #*AnAvailableLesson*
-- The task is scheduled to run every 10 minutes so the response will take a while, due to limitations of Heroku Scheduler
-- Admin panel
-	- Production
-		- Ask an owner for credentials
-	- Local
-		- Log in with e-mail *admin@example.org* and password *admin* and go to `http://localhost:3000/admin`
-
 ### Guidelines for Submitting a Change to Tweechable
  - See something in Tweechable that could be better?  Open an issue!
  - If you want to work an an existing issue, please assign yourself to it and/or comment on it that you are working on it.
@@ -112,9 +100,9 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
  - After you finish up your work, push your branch to the tweechable_final repo and open a pull request.
  - Do not merge your own pull request!
  - One technical project maintainer needs to approve and merge your pull request
- - Technical Project Maintainers as of March 2017 are: @lw334, @TheJHyde, @McEileen, @vkoves, @javierforero
+ - Technical Project Maintainers as of February 2018 are: @McEileen, @vkoves, @javierforero
  - In order to become a technical project maintainer, you should make four (or more) contributions to Tweechable's tech component over a month.  Involvement includes, but is not limited to:
- 	- Attending ChiHackNight meetings
+ 	- Attending a monthly meeting
  	- Opening issues
  	- Making pull requests
  	- Offering feedback on code
