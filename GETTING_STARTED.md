@@ -8,7 +8,7 @@ Welcome to Tweechable Moments!  This is a guide for new members who want to cont
 ### [Setup a Twitter authentication token](#setup-a-twitter-authentication-token)
 ### [Guidelines for submitting a pull request](#guidelines-for-submitting-a-pull-request)
 ### [Guidelines for maintaining code quality](#guidelines-for-maintaining-code-quality)
-### [Relevant Resources](#relevant-resources)
+### [Relevant Resources](###relevant-resources)
 
 
 ## System Requirements
