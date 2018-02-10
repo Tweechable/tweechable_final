@@ -61,9 +61,6 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
 #### Install Bundler Gem
 `gem install bundler`
 
-### Non-Mac Install Guidelines
-`this area is under construction`
-
 ### Running Locally
 - A few requirements:
 	- You have Ruby on Rails (`rails` and `ruby`, possibly through RVM or rbenv) on your machine
