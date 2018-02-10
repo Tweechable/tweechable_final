@@ -6,7 +6,7 @@ Welcome to Tweechable Moments!  This is a guide for new members who want to cont
 ### [Install Guidelines](#install-guidelines-1)
 ### [Running Locally](#running-locally-1)
 ### [Setup a Twitter authentication token](#setup-a-twitter-authentication-token-1)
-### [Guidelines for submitting a pull request](#guidelines-for-submitting-a-pull-request-1)
+### [Guidelines for submitting a change to tweechable](#guidelines-for-submitting-a-change-to-tweechable-1)
 ### [Guidelines for maintaining code quality](#guidelines-for-maintaining-code-quality-1)
 ### [Relevant Resources](#relevant-resources-1)
 
