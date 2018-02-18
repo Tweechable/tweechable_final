@@ -2,13 +2,13 @@
 Welcome to Tweechable Moments!  This is a guide for new members who want to contribute to the project's technical portion.  We require that new members read our [Code of Conduct](CODE_OF_CONDUCT.md) before getting started.
 
 ## Sections
-### [System Requirements](#system-requirements)
-### [Install Guidelines](#install-guidelines)
-### [Running Locally](#running-locally)
-### [Setup a Twitter authentication token](#setup-a-twitter-authentication-token)
-### [Guidelines for submitting a pull request](#guidelines-for-submitting-a-pull-request)
-### [Guidelines for maintaining code quality](#guidelines-for-maintaining-code-quality)
-### [Relevant Resources](#relevant-resources)
+### [System Requirements](#system-requirements-1)
+### [Install Guidelines](#install-guidelines-1)
+### [Running Locally](#running-locally-1)
+### [Setup a Twitter authentication token](#setup-a-twitter-authentication-token-1)
+### [Guidelines for submitting a change to tweechable](#guidelines-for-submitting-a-change-to-tweechable-1)
+### [Guidelines for maintaining code quality](#guidelines-for-maintaining-code-quality-1)
+### [Relevant Resources](#relevant-resources-1)
 
 
 ## System Requirements
@@ -60,9 +60,6 @@ Will set the global ruby.  (The global ruby will be used by default in all your 
 
 #### Install Bundler Gem
 `gem install bundler`
-
-### Non-Mac Install Guidelines
-`this area is under construction`
 
 ### Running Locally
 - A few requirements:
