@@ -5,7 +5,7 @@ class TweetTest < ActiveSupport::TestCase
     @first_tweet = tweets(:test_first_tweet)
     @second_tweet = tweets(:test_second_tweet)
     @lengthy_tweet = tweets(:lengthy_tweet)
-    @tweet_with_124_length = tweets(:tweet_with_124_length)
+    @tweet_with_264_length = tweets(:tweet_with_264_length)
   end
 
   test "tweet has index" do
@@ -27,15 +27,15 @@ class TweetTest < ActiveSupport::TestCase
     assert_not(@first_tweet.valid?)
   end
 
-  test "tweets cannot be over 124 characters" do
+  test "tweets cannot be over 264 characters" do
     assert_not(@lengthy_tweet.valid?, ["tweet violates the length limit"])
   end
 
-  test "tweets with text length of 124 characters are valid" do
-    assert(@tweet_with_124_length.valid?, ["tweet meets the length limit exactly"])
+  test "tweets with text length of 264 characters are valid" do
+    assert(@tweet_with_264_length.valid?, ["tweet meets the length limit exactly"])
   end
 
-  test "tweets with text length under 124 characters are valid" do
+  test "tweets with text length under 264 characters are valid" do
     assert(@first_tweet.valid?, ["tweet meets the length limit"])
   end
 

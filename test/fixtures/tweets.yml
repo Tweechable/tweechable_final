@@ -19,16 +19,16 @@ test_second_tweet:
 lengthy_tweet:
   lesson_id: 0
   id: 2
-  text: "This is a very lengthy tweet written by a person who struggles with succinct communication. Who can blame them? It is hard to get a point across in so few characters."
+  text: "This is a very lengthy tweet written by a person who struggles with succinct communication. This is a very lengthy tweet written by a person who struggles with succinct communication. This is a very lengthy tweet written by a person who struggles with succinct communication. Who can blame them? It is hard to get a point across in so few characters."
   cited_src: "personal narrative"
   approved: true
   twitter_id: 1
   tweet_index: 1
 
-tweet_with_124_length:
+tweet_with_264_length:
   lesson_id: 1
   id: 3
-  text: This tweet is a tweechable twoosh because it takes up exactly 124 characters. How cool. How cool. How cool. How cool. Yayyy.
+  text: "This tweet is a tweechable twoosh because it takes up exactly 264 characters. This tweet is a tweechable twoosh because it takes up exactly 264 characters. This tweet is a tweechable twoosh because it takes up exactly 264 characters. This tweet is a tweechable.."
   cited_src: "personal narrative"
   approved: true
   twitter_id: 1

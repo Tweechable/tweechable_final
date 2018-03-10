@@ -23,8 +23,8 @@ class TweetsController < ApplicationController
     @tweet.lesson_id = cookies["current_lesson_id"]
     @tweet.approved = true
     if @tweet.save
-      if @tweet.text.length > 126
-        flash[:warning] = "The tweet you just created is more than 126 characters. This may cause problems
+      if @tweet.text.length > 264
+        flash[:warning] = "The tweet you just created is more than 264 characters. This may cause problems
         with twitter's character limits, especially when responding to users with long user name. If the
         tweet includes a URL then you should be fine but we'd recommend checking it against twitter before
         going ahead."
