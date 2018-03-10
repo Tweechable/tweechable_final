@@ -18,13 +18,13 @@ class MentionsTest < ActiveSupport::TestCase
 	test "If a tweet doesn't have a hashtag, no mention should be generated" do
 		tweet = generate_tweet("@target hey @tweechable please help test")
 		lesson = Mention.identify_lesson(tweet)
-		assert_equal(nil, lesson, "A lesson shouldn't have been identified")
+		assert_nil(lesson, "A lesson shouldn't have been identified")
 	end
 
 	test "If a tweet has a hashtag but it doesn't match any lessons, don't generate a mention" do
 		tweet = generate_tweet("@target hey @tweechable please help #hashtag #blashtag")
 		lesson = Mention.identify_lesson(tweet)
-		assert_equal(nil, lesson, "A lesson shouldn't have been identified")
+		assert_nil(lesson, "A lesson shouldn't have been identified")
 	end
 
 test "If a user is on the blocklist as can't receive, mentions shouldn't be generated for them" do
