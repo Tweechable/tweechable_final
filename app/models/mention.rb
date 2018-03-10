@@ -54,11 +54,11 @@ class Mention < ActiveRecord::Base
       if @lesson
         twitters = Twitter_API.new
         @client = twitters.client
-        to_send = "#{mention.handler} #{@lesson.intro} #{@lesson.thread_link}"
+        to_send = "@#{mention.handler} #{@lesson.intro} #{@lesson.thread_link}"
         puts "Tweeting: #{to_send}"
         @t = @client.update(to_send)
         if !@t
-          puts "Something went wrong with post this tweet: #{to_send}"
+          puts "Something went wrong with posting this tweet: #{to_send}"
         end
 
         #Right now this is assuming the reply went successfully
