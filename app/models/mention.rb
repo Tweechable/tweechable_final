@@ -10,16 +10,16 @@ class Mention < ActiveRecord::Base
     mentions = @client.mentions_timeline
     mentions.each do |tweet|
       Mention.check_unsubscribes(tweet)
-      Mention.generate_mention(tweet)
+      Mention.generate_mention(tweet, @account_name)
     end
   end
 
   # Takes a tweet and generates a mention if it's a request for a lesson to be sent
-  def self.generate_mention(tweet)
+  def self.generate_mention(tweet, bot_name)
     #Retrieves the first hashtag listed in the tweet.
     lesson = Mention.identify_lesson(tweet)
     if lesson && BlockList.can_send(tweet.user.id)
-      @handles = tweet.user_mentions.reject {|user| user.screen_name == "tweechable"}
+      @handles = tweet.user_mentions.reject {|user| user.screen_name == bot_name}
       @handles.each do |handle|
         # FIXME: need to check the timestamp is recent but we are not doing it right now. this is kind of hacky
         if BlockList.can_receive_id(handle.id) && !Mention.where(handler: handle.screen_name, hash_tag: lesson.hash_tag).any?
