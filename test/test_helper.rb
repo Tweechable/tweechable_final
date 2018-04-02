@@ -57,19 +57,21 @@ class ActiveSupport::TestCase
                   id: author_id,
                   screen_name: author_screen_name
                   },
-                user_mentions: [{
-                  id: educatee_id,
-                  id_str: educatee_id.to_s,
-                  screen_name: educatee_screen_name,
-                  name: educatee_screen_name,
-                  indices: educatee_indices
-                  },
-                  {id: bot_id,
-                  id_str: bot_id.to_s,
-                  screen_name: bot_name,
-                  name: bot_name,
-                  indices: bot_indices
-                  }]
+                entities: {
+                  user_mentions: [{
+                    id: educatee_id,
+                    id_str: educatee_id.to_s,
+                    screen_name: educatee_screen_name,
+                    name: educatee_screen_name,
+                    indices: educatee_indices
+                    },
+                    {id: bot_id,
+                    id_str: bot_id.to_s,
+                    screen_name: bot_name,
+                    name: bot_name,
+                    indices: bot_indices
+                    }]
+                }
             })
   end
 
