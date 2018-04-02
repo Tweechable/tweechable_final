@@ -116,8 +116,14 @@ test "If a user is on the blocklist as can't receive, mentions shouldn't be gene
 		well_formatted_mention = Mention.create(id: 0, created_at: Time.now, favorite_count: 3, lang: "English", retweet_count: 5, text: "a well-formatted mention", hash_tag: "#test", replied: false, lesson_id: 0, handler: "unaware_person")
 			result = Mention.reply_mentions[0]
 			target_id = result.lesson.tweets.first.tweet_index
-			p target_id
 			assert_equal(result.lesson.thread_link, "https://twitter.com/tweechable/status/#{target_id}")
+	end
+
+	test "If a tweet contains the name of the tweechable bot, tweechable will not tweet at itself" do
+		tweet = generate_tweet_with_author_and_mentions("hi @tweechable please explain #test to @unaware_person", 1, "tweechable_user", 2, "unaware_person", [39, 53], 3, "tweechable", [3, 13])
+		Mention.generate_mention(tweet, "tweechable")
+		num_mentions = Mention.all.size
+		assert_equal(1, num_mentions, "There should be only one mention")
 	end
 
 end

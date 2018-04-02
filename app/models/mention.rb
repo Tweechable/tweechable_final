@@ -8,10 +8,10 @@ class Mention < ActiveRecord::Base
     twitter = Twitter_API.new
     @client = twitter.client
     mentions = @client.mentions_timeline
-    @account_name = @client.user.screen_name
+    account_name = @client.user.screen_name
     mentions.each do |tweet|
       Mention.check_unsubscribes(tweet)
-      Mention.generate_mention(tweet, @account_name)
+      Mention.generate_mention(tweet, account_name)
     end
   end
 

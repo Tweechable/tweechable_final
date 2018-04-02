@@ -46,7 +46,7 @@ class ActiveSupport::TestCase
                   }})
   end
 
-  def generate_tweet_with_author_and_mentions(text, author_id, author_screen_name, educatee_id, educatee_screen_name)
+  def generate_tweet_with_author_and_mentions(text, author_id, author_screen_name, educatee_id, educatee_screen_name, educatee_indices, bot_id, bot_name, bot_indices)
     tweet = Twitter::Tweet.new({id: 1,
                 favorite_count: 0,
                 lang: "en",
@@ -59,8 +59,18 @@ class ActiveSupport::TestCase
                   },
                 user_mentions: [{
                   id: educatee_id,
-                  screen_name: educatee_screen_name
-                  }]})
+                  id_str: educatee_id.to_s,
+                  screen_name: educatee_screen_name,
+                  name: educatee_screen_name,
+                  indices: educatee_indices
+                  },
+                  {id: bot_id,
+                  id_str: bot_id.to_s,
+                  screen_name: bot_name,
+                  name: bot_name,
+                  indices: bot_indices
+                  }]
+            })
   end
 
 end
