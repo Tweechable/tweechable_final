@@ -8,18 +8,19 @@ class Mention < ActiveRecord::Base
     twitter = Twitter_API.new
     @client = twitter.client
     mentions = @client.mentions_timeline
+    account_name = @client.user.screen_name
     mentions.each do |tweet|
       Mention.check_unsubscribes(tweet)
-      Mention.generate_mention(tweet)
+      Mention.generate_mention(tweet, account_name)
     end
   end
 
   # Takes a tweet and generates a mention if it's a request for a lesson to be sent
-  def self.generate_mention(tweet)
+  def self.generate_mention(tweet, bot_name)
     #Retrieves the first hashtag listed in the tweet.
     lesson = Mention.identify_lesson(tweet)
     if lesson && BlockList.can_send(tweet.user.id)
-      @handles = tweet.user_mentions.reject {|user| user.screen_name == "tweechable"}
+      @handles = tweet.user_mentions.reject {|user| user.screen_name == bot_name}
       @handles.each do |handle|
         # FIXME: need to check the timestamp is recent but we are not doing it right now. this is kind of hacky
         if BlockList.can_receive_id(handle.id) && !Mention.where(handler: handle.screen_name, hash_tag: lesson.hash_tag).any?
@@ -54,11 +55,11 @@ class Mention < ActiveRecord::Base
       if @lesson
         twitters = Twitter_API.new
         @client = twitters.client
-        to_send = "#{mention.handler} #{@lesson.intro} #{@lesson.thread_link}"
+        to_send = "@#{mention.handler} #{@lesson.intro} #{@lesson.thread_link}"
         puts "Tweeting: #{to_send}"
         @t = @client.update(to_send)
         if !@t
-          puts "Something went wrong with post this tweet: #{to_send}"
+          puts "Something went wrong with posting this tweet: #{to_send}"
         end
 
         #Right now this is assuming the reply went successfully
