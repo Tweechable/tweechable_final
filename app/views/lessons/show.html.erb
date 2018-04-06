@@ -19,12 +19,9 @@
 
 <div class="details">
   <p><strong><%= @lesson.description %></strong></p>
+  <p><strong><%= link_to "Twitter Thread", @lesson.thread_link %> </strong>
   <p><strong>Created At:</strong> <%= @lesson.created_at %></p>
   <p><strong>Created by: <%= @creator %></strong></p>
-  <p><strong>Last Posted: </strong><%= @lesson.posted_at %>
-  <% unless @lesson.posted_at.nil? %>
-    (<%= link_to "Twitter Thread", @lesson.thread_link %>)
-  <% end %></p>
   <p><strong>Edited by: </strong></p>
   <ul>
     <% @contributors.each do |name| %>
