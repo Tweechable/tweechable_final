@@ -52,6 +52,8 @@ class LessonsController < ApplicationController
       lesson.created_at = Time.now
       lesson.category = params[:lesson][:category]
       lesson.description = params[:lesson][:description]
+      lesson.intro = params[:lesson][:intro]
+      lesson.thread_link = params[:lesson][:thread_link]
       lesson.approved = true
       lesson.save
       cookies["new_lesson_id"] = lesson.id
