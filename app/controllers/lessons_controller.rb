@@ -47,21 +47,18 @@ class LessonsController < ApplicationController
 
   def create
     if user_signed_in?
-      lesson = Lesson.new
-      lesson.hash_tag = params[:lesson][:hash_tag]
-      lesson.created_at = Time.now
-      lesson.category = params[:lesson][:category]
-      lesson.description = params[:lesson][:description]
-      lesson.approved = true
-      lesson.save
-      cookies["new_lesson_id"] = lesson.id
-
-    # create a new contribution for creator
-      contribution = Contribution.new
-      contribution.lesson_id = lesson.id
-      contribution.user_id = current_user.id
-      contribution.creator = true
-      contribution.save
+      lesson = Lesson.new(lesson_params)
+      if lesson.save
+        cookies["new_lesson_id"] = lesson.id
+        # create a new contribution for creator
+        contribution = Contribution.new
+        contribution.lesson_id = lesson.id
+        contribution.user_id = current_user.id
+        contribution.creator = true
+        contribution.save
+      else
+        flash.now[:error] = 'Cannot save lesson.'
+      end
     end
     redirect_to tweets_url(id:lesson.id)
   end
@@ -102,4 +99,9 @@ class LessonsController < ApplicationController
     end
     redirect_to lessons_url
   end
+
+  private
+    def lesson_params
+      params.require(:lesson).permit(:hash_tag, :category, :description, :intro, :thread_link, :approved)
+    end
 end
