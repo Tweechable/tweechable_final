@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
       ContactMailer.contact_us(@contact).deliver_now
       flash.now[:notice] = 'Message valid.'
     else
-      flash.now[:error] = 'Cannot send message.'
+      flash.now[:alert] = 'Cannot send message.'
       render :new
     end
   end
