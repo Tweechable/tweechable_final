@@ -1,6 +1,8 @@
 # Tweechable - an educational Twitter service
 [![Build Status](https://travis-ci.org/Tweechable/tweechable_final.svg?branch=master)](https://travis-ci.org/Tweechable/tweechable_final)
 
+*Tweechable is sunsetting on May 14 due to limited resources. If you'd like to get in touch, tweet at us at @tweechable.  Thanks to all the contributors & everyone working to make the internet a safer, more open place!*
+
 
 <img src="app/assets/images/logo.jpg?raw=true" align="right" width="100" alt="Tweechable Logo">
 
